@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_uikit/furniture_uikit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -6,7 +7,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      // theme: lightTheme,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -55,6 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            const FurnitureElevatedButton(),
+            FurnitureAssets.icons.directionRight3.svg(color: Colors.black),
           ],
         ),
       ),
