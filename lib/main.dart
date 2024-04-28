@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
-import 'furniture_text_filed_example.dart';
+import 'furniture_text_field_example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // theme: lightTheme,
-      home: const textFiledExample(),
+      home: const textFieldExample(),
     );
   }
 }
