@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.10+1
 
 dev_dependencies:
@@ -28,14 +29,26 @@ flutter:
     - assets/images/
 
   fonts:
-    - family: Inter
+    - family: Switzer
       fonts:
-        - asset: assets/fonts/Inter-Black.otf
-        #   weight: 700
-        # - asset: assets/fonts/Nunito-Light.ttf
-        #   weight: 300
-        # - asset: assets/fonts/Nunito-Regular.ttf
-        #   weight: 400
+        - asset: assets/fonts/Switzer-Thin.otf
+          weight: 100
+        - asset: assets/fonts/Switzer-Extralight.otf
+          weight: 200
+        - asset: assets/fonts/Switzer-Light.otf
+          weight: 300
+        - asset: assets/fonts/Switzer-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Switzer-Medium.otf
+          weight: 500
+        - asset: assets/fonts/Switzer-Semibold.otf
+          weight: 600
+        - asset: assets/fonts/Switzer-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Switzer-Extrabold.otf
+          weight: 800
+        - asset: assets/fonts/Switzer-Black.otf
+          weight: 900
 
 flutter_gen:
   output: lib/src/assets/
