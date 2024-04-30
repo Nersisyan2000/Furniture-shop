@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
-class textFiledExample extends StatelessWidget {
-  const textFiledExample({super.key});
+class textFieldExample extends StatelessWidget {
+  const textFieldExample({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class textFiledExample extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: TextFiledStyles(
+            child: TextFieldStyles(
                 controller: TextEditingController(),
                 hintText: "Enter Your Name",
                 label:"Full Name",
@@ -22,7 +22,7 @@ class textFiledExample extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: TextFiledStyles(
+            child: TextFieldStyles(
               controller: TextEditingController(),
               hintText: "Enter your email",
               label:"Email",
@@ -30,7 +30,7 @@ class textFiledExample extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: TextFiledStyles(
+            child: TextFieldStyles(
               controller: TextEditingController(),
               hintText: "Enter your password",
               label:"Password",

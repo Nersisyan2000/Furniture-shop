@@ -4,8 +4,8 @@ import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:furniture_uikit/src/theme/furniture_text_styles.dart';
 
 
-class TextFiledStyles extends StatefulWidget {
-  const TextFiledStyles({
+class TextFieldStyles extends StatefulWidget {
+  const TextFieldStyles({
     super.key,
     this.hintText,
     this.label,
@@ -19,10 +19,10 @@ class TextFiledStyles extends StatefulWidget {
   final bool isSecure;
 
   @override
-  State<TextFiledStyles> createState() => _TextFiledStylesState();
+  State<TextFieldStyles> createState() => _TextFieldStylesState();
 }
 
-class _TextFiledStylesState extends State<TextFiledStyles> {
+class _TextFieldStylesState extends State<TextFieldStyles> {
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [

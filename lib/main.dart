@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:furniture_shop/elements.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
-import 'furniture_text_filed_example.dart';
-
 void main() {
   runApp(const MyApp());
 }
