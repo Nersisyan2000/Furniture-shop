@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
-class textFieldExample extends StatelessWidget {
-  const textFieldExample({super.key});
+class TextFieldExample extends StatelessWidget {
+  const TextFieldExample({super.key});
 
   @override
   Widget build(BuildContext context) {
