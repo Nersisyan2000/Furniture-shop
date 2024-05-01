@@ -62,27 +62,30 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/arrow-back.svg
-  SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow-back.svg');
+  /// File path: assets/icons/arrow_back.svg
+  SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow_back.svg');
 
   /// File path: assets/icons/call.svg
   SvgGenImage get call => const SvgGenImage('assets/icons/call.svg');
 
-  /// File path: assets/icons/direction-right 3.svg
-  SvgGenImage get directionRight3 => const SvgGenImage('assets/icons/direction-right 3.svg');
+  /// File path: assets/icons/direction_right 3.svg
+  SvgGenImage get directionRight3 => const SvgGenImage('assets/icons/direction_right 3.svg');
+
+  /// File path: assets/icons/eye_scanner.svg
+  SvgGenImage get eyeScanner => const SvgGenImage('assets/icons/eye_scanner.svg');
 
   /// File path: assets/icons/frame.svg
   SvgGenImage get frame => const SvgGenImage('assets/icons/frame.svg');
 
-  /// File path: assets/icons/google-icon.svg
-  SvgGenImage get googleIcon => const SvgGenImage('assets/icons/google-icon.svg');
+  /// File path: assets/icons/google_icon.svg
+  SvgGenImage get googleIcon => const SvgGenImage('assets/icons/google_icon.svg');
 
   /// File path: assets/icons/notification.svg
   SvgGenImage get notification => const SvgGenImage('assets/icons/notification.svg');
 
   /// List of all assets
   List<SvgGenImage> get values =>
-      [arrowBack, call, directionRight3, frame, googleIcon, notification];
+      [arrowBack, call, directionRight3, eyeScanner, frame, googleIcon, notification];
 }
 
 class $AssetsImagesGen {
