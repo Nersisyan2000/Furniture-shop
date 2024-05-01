@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:furniture_uikit/src/theme/furniture_button_styles.dart';
 import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
 
-// ignore: must_be_immutable
 class FurnitureIconButton extends StatelessWidget {
   const FurnitureIconButton({
     super.key,
@@ -15,8 +14,10 @@ class FurnitureIconButton extends StatelessWidget {
   final Widget icon;
   final bool whiteMode;
 
-  factory FurnitureIconButton.whiteMode(
-      {required Widget icon, required VoidCallback onTap}) {
+  factory FurnitureIconButton.whiteMode({
+    required Widget icon,
+    required VoidCallback onTap,
+  }) {
     return FurnitureIconButton(
       onTap: onTap,
       icon: icon,

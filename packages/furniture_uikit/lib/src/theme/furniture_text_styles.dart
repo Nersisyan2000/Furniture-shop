@@ -4,6 +4,7 @@ import 'furniture_colors.dart';
 
 String packageName = 'furniture_uikit';
 
+/// TODO: - read fontFamily form class property, fix weight number in properties namses
 TextStyle get elevatedButtonTextStyle => TextStyle(
       package: packageName,
     );
@@ -82,14 +83,14 @@ TextStyle get switzer14w4TextStyle => TextStyle(
 
 TextStyle get switzer13w4TextStyle => TextStyle(
       fontFamily: "Switzer",
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w400, //
       height: 13.0 / 18.0,
       fontSize: 13.0,
       color: FurnitureColors.textColor,
       package: packageName,
     );
 
-TextStyle get switzer13w5TextStyle => TextStyle(
+TextStyle get switzer13w500TextStyle => TextStyle(
       fontFamily: "Switzer",
       fontWeight: FontWeight.w500,
       height: 13.0 / 18.0,

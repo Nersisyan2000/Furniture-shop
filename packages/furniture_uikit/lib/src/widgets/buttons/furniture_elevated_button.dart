@@ -5,16 +5,18 @@ class FurnitureElevatedButton extends StatelessWidget {
   const FurnitureElevatedButton({
     super.key,
     required this.title,
-    required this.onTap,
+    this.onTap,
     this.whiteMode = false,
   });
 
   final String title;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final bool whiteMode;
 
-  factory FurnitureElevatedButton.whiteMode(
-          {required String title, required VoidCallback onTap}) =>
+  factory FurnitureElevatedButton.whiteMode({
+    required String title,
+    required VoidCallback? onTap,
+  }) =>
       FurnitureElevatedButton(
         title: title,
         onTap: onTap,
