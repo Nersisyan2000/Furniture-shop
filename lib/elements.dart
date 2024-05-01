@@ -67,7 +67,11 @@ class Buttons extends StatelessWidget {
                     title: 'Log Out',
                     onTap: () {},
                     color: Colors.red,
-                  )
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  FurnitureAssets.icons.eyeScanner.svg(color: Colors.black),
                 ],
               ),
             )
