@@ -7,35 +7,47 @@ class TextFieldExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: FurnitureColors.buttonShapeColor,
+      backgroundColor: FurnitureColors.buttonShapeColor,
       body: SafeArea(
-
           child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: TextFieldStyles(
-                controller: TextEditingController(),
-                hintText: "Enter Your Name",
-                label:"Full Name",
-                isSecure:false,),
+              controller: TextEditingController(),
+              hintText: "Enter Your Name",
+              label: "Full Name",
+              isSecure: false,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: TextFieldStyles(
               controller: TextEditingController(),
               hintText: "Enter your email",
-              label:"Email",
-              isSecure:false,),
+              label: "Email",
+              isSecure: false,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: TextFieldStyles(
               controller: TextEditingController(),
               hintText: "Enter your password",
-              label:"Password",
-              isSecure:true,),
-          )
+              label: "Password",
+              isSecure: true,
+            ),
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(20.0),
+          //   child: SearchField(
+          //     controller: TextEditingController(),
+          //     prefixIcon: FurnitureAssets.icons.googleIcon.svg(),
+          //     hintText: "Enter your password",
+          //     isSecure: true,
+          //     suffixIcon: FurnitureAssets.icons.googleIcon.svg(),
+          //   ),
+          // ),
         ],
       )),
     );

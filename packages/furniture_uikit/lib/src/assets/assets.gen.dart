@@ -80,9 +80,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/notification.svg
   SvgGenImage get notification => const SvgGenImage('assets/icons/notification.svg');
 
+  /// File path: assets/icons/search.svg
+  SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
+
   /// List of all assets
   List<SvgGenImage> get values =>
-      [arrowBack, call, directionRight3, frame, googleIcon, notification];
+      [arrowBack, call, directionRight3, frame, googleIcon, notification, search];
 }
 
 class $AssetsImagesGen {
