@@ -6,4 +6,5 @@ abstract class FurnitureColors {
   static const subTextColor = Color(0xFF828A89);
   static const buttonShapeColor = Color(0xFFF0F0F2);
   static const whiteColor = Color(0xFFFFFFFF);
+  static const whiteBackground = Color(0xFFF9F9F9);
 }

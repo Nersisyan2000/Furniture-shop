@@ -6,6 +6,7 @@ ButtonStyle get furnitureIconButtonBlueMode => const ButtonStyle(
       backgroundColor: MaterialStatePropertyAll(
         FurnitureColors.primaryColor,
       ),
+      overlayColor: MaterialStatePropertyAll(Colors.transparent),
     );
 
 ButtonStyle get furnitureIconButtonWhiteMode => const ButtonStyle(

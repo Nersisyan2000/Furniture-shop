@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_shop/elements.dart';
+import 'package:furniture_shop/example/example.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
-
-import 'furniture_text_field_example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +11,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: lightTheme,
-      home: const TextFieldExample(),
+    return ScreenUtilInit(
+      designSize: const Size(360, 812),
+      minTextAdapt: true,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: lightTheme,
+        home: const Example(),
+      ),
     );
   }
 }
