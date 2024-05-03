@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_shop/example/example.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
+import 'package:furniture_localization/furniture_localization.dart';
+
 
 void main() {
   runApp(const MyApp());

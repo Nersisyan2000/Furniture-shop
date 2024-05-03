@@ -73,27 +73,21 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/eye_scanner.svg
   SvgGenImage get eyeScanner => const SvgGenImage('assets/icons/eye_scanner.svg');
-<<<<<<< HEAD
 
   /// File path: assets/icons/filter_icon.svg
   SvgGenImage get filterIcon => const SvgGenImage('assets/icons/filter_icon.svg');
-=======
->>>>>>> 4ad6263ff2642e9bd5b3e5cef27f7e1d4d3fa675
 
   /// File path: assets/icons/frame.svg
   SvgGenImage get frame => const SvgGenImage('assets/icons/frame.svg');
 
   /// File path: assets/icons/google_icon.svg
   SvgGenImage get googleIcon => const SvgGenImage('assets/icons/google_icon.svg');
-<<<<<<< HEAD
 
   /// File path: assets/icons/hearth_icon.svg
   SvgGenImage get hearthIcon => const SvgGenImage('assets/icons/hearth_icon.svg');
 
   /// File path: assets/icons/minusIcon.svg
   SvgGenImage get minusIcon => const SvgGenImage('assets/icons/minusIcon.svg');
-=======
->>>>>>> 4ad6263ff2642e9bd5b3e5cef27f7e1d4d3fa675
 
   /// File path: assets/icons/notification.svg
   SvgGenImage get notification => const SvgGenImage('assets/icons/notification.svg');
@@ -108,7 +102,6 @@ class $AssetsIconsGen {
   SvgGenImage get seenPeopleIcon => const SvgGenImage('assets/icons/seen_people_icon.svg');
 
   /// List of all assets
-<<<<<<< HEAD
   List<SvgGenImage> get values => [
         arrowBack,
         call,
@@ -124,18 +117,10 @@ class $AssetsIconsGen {
         searchIcon,
         seenPeopleIcon
       ];
-=======
-  List<SvgGenImage> get values =>
-      [arrowBack, call, directionRight3, eyeScanner, frame, googleIcon, notification];
->>>>>>> 4ad6263ff2642e9bd5b3e5cef27f7e1d4d3fa675
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
-
-  /// File path: assets/images/carousel-background-img.svg
-  SvgGenImage get carouselBackgroundImg =>
-      const SvgGenImage('assets/images/carousel-background-img.svg');
 
   /// File path: assets/images/onboarding_circle_img.png
   AssetGenImage get onboardingCircleImg =>
@@ -145,7 +130,7 @@ class $AssetsImagesGen {
   SvgGenImage get projectLogo => const SvgGenImage('assets/images/project-logo.svg');
 
   /// List of all assets
-  List<dynamic> get values => [carouselBackgroundImg, onboardingCircleImg, projectLogo];
+  List<dynamic> get values => [onboardingCircleImg, projectLogo];
 }
 
 class FurnitureAssets {
