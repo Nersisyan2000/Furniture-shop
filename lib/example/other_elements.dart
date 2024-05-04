@@ -11,8 +11,10 @@ class OtherElements extends StatelessWidget {
     return Column(
       children: [
         20.verticalSpace,
-        const FurnitureChangeCountElement(
+        FurnitureChangeCountElement(
           count: 10,
+          onDecrement: () {},
+          onIncrement: () {},
         ),
         20.verticalSpace,
         Row(

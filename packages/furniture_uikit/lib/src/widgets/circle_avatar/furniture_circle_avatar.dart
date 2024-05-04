@@ -11,22 +11,19 @@ class FurnitureCircleAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final circleAvatar = CircleAvatar(
+      radius: 30.0,
+      backgroundImage: AssetImage(image),
+    );
 
-    ///TODO: - write CircleAvatar part to single properties out or in side build method
-    ///
+    ///TODO: - write CircleAvatar part to single properties out or in side build method - done
     if (isBadge != null) {
       return badges.Badge(
         position: badgePosition,
         badgeStyle: mainBadgeStyle,
-        child: CircleAvatar( /// this
-          radius: 30.0,
-          backgroundImage: AssetImage(image),
-        ),
+        child: circleAvatar,
       );
     }
-    return CircleAvatar( /// this
-      radius: 30.0,
-      backgroundImage: AssetImage(image),
-    );
+    return circleAvatar;
   }
 }

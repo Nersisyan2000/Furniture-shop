@@ -9,6 +9,9 @@ class TextFieldStyles extends StatelessWidget {
     this.hintText,
     required this.label,
     required this.controller,
+    this.onTapOutSide,
+    this.onChanged,
+    this.onEditingComplete,
     this.isSecure = false,
   });
 
@@ -16,8 +19,10 @@ class TextFieldStyles extends StatelessWidget {
   final String label;
   final TextEditingController controller;
   final bool isSecure;
+  final Function(PointerDownEvent)? onTapOutSide;
+  final Function(String)? onChanged;
+  final VoidCallback? onEditingComplete;
 
-  /// TODO: - for each textfield create and define onChange, onEditComplete
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
@@ -29,9 +34,9 @@ class TextFieldStyles extends StatelessWidget {
         ),
       ),
       TextField(
-        // onTapOutside: ,  /// this
-        // onChanged: , /// this
-        // onEditingComplete: , /// this
+        onTapOutside: onTapOutSide,
+        onChanged: onChanged,
+        onEditingComplete: onEditingComplete,
         controller: controller,
         obscureText: isSecure,
         decoration: InputDecoration(

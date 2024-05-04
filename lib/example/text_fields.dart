@@ -17,31 +17,40 @@ class TextFields extends StatelessWidget {
             hintText: context.tr(Localization.enterYourName),
             label: context.tr(Localization.fullName),
             isSecure: false,
+            onTapOutSide: (event) => {
+              FocusScope.of(context).requestFocus(FocusNode()),
+            },
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: TextFieldStyles(
-            controller: TextEditingController(),
-            hintText: context.tr(Localization.enterEmail),
-            label: context.tr(Localization.email),
-            isSecure: false,
-          ),
+              controller: TextEditingController(),
+              hintText: context.tr(Localization.enterEmail),
+              label: context.tr(Localization.email),
+              isSecure: false,
+              onTapOutSide: (event) => {
+                    FocusScope.of(context).requestFocus(FocusNode()),
+                  }),
         ),
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: TextFieldStyles(
-            controller: TextEditingController(),
-            hintText: context.tr(Localization.enterPassword),
-            label: context.tr(Localization.password),
-            isSecure: true,
-          ),
+              controller: TextEditingController(),
+              hintText: context.tr(Localization.enterPassword),
+              label: context.tr(Localization.password),
+              isSecure: true,
+              onTapOutSide: (event) => {
+                    FocusScope.of(context).requestFocus(FocusNode()),
+                  }),
         ),
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: FurnitureSearchInput(
-            searchHintText: context.tr(Localization.searchFurniture),
-          ),
+              searchHintText: context.tr(Localization.searchFurniture),
+              onTapOutSide: (event) => {
+                    FocusScope.of(context).requestFocus(FocusNode()),
+                  }),
         ),
       ],
     );

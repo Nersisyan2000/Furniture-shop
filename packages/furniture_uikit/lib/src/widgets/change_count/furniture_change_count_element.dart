@@ -3,18 +3,24 @@ import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:furniture_uikit/src/theme/furniture_text_styles.dart';
 
 class FurnitureChangeCountElement extends StatelessWidget {
-  const FurnitureChangeCountElement({super.key, this.count});
+  const FurnitureChangeCountElement({
+    super.key,
+    this.count,
+    required this.onDecrement,
+    required this.onIncrement,
+  });
 
   final int? count;
+  final VoidCallback onDecrement;
+  final VoidCallback onIncrement;
 
   @override
   Widget build(BuildContext context) {
-    /// TODO: - Create VoidCallBack type properties for methods
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FurnitureIconButton.whiteMode(
-          onTap: () {}, /// - this
+          onTap: onDecrement,
           icon: FurnitureAssets.icons.minusIcon.svg(),
           mode: true,
           width: 22.0,
@@ -27,7 +33,7 @@ class FurnitureChangeCountElement extends StatelessWidget {
         ),
         10.horizontalSpace,
         FurnitureIconButton(
-          onTap: () {}, /// - this
+          onTap: onIncrement,
           icon: FurnitureAssets.icons.plusIcon.svg(),
           mode: true,
           width: 22.0,

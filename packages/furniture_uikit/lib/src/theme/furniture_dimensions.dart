@@ -17,6 +17,8 @@ EdgeInsets get paddingBottm8 => const EdgeInsets.only(bottom: 8.0);
 
 EdgeInsets get paddingAll7 => const EdgeInsets.all(7.0);
 
+EdgeInsets get paddingL16R8 => const EdgeInsets.only(left: 16.0, right: 8.0);
+
 // Radiuses -------------------------------------------------------
 
 RoundedRectangleBorder get radius14 => RoundedRectangleBorder(
@@ -24,6 +26,11 @@ RoundedRectangleBorder get radius14 => RoundedRectangleBorder(
     );
 
 RoundedRectangleBorder get radius12 => RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12.0),
+    );
+
+OutlineInputBorder get outlinedRadisus12 => OutlineInputBorder(
+      borderSide: BorderSide.none,
       borderRadius: BorderRadius.circular(12.0),
     );
 
