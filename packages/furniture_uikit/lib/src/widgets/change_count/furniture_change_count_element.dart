@@ -9,11 +9,12 @@ class FurnitureChangeCountElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// TODO: - Create VoidCallBack type properties for methods
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FurnitureIconButton.whiteMode(
-          onTap: () {},
+          onTap: () {}, /// - this
           icon: FurnitureAssets.icons.minusIcon.svg(),
           mode: true,
           width: 22.0,
@@ -26,7 +27,7 @@ class FurnitureChangeCountElement extends StatelessWidget {
         ),
         10.horizontalSpace,
         FurnitureIconButton(
-          onTap: () {},
+          onTap: () {}, /// - this
           icon: FurnitureAssets.icons.plusIcon.svg(),
           mode: true,
           width: 22.0,

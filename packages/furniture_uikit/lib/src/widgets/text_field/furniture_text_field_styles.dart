@@ -17,6 +17,7 @@ class TextFieldStyles extends StatelessWidget {
   final TextEditingController controller;
   final bool isSecure;
 
+  /// TODO: - for each textfield create and define onChange, onEditComplete
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
@@ -28,6 +29,9 @@ class TextFieldStyles extends StatelessWidget {
         ),
       ),
       TextField(
+        // onTapOutside: ,  /// this
+        // onChanged: , /// this
+        // onEditingComplete: , /// this
         controller: controller,
         obscureText: isSecure,
         decoration: InputDecoration(
