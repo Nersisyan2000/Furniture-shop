@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_localization/furniture_localization.dart';
+import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/example/buttons.dart';
 import 'package:furniture_shop/example/other_elements.dart';
 import 'package:furniture_shop/example/text_fields.dart';
@@ -11,7 +13,7 @@ class Example extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFF9F9F9),
-        title: const Text('Furniture Shop Ui Kit'),
+        title: Text(context.tr(Localization.furnitureUikitTitle)),
       ),
       body: const SafeArea(
           child: SingleChildScrollView(

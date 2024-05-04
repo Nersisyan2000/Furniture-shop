@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_localization/furniture_localization.dart';
+import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 class OtherElements extends StatelessWidget {
@@ -32,12 +34,12 @@ class OtherElements extends StatelessWidget {
             FurnitureProductInfo(
               icon: FurnitureAssets.icons.seenPeopleIcon.svg(),
               count: 341,
-              action: 'Seen',
+              action: context.tr(Localization.seen),
             ),
             FurnitureProductInfo(
               icon: FurnitureAssets.icons.hearthIcon.svg(),
               count: 294,
-              action: 'Like',
+              action: context.tr(Localization.liked),
             )
           ],
         ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_localization/furniture_localization.dart';
+import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 class TextFields extends StatelessWidget {
@@ -12,8 +14,8 @@ class TextFields extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: TextFieldStyles(
             controller: TextEditingController(),
-            hintText: "Enter Your Name",
-            label: "Full Name",
+            hintText: context.tr(Localization.enterYourName),
+            label: context.tr(Localization.fullName),
             isSecure: false,
           ),
         ),
@@ -21,8 +23,8 @@ class TextFields extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: TextFieldStyles(
             controller: TextEditingController(),
-            hintText: "Enter your email",
-            label: "Email",
+            hintText: context.tr(Localization.enterEmail),
+            label: context.tr(Localization.email),
             isSecure: false,
           ),
         ),
@@ -30,15 +32,15 @@ class TextFields extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: TextFieldStyles(
             controller: TextEditingController(),
-            hintText: "Enter your password",
-            label: "Password",
+            hintText: context.tr(Localization.enterPassword),
+            label: context.tr(Localization.password),
             isSecure: true,
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.all(20.0),
+        Padding(
+          padding: const EdgeInsets.all(20.0),
           child: FurnitureSearchInput(
-            searchHintText: 'Search Furniture',
+            searchHintText: context.tr(Localization.searchFurniture),
           ),
         ),
       ],

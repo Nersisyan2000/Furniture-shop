@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_localization/furniture_localization.dart';
+import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 class UikitButtons extends StatelessWidget {
@@ -27,31 +29,32 @@ class UikitButtons extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              FurnitureElevatedButton(onTap: () {}, title: 'Get Started'),
+              FurnitureElevatedButton(
+                  onTap: () {}, title: context.tr(Localization.getStarted)),
               20.verticalSpace,
               FurnitureElevatedButton.whiteMode(
-                  onTap: () {}, title: 'Back Home'),
+                  onTap: () {}, title: context.tr(Localization.backHome)),
               20.verticalSpace,
               FurnitureElevatedIconButton.whiteMode(
                 onTap: () {},
-                title: 'Sign in with google',
+                title: context.tr(Localization.signInWithGoogle),
                 icon: FurnitureAssets.icons.googleIcon.svg(),
               ),
               20.verticalSpace,
               FurnitureElevatedIconButton(
                 onTap: () {},
-                title: 'Add To Card',
+                title: context.tr(Localization.addToCard),
                 icon: FurnitureAssets.icons.frame.svg(),
               ),
               20.verticalSpace,
               FurnitureElevatedIconButton.settingMode(
                 onTap: () {},
-                title: 'Notifications',
+                title: context.tr(Localization.notifications),
                 icon: FurnitureAssets.icons.notification.svg(),
               ),
               20.verticalSpace,
               FurnitureTextButton(
-                title: 'Log Out',
+                title: context.tr(Localization.logOut), // Log Out
                 onTap: () {},
                 color: Colors.red,
               ),
