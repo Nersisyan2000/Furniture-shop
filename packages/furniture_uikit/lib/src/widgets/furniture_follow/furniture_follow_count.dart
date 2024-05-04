@@ -6,10 +6,12 @@ class FurnitureFollowCount extends StatefulWidget {
   const FurnitureFollowCount({
     super.key,
     required this.icon,
+    required this.count,
     required this.text,
   });
 
-  final Icon icon;
+  final Widget icon;
+  final int count;
   final String text;
 
   @override
@@ -21,9 +23,9 @@ class _FurnitureFollowCountState extends State<FurnitureFollowCount> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(widget.icon as IconData?),
+        widget.icon,
         Text(
-          widget.text,
+          '${widget.count} ${widget.text}',
           style: switzer13w4TextStyle,
         )
       ],

@@ -13,8 +13,8 @@ class SearchField extends StatefulWidget {
   });
 
   final String? hintText;
-  final Icon prefixIcon;
-  final Icon suffixIcon;
+  final Widget prefixIcon;
+  final Widget suffixIcon;
   final TextEditingController controller;
   final bool isSecure;
 
@@ -33,7 +33,7 @@ class _SearchFieldState extends State<SearchField> {
         fillColor: FurnitureColors.whiteColor,
         prefixIcon: widget.prefixIcon,
         hintText: widget.hintText,
-        suffixIcon: widget.prefixIcon,
+        suffixIcon: widget.suffixIcon,
         hintStyle:
             switzer14w4TextStyle.copyWith(color: FurnitureColors.subTextColor),
         border: OutlineInputBorder(
