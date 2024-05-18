@@ -7,4 +7,6 @@ abstract class FurnitureColors {
   static const buttonShapeColor = Color(0xFFF0F0F2);
   static const whiteColor = Color(0xFFFFFFFF);
   static const whiteBackground = Color(0xFFF9F9F9);
+  static const amber = Colors.amber;
+  static const unratedColor = Color.fromARGB(255, 230, 230, 234);
 }

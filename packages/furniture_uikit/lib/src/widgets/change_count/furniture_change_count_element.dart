@@ -2,17 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:furniture_uikit/src/theme/furniture_text_styles.dart';
 
-class FurnitureChangeCountElement extends StatelessWidget {
+class FurnitureChangeCountElement extends StatefulWidget {
   const FurnitureChangeCountElement({
     super.key,
-    this.count,
-    required this.onDecrement,
-    required this.onIncrement,
+    required this.count,
   });
 
-  final int? count;
-  final VoidCallback onDecrement;
-  final VoidCallback onIncrement;
+  final int count;
+
+  @override
+  State<FurnitureChangeCountElement> createState() =>
+      _FurnitureChangeCountElementState();
+}
+
+class _FurnitureChangeCountElementState
+    extends State<FurnitureChangeCountElement> {
+  late int localCount;
+
+  @override
+  void initState() {
+    localCount = widget.count;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +31,11 @@ class FurnitureChangeCountElement extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FurnitureIconButton.whiteMode(
-          onTap: onDecrement,
+          onTap: () {
+            setState(() {
+              localCount--;
+            });
+          },
           icon: FurnitureAssets.icons.minusIcon.svg(),
           mode: true,
           width: 22.0,
@@ -28,12 +43,16 @@ class FurnitureChangeCountElement extends StatelessWidget {
         ),
         10.horizontalSpace,
         Text(
-          '${count ?? 0}',
+          '$localCount',
           style: switzer14RegularTextStyle,
         ),
         10.horizontalSpace,
         FurnitureIconButton(
-          onTap: onIncrement,
+          onTap: () {
+            setState(() {
+              localCount++;
+            });
+          },
           icon: FurnitureAssets.icons.plusIcon.svg(),
           mode: true,
           width: 22.0,

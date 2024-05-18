@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
@@ -5,8 +6,9 @@ import 'package:furniture_shop/example/buttons.dart';
 import 'package:furniture_shop/example/other_elements.dart';
 import 'package:furniture_shop/example/text_fields.dart';
 
-class Example extends StatelessWidget {
-  const Example({super.key});
+@RoutePage()
+class ExampleScreen extends StatelessWidget {
+  const ExampleScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

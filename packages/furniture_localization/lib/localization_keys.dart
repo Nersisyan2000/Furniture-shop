@@ -81,4 +81,6 @@ abstract class Localization {
   static const String confirmNewPassword = 'confirmNewPassword';
   static const String enterPassword = 'enterPassword';
   static const String enterNewPassword = 'enterNewPassword';
+  static const String reviewsCount = 'reviewsCount';
+  static const String stars = 'stars';
 }

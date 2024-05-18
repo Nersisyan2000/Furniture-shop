@@ -5,15 +5,15 @@ import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
 class FurnitureIconButton extends StatelessWidget {
   const FurnitureIconButton({
     super.key,
-    required this.onTap,
     required this.icon,
+    this.onTap,
     this.whiteMode = false,
     this.mode,
     this.width,
     this.height,
   });
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Widget icon;
   final bool whiteMode;
   final bool? mode;

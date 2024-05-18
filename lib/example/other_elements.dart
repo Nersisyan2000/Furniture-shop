@@ -3,18 +3,21 @@ import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
-class OtherElements extends StatelessWidget {
+class OtherElements extends StatefulWidget {
   const OtherElements({super.key});
 
+  @override
+  State<OtherElements> createState() => _OtherElementsState();
+}
+
+class _OtherElementsState extends State<OtherElements> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         20.verticalSpace,
-        FurnitureChangeCountElement(
+        const FurnitureChangeCountElement(
           count: 10,
-          onDecrement: () {},
-          onIncrement: () {},
         ),
         20.verticalSpace,
         Row(
@@ -45,7 +48,22 @@ class OtherElements extends StatelessWidget {
             )
           ],
         ),
+        30.verticalSpace,
+        const Row(
+          children: [
+            Expanded(
+                child: ReviewsRaiting(
+              raiting: 4.6,
+              reviewCount: 367,
+            )),
+            Expanded(
+                child: ReviewsProgress(
+              percentValue: 0.4,
+            )),
+          ],
+        ),
         20.verticalSpace,
+        const ChipElement(),
       ],
     );
   }

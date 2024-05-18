@@ -80,5 +80,7 @@
   "newPassword": "New Password",
   "confirmNewPassword": "Confirm New Password",
   "enterPassword": "Enter Your Password",
-  "enterNewPassword": "Enter New Password"
+  "enterNewPassword": "Enter New Password",
+  "reviewsCount": "{reviewCount} reviews",
+  "stars": "{starNumber} Stars"
 }

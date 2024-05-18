@@ -9,6 +9,8 @@ EdgeInsets get paddingV16 => const EdgeInsets.symmetric(
       vertical: 16.0,
     );
 
+EdgeInsets get paddingV8 => const EdgeInsets.symmetric(vertical: 8.0);
+
 EdgeInsets get paddingH16 => const EdgeInsets.symmetric(horizontal: 16.0);
 
 EdgeInsets get paddingAll16 => const EdgeInsets.all(16.0);
@@ -18,6 +20,8 @@ EdgeInsets get paddingBottm8 => const EdgeInsets.only(bottom: 8.0);
 EdgeInsets get paddingAll7 => const EdgeInsets.all(7.0);
 
 EdgeInsets get paddingL16R8 => const EdgeInsets.only(left: 16.0, right: 8.0);
+
+EdgeInsets get paddingH4 => const EdgeInsets.symmetric(horizontal: 4.0);
 
 // Radiuses -------------------------------------------------------
 
@@ -35,6 +39,8 @@ OutlineInputBorder get outlinedRadisus12 => OutlineInputBorder(
     );
 
 BorderRadius get radius10Circular => BorderRadius.circular(10.0);
+
+Radius get radiusCircular4 => const Radius.circular(4.0);
 
 // BoxConstraints -------------------------------------------------
 

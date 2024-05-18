@@ -1,6 +1,7 @@
 name: furniture_uikit
 description: "App package uikit"
 version: 1.0.0+1
+publish_to: none
 #homepage:
 
 environment:
@@ -11,9 +12,13 @@ dependencies:
   badges: ^3.1.2
   flutter:
     sdk: flutter
+  furniture_localization:
+    path: ../../packages/furniture_localization
 
+  flutter_rating_bar: ^4.0.1
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.10+1
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_lints: ^3.0.0
