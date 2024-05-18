@@ -32,9 +32,11 @@ class _FurnitureChangeCountElementState
       children: [
         FurnitureIconButton.whiteMode(
           onTap: () {
-            setState(() {
-              localCount--;
-            });
+            if (localCount > 0) {
+              setState(() {
+                localCount--;
+              });
+            }
           },
           icon: FurnitureAssets.icons.minusIcon.svg(),
           mode: true,
