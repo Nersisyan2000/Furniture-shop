@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
+import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
 
 class ChipElement extends StatelessWidget {
   const ChipElement({super.key, this.backgroundColor, this.color});
@@ -11,24 +12,24 @@ class ChipElement extends StatelessWidget {
   Widget build(context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: radius10Circular,
         color: Colors.white,
       ),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+      child: Padding(
+        padding: paddingH12V8,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               backgroundColor: FurnitureColors.primaryColor,
               radius: 8.0,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 6.0),
-              child: Text('Partex'),
+              padding: paddingH8,
+              child: const Text('Partex'),
             ),
-            Icon(
+            const Icon(
               Icons.check,
               size: 16.0,
             )
