@@ -5,7 +5,7 @@ export 'src/widgets/buttons/furniture_elevated_button.dart';
 export 'src/widgets/buttons/furniture_icon_button.dart';
 export 'src/widgets/buttons/furniture_text_button.dart';
 
-export 'src/widgets/text_field/furniture_text_field_styles.dart';
+export 'src/widgets/text_field/furniture_text_field.dart';
 export 'src/widgets/search_input/furniture_search_input.dart';
 
 export 'src/widgets/change_count/furniture_change_count_element.dart';

@@ -3,14 +3,15 @@ import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
 import 'package:furniture_uikit/src/theme/furniture_text_styles.dart';
 
-class TextFieldStyles extends StatelessWidget {
-  const TextFieldStyles({
+class FurnitureTextField extends StatefulWidget {
+  const FurnitureTextField({
     super.key,
     this.hintText,
     required this.label,
     required this.controller,
     this.onTapOutSide,
     this.onChanged,
+    this.onSaved,
     this.onEditingComplete,
     this.isSecure = false,
   });
@@ -21,7 +22,19 @@ class TextFieldStyles extends StatelessWidget {
   final bool isSecure;
   final Function(PointerDownEvent)? onTapOutSide;
   final Function(String)? onChanged;
+  final Function(String?)? onSaved;
+
   final VoidCallback? onEditingComplete;
+
+  @override
+  State<FurnitureTextField> createState() => _FurnitureTextField();
+}
+
+class _FurnitureTextField extends State<FurnitureTextField> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,21 +42,27 @@ class TextFieldStyles extends StatelessWidget {
       Padding(
         padding: paddingBottm8,
         child: Text(
-          label,
+          widget.label,
           style: switzer14MediumTextStyle,
         ),
       ),
-      TextField(
-        onTapOutside: onTapOutSide,
-        onChanged: onChanged,
-        onEditingComplete: onEditingComplete,
-        controller: controller,
-        obscureText: isSecure,
+      TextFormField(
+        onTapOutside: widget.onTapOutSide,
+        onChanged: widget.onChanged,
+        onEditingComplete: widget.onEditingComplete,
+        controller: widget.controller,
+        obscureText: widget.isSecure,
         decoration: InputDecoration(
-          hintText: hintText,
+          hintText: widget.hintText,
           hintStyle: switzer14RegularTextStyle.copyWith(
               color: FurnitureColors.subTextColor),
         ),
+        onSaved: widget.onSaved,
+        validator: (txt) {
+          if(txt == null) return "This field is mandatory";
+          if(txt.isEmpty) return "This field must be filled";
+          return null;
+        },
       ),
     ]);
   }
