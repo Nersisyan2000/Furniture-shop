@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_uikit/src/theme/furniture_button_styles.dart';
+import 'package:furniture_uikit/src/theme/furniture_text_styles.dart';
 
 class FurnitureElevatedIconButton extends StatelessWidget {
   const FurnitureElevatedIconButton({
@@ -8,7 +9,6 @@ class FurnitureElevatedIconButton extends StatelessWidget {
     required this.onTap,
     required this.title,
     this.buttonStyle,
-    this.color,
     this.primary = false,
   });
 
@@ -16,13 +16,13 @@ class FurnitureElevatedIconButton extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
   final ButtonStyle? buttonStyle;
-  final Color? color;
   final bool primary;
 
-  factory FurnitureElevatedIconButton.whiteMode(
-      {required Widget icon,
-      required String title,
-      required VoidCallback onTap}) {
+  factory FurnitureElevatedIconButton.whiteMode({
+    required Widget icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
     return FurnitureElevatedIconButton(
       icon: icon,
       onTap: onTap,
@@ -32,10 +32,11 @@ class FurnitureElevatedIconButton extends StatelessWidget {
     );
   }
 
-  factory FurnitureElevatedIconButton.settingMode(
-      {required Widget icon,
-      required String title,
-      required VoidCallback onTap}) {
+  factory FurnitureElevatedIconButton.settingMode({
+    required Widget icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
     return FurnitureElevatedIconButton(
       icon: icon,
       onTap: onTap,
@@ -52,7 +53,7 @@ class FurnitureElevatedIconButton extends StatelessWidget {
       icon: icon,
       label: Text(
         title,
-        style: TextStyle(color: color),
+        style: switzer16MediumTextStyle,
       ),
       style: primary ? buttonStyle : null,
     );

@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:furniture_uikit/src/assets/fonts.gen.dart';
 
 class FurnitureTextButton extends StatelessWidget {
-  const FurnitureTextButton(
-      {super.key, this.onTap, required this.title, this.color});
+  const FurnitureTextButton({
+    super.key,
+    this.onTap,
+    required this.title,
+    this.color,
+  });
 
   final VoidCallback? onTap;
   final String title;
@@ -13,6 +17,9 @@ class FurnitureTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onTap,
+      style: const ButtonStyle(
+        overlayColor: MaterialStatePropertyAll(Colors.transparent),
+      ),
       child: Text(
         title,
         style: TextStyle(color: color, fontFamily: FontFamily.switzer),
