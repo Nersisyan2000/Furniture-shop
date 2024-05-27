@@ -47,6 +47,7 @@ class _FurnitureTextField extends State<FurnitureTextField> {
         ),
       ),
       TextFormField(
+        key: widget.key,
         onTapOutside: widget.onTapOutSide,
         onChanged: widget.onChanged,
         onEditingComplete: widget.onEditingComplete,

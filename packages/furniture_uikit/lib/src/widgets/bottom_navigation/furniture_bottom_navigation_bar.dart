@@ -5,16 +5,16 @@ import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
 import 'package:furniture_uikit/src/widgets/bottom_navigation/widgets/furniture_bottom_navigation_bar_item.dart';
 
-class FunrnitureBottomNavigation extends StatefulWidget {
-  const FunrnitureBottomNavigation({super.key});
+class FurnitureBottomNavigation extends StatefulWidget {
+  const FurnitureBottomNavigation({super.key});
 
   @override
-  State<FunrnitureBottomNavigation> createState() =>
-      _FunrnitureBottomNavigationState();
+  State<FurnitureBottomNavigation> createState() =>
+      _FurnitureBottomNavigationState();
 }
 
-class _FunrnitureBottomNavigationState
-    extends State<FunrnitureBottomNavigation> {
+class _FurnitureBottomNavigationState
+    extends State<FurnitureBottomNavigation> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {

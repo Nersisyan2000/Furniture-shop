@@ -27,7 +27,7 @@ class _TextFieldsState extends State<TextFields> {
               label: context.tr(Localization.fullName),
               isSecure: false,
               onTapOutSide: (event) => {
-                FocusScope.of(context).requestFocus(FocusNode()),
+                FocusScope.of(context).unfocus(),
               },
             ),
           ),

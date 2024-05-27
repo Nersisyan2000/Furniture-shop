@@ -14,10 +14,13 @@ ButtonStyle get furnitureIconButtonBlueMode => const ButtonStyle(
       overlayColor: MaterialStatePropertyAll(Colors.transparent),
     );
 
-ButtonStyle get furnitureIconButtonWhiteMode => const ButtonStyle(
-      backgroundColor: MaterialStatePropertyAll(
-        FurnitureColors.whiteColor,
-      ),
+ButtonStyle get furnitureIconButtonWhiteMode =>  ButtonStyle(
+      backgroundColor: MaterialStateProperty.resolveWith((states){
+        if(states.contains(MaterialState.disabled)) {
+          return  FurnitureColors.subTextColor.withOpacity(0.2);
+        }
+        return FurnitureColors.whiteColor;
+      }),
     );
 
 ButtonStyle get furnitureElevatedButtonBlueMode => ElevatedButton.styleFrom(

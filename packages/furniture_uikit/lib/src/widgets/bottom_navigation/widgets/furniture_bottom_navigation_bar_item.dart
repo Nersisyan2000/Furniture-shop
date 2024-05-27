@@ -8,7 +8,7 @@ class FurnitureBottomNavigationBarItem extends StatelessWidget {
       required this.itemIcon,
       required this.title,
       required this.color,
-      this.onTap});
+      this.onTap,});
 
   final Widget itemIcon;
   final String title;
