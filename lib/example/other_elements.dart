@@ -65,7 +65,7 @@ class _OtherElementsState extends State<OtherElements> {
             )),
             Expanded(
                 child: ReviewsProgress(
-              percentValue: 0.4,
+              percentValue: [100, 320, 35, 78, 10],
             )),
           ],
         ),

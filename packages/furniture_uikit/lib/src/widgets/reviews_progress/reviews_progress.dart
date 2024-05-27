@@ -7,13 +7,18 @@ import 'package:furniture_uikit/src/theme/furniture_text_styles.dart';
 class ReviewsProgress extends StatelessWidget {
   const ReviewsProgress({super.key, required this.percentValue});
 
-  final double percentValue;
+  final List<int> percentValue;
 
   @override
   Widget build(BuildContext context) {
+    final summery = percentValue.reduce((value, element) => value+element);
+
     return ListView.builder(
-      itemCount: 5,
+      itemCount: percentValue.length,
       itemBuilder: (context, index) {
+
+        final percent = (percentValue[index] * 100)/summery;
+
         return Padding(
           padding: paddingV8,
           child: Row(
@@ -26,12 +31,12 @@ class ReviewsProgress extends StatelessWidget {
                 width: 113.0,
                 lineHeight: 11.0,
                 barRadius: radiusCircular4,
-                percent: percentValue,
+                percent: percent/100,
                 backgroundColor: FurnitureColors.buttonShapeColor,
                 progressColor: FurnitureColors.primaryColor,
               ),
               Text(
-                '${(percentValue * 100).toInt()}%',
+                '${percent.round()}%',
                 style: switzer12RegularTextStyle,
               ),
             ],
