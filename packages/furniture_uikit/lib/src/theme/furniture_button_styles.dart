@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
 
+ButtonStyle get furnitureBottomTabItemIconButton => const ButtonStyle(
+        backgroundColor: MaterialStatePropertyAll(
+      FurnitureColors.transparent,
+    ));
+
 ButtonStyle get furnitureIconButtonBlueMode => const ButtonStyle(
       backgroundColor: MaterialStatePropertyAll(
         FurnitureColors.primaryColor,
@@ -42,4 +47,9 @@ ButtonStyle get furnitureElevatedIconButtonSettingMode =>
       padding: paddingAll16,
       alignment: Alignment.centerLeft,
       shape: radius14,
+    );
+
+FloatingActionButtonThemeData get furnitureFloatingActionButtonThemeData =>
+    const FloatingActionButtonThemeData(
+      backgroundColor: FurnitureColors.primaryColor,
     );

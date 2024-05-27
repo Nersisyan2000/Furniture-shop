@@ -11,13 +11,20 @@ class OtherElements extends StatefulWidget {
 }
 
 class _OtherElementsState extends State<OtherElements> {
+  ValueChanged<int> onChange = (int value) => {
+        debugPrint('$value'),
+      };
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         20.verticalSpace,
-        const FurnitureChangeCountElement(
+        FurnitureChangeCountElement(
           count: 10,
+          minCount: 0,
+          maxCount: 20,
+          onChange: onChange,
         ),
         20.verticalSpace,
         Row(

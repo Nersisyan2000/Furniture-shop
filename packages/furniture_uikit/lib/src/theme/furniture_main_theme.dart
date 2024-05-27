@@ -13,4 +13,5 @@ ThemeData get lightTheme => ThemeData(
         primary: FurnitureColors.textColor,
         background: FurnitureColors.whiteBackground,
       ),
+      floatingActionButtonTheme: furnitureFloatingActionButtonThemeData,
     );

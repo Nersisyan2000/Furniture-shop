@@ -68,6 +68,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/call.svg
   SvgGenImage get call => const SvgGenImage('assets/icons/call.svg');
 
+  /// File path: assets/icons/cart.svg
+  SvgGenImage get cart => const SvgGenImage('assets/icons/cart.svg');
+
   /// File path: assets/icons/direction_right 3.svg
   SvgGenImage get directionRight3 => const SvgGenImage('assets/icons/direction_right 3.svg');
 
@@ -83,8 +86,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/google_icon.svg
   SvgGenImage get googleIcon => const SvgGenImage('assets/icons/google_icon.svg');
 
+  /// File path: assets/icons/heart.svg
+  SvgGenImage get heart => const SvgGenImage('assets/icons/heart.svg');
+
   /// File path: assets/icons/hearth_icon.svg
   SvgGenImage get hearthIcon => const SvgGenImage('assets/icons/hearth_icon.svg');
+
+  /// File path: assets/icons/home.svg
+  SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
 
   /// File path: assets/icons/minusIcon.svg
   SvgGenImage get minusIcon => const SvgGenImage('assets/icons/minusIcon.svg');
@@ -101,21 +110,28 @@ class $AssetsIconsGen {
   /// File path: assets/icons/seen_people_icon.svg
   SvgGenImage get seenPeopleIcon => const SvgGenImage('assets/icons/seen_people_icon.svg');
 
+  /// File path: assets/icons/user.svg
+  SvgGenImage get user => const SvgGenImage('assets/icons/user.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
         arrowBack,
         call,
+        cart,
         directionRight3,
         eyeScanner,
         filterIcon,
         frame,
         googleIcon,
+        heart,
         hearthIcon,
+        home,
         minusIcon,
         notification,
         plusIcon,
         searchIcon,
-        seenPeopleIcon
+        seenPeopleIcon,
+        user
       ];
 }
 
