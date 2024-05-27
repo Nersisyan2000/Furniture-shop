@@ -47,7 +47,7 @@ OutlineInputBorder get outlinedRadisus12 => OutlineInputBorder(
 
 BorderRadius get radius10Circular => BorderRadius.circular(10.0);
 
-Radius get radiusCircular4 => const Radius.circular(4.0);
+Radius get radiusCircular4 => Radius.circular(4.0);
 
 // BoxConstraints -------------------------------------------------
 BoxConstraints get boxConstraintsH24 => const BoxConstraints(maxHeight: 24);
