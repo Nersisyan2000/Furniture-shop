@@ -9,4 +9,6 @@ abstract class FurnitureColors {
   static const whiteBackground = Color(0xFFF9F9F9);
   static const amber = Colors.amber;
   static const unratedColor = Color.fromARGB(255, 230, 230, 234);
+  static const transparent = Colors.transparent;
+  static const appBarTitleColor = Color(0xFF828A89);
 }

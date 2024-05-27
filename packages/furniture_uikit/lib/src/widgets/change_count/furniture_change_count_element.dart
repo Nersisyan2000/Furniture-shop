@@ -6,9 +6,15 @@ class FurnitureChangeCountElement extends StatefulWidget {
   const FurnitureChangeCountElement({
     super.key,
     required this.count,
+    required this.minCount,
+    required this.maxCount,
+    required this.onChange,
   });
 
   final int count;
+  final int minCount;
+  final int maxCount;
+  final ValueChanged<int>? onChange;
 
   @override
   State<FurnitureChangeCountElement> createState() =>
@@ -18,6 +24,8 @@ class FurnitureChangeCountElement extends StatefulWidget {
 class _FurnitureChangeCountElementState
     extends State<FurnitureChangeCountElement> {
   late int localCount;
+
+  // widget.onChanged?.call(localCount);
 
   @override
   void initState() {
@@ -31,12 +39,14 @@ class _FurnitureChangeCountElementState
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FurnitureIconButton.whiteMode(
+          desable: localCount == widget.minCount ? true : false,
           onTap: () {
-            if (localCount > 0) {
+            if (localCount > widget.minCount) {
               setState(() {
                 localCount--;
               });
             }
+            widget.onChange?.call(localCount);
           },
           icon: FurnitureAssets.icons.minusIcon.svg(),
           mode: true,
@@ -51,9 +61,12 @@ class _FurnitureChangeCountElementState
         10.horizontalSpace,
         FurnitureIconButton(
           onTap: () {
-            setState(() {
-              localCount++;
-            });
+            if (localCount < widget.maxCount) {
+              setState(() {
+                localCount++;
+              });
+              widget.onChange?.call(localCount);
+            }
           },
           icon: FurnitureAssets.icons.plusIcon.svg(),
           mode: true,

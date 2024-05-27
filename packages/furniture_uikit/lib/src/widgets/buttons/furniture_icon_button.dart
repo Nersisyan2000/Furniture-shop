@@ -26,6 +26,7 @@ class FurnitureIconButton extends StatelessWidget {
     double? width,
     double? height,
     bool? mode,
+    bool? desable,
   }) {
     return FurnitureIconButton(
       onTap: onTap,
