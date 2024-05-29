@@ -20,6 +20,7 @@ export 'src/assets/assets.gen.dart';
 export 'src/assets/fonts.gen.dart';
 export 'src/theme/furniture_main_theme.dart';
 export 'src/theme/furniture_colors.dart';
+export 'src/theme/furniture_text_styles.dart';
 
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:badges/badges.dart';
