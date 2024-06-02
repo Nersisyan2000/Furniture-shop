@@ -15,6 +15,7 @@ export 'src/widgets/reviews_raiting/reviews_raiting.dart';
 export 'src/widgets/reviews_progress/reviews_progress.dart';
 export 'src/widgets/chip_element/chip_element.dart';
 export 'src/widgets/bottom_navigation/furniture_bottom_navigation_bar.dart';
+export 'src/widgets/dots/furniture_dots.dart';
 
 export 'src/assets/assets.gen.dart';
 export 'src/assets/fonts.gen.dart';
@@ -25,3 +26,4 @@ export 'src/theme/furniture_text_styles.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:badges/badges.dart';
 export 'package:percent_indicator/percent_indicator.dart';
+export 'package:dots_indicator/dots_indicator.dart';

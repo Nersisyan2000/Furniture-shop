@@ -146,11 +146,25 @@ class $AssetsImagesGen {
   AssetGenImage get onboardingFirstImg =>
       const AssetGenImage('assets/images/onboarding_first_img.png');
 
+  /// File path: assets/images/onboarding_second_img.png
+  AssetGenImage get onboardingSecondImg =>
+      const AssetGenImage('assets/images/onboarding_second_img.png');
+
+  /// File path: assets/images/onboarding_third_img.png
+  AssetGenImage get onboardingThirdImg =>
+      const AssetGenImage('assets/images/onboarding_third_img.png');
+
   /// File path: assets/images/project-logo.svg
   SvgGenImage get projectLogo => const SvgGenImage('assets/images/project-logo.svg');
 
   /// List of all assets
-  List<dynamic> get values => [onboardingCircleImg, onboardingFirstImg, projectLogo];
+  List<dynamic> get values => [
+        onboardingCircleImg,
+        onboardingFirstImg,
+        onboardingSecondImg,
+        onboardingThirdImg,
+        projectLogo
+      ];
 }
 
 class FurnitureAssets {
