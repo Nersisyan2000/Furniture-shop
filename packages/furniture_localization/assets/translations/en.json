@@ -82,5 +82,6 @@
   "enterPassword": "Enter Your Password",
   "enterNewPassword": "Enter New Password",
   "reviewsCount": "{reviewCount} reviews",
-  "stars": "{starNumber} Stars"
+  "stars": "{starNumber} Stars",
+  "craftyFurniture": "Crafty Furniture"
 }

@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:furniture_localization/furniture_localization.dart';
+import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 @RoutePage()
@@ -23,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen>
           });
     controller.repeat(reverse: true);
     Future.delayed(const Duration(seconds: 2), () {
-      // Navigator.pushReplacementNamed(context, onboardingRoute);
+      context.router.replaceNamed('/onboardingScreen');
       debugPrint('changed');
     });
     super.initState();
@@ -35,18 +37,32 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
+  Widget _splashContent(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        FurnitureAssets.images.projectLogo
+            // ignore: deprecated_member_use
+            .svg(color: FurnitureColors.whiteColor),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 24.h),
+          child: Text(
+            context.tr(Localization.craftyFurniture),
+            textAlign: TextAlign.center,
+            style: switzer32MediumTextStyle.copyWith(
+                color: FurnitureColors.whiteColor),
+          ),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: FurnitureColors.primaryColor,
-      body: Center(
-        child: Column(
-          children: [
-            FurnitureAssets.images.projectLogo.svg(),
-            // Text(context.tr(Localization))
-          ],
-        ),
-      ),
+      body: _splashContent(context),
     );
   }
 }

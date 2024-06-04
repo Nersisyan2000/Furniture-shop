@@ -22,7 +22,7 @@ class FurnitureIconButton extends StatelessWidget {
 
   factory FurnitureIconButton.whiteMode({
     required Widget icon,
-     VoidCallback? onTap,
+    VoidCallback? onTap,
     double? width,
     double? height,
     bool? mode,

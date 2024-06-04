@@ -4,15 +4,17 @@ import 'package:furniture_uikit/src/theme/furniture_badge_styles.dart';
 import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
 
 class FurnitureCircleAvatar extends StatelessWidget {
-  const FurnitureCircleAvatar({super.key, this.isBadge, required this.image});
+  const FurnitureCircleAvatar(
+      {super.key, this.isBadge, required this.image, this.isRounded});
 
   final bool? isBadge;
   final String image;
+  final double? isRounded;
 
   @override
   Widget build(BuildContext context) {
     final circleAvatar = CircleAvatar(
-      radius: 30.0,
+      radius: isRounded ?? 30.0,
       backgroundImage: AssetImage(image),
     );
 
