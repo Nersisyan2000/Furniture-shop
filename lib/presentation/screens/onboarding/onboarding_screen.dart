@@ -33,20 +33,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             onboardingData[index].description,
             style: switzer24MediumTextStyle,
             textAlign: TextAlign.center,
-          ).paddingSymmetric(horizontal: 24.h, vertical: 48.0),
+          ).paddingSymmetric(horizontal: 24.h, vertical: 48.h),
           FurnitureDots(
               pageLength: onboardingData.length, currentIndexPage: index),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            FurnitureTextButton(
-              title: context.tr(Localization.skip),
-              onTap: () {}, // Navigator.pushNamed(context, getYouInRoute)
-              color: FurnitureColors.subTextColor,
-            ),
-          ]),
-          FurnitureDots(
-              pageLength: onboardingData.length, currentIndexPage: index),
-          Expanded(
-              child: Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               FurnitureTextButton(
@@ -67,9 +57,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 },
               )
             ],
-          ))
+          ).expanded(),
         ],
-      )),
+      )).paddingSymmetric(horizontal: 20.w),
     );
   }
 }
