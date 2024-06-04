@@ -37,28 +37,32 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
+  Widget _splashContent(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        FurnitureAssets.images.projectLogo
+            // ignore: deprecated_member_use
+            .svg(color: FurnitureColors.whiteColor),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 24.h),
+          child: Text(
+            context.tr(Localization.craftyFurniture),
+            textAlign: TextAlign.center,
+            style: switzer32MediumTextStyle.copyWith(
+                color: FurnitureColors.whiteColor),
+          ),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: FurnitureColors.primaryColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          FurnitureAssets.images.projectLogo
-              // ignore: deprecated_member_use
-              .svg(color: FurnitureColors.whiteColor),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 24.h),
-            child: Text(
-              context.tr(Localization.craftyFurniture),
-              textAlign: TextAlign.center,
-              style: switzer32MediumTextStyle.copyWith(
-                  color: FurnitureColors.whiteColor),
-            ),
-          )
-        ],
-      ),
+      body: _splashContent(context),
     );
   }
 }
