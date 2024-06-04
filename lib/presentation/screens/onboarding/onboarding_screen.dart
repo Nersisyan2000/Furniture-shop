@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
@@ -30,18 +31,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               isRounded: 180.h,
               image: onboardingData[index].img,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 48.0),
-              child: Text(
-                onboardingData[index].description,
-                style: switzer24MediumTextStyle,
-                textAlign: TextAlign.center,
-              ),
-            ),
+            Text(
+              onboardingData[index].description,
+              style: switzer24MediumTextStyle,
+              textAlign: TextAlign.center,
+            ).paddingSymmetric(horizontal: 24.h, vertical: 48.0),
             FurnitureDots(
                 pageLength: onboardingData.length, currentIndexPage: index),
-            Expanded(
-                child: Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 FurnitureTextButton(
@@ -62,7 +59,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   },
                 )
               ],
-            ))
+            ).expanded()
           ],
         )),
       ),
