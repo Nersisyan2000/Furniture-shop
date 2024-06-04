@@ -14,6 +14,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ExampleRoute.page),
         AutoRoute(page: SplashRoute.page),
         AutoRoute(page: OnboardingRoute.page, path: '/onboardingScreen'),
-        AutoRoute(page: HomeRoute.page, path: '/homeScreen', initial: true)
+        AutoRoute(page: HomeRoute.page, path: '/homeScreen', initial: true),
       ];
 }

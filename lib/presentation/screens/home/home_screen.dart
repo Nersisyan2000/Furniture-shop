@@ -46,13 +46,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            _userInfo(context),
-          ],
-        ).paddingOnly(top: 20.h),
-      ).paddingSymmetric(horizontal: 20.w),
-    );
+        body: SafeArea(
+      child: Column(
+        children: [
+          _userInfo(context),
+        ],
+      ).paddingOnly(top: 20.h),
+    ).paddingSymmetric(horizontal: 20.w));
   }
 }
