@@ -46,7 +46,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 FurnitureTextButton(
                   title: context.tr(Localization.skip),
-                  onTap: () {}, // Navigator.pushNamed(context, getYouInRoute)
+                  onTap: () => context.router.pushNamed('/homeScreen'),
                   color: FurnitureColors.subTextColor,
                 ),
                 FurnitureIconButton(
@@ -56,7 +56,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       if (index < onboardingData.length - 1) {
                         index++;
                       } else {
-                        return; // Navigator.pushNamed(context, getYouInRoute)
+                        context.router.pushNamed('/homeScreen');
                       }
                     });
                   },
