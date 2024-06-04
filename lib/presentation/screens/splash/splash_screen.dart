@@ -27,7 +27,6 @@ class _SplashScreenState extends State<SplashScreen>
     controller.repeat(reverse: true);
     Future.delayed(const Duration(seconds: 2), () {
       context.router.replaceNamed('/onboardingScreen');
-      debugPrint('changed');
     });
     super.initState();
   }

@@ -36,12 +36,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ).paddingSymmetric(horizontal: 24.h, vertical: 48.0),
           FurnitureDots(
               pageLength: onboardingData.length, currentIndexPage: index),
-          Row(
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            FurnitureTextButton(
+              title: context.tr(Localization.skip),
+              onTap: () {}, // Navigator.pushNamed(context, getYouInRoute)
+              color: FurnitureColors.subTextColor,
+            ),
+          ]),
+          FurnitureDots(
+              pageLength: onboardingData.length, currentIndexPage: index),
+          Expanded(
+              child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               FurnitureTextButton(
                 title: context.tr(Localization.skip),
-                onTap: () {}, // Navigator.pushNamed(context, getYouInRoute)
+                onTap: () => context.router.pushNamed('/homeScreen'),
                 color: FurnitureColors.subTextColor,
               ),
               FurnitureIconButton(
@@ -51,15 +61,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     if (index < onboardingData.length - 1) {
                       index++;
                     } else {
-                      return; // Navigator.pushNamed(context, getYouInRoute)
+                      context.router.pushNamed('/homeScreen');
                     }
                   });
                 },
               )
             ],
-          ).expanded(),
+          ))
         ],
-      )).paddingSymmetric(horizontal: 20.0),
+      )),
     );
   }
 }
