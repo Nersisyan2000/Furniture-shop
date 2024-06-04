@@ -1,3 +1,4 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
@@ -19,48 +20,36 @@ class _TextFieldsState extends State<TextFields> {
       key: formKey,
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: FurnitureTextField(
+          FurnitureTextField(
+            controller: TextEditingController(),
+            hintText: context.tr(Localization.enterYourName),
+            label: context.tr(Localization.fullName),
+            isSecure: false,
+            onTapOutSide: (event) => {
+              FocusScope.of(context).unfocus(),
+            },
+          ).paddingAll(20.0),
+          FurnitureTextField(
               controller: TextEditingController(),
-              hintText: context.tr(Localization.enterYourName),
-              label: context.tr(Localization.fullName),
+              hintText: context.tr(Localization.enterEmail),
+              label: context.tr(Localization.email),
               isSecure: false,
               onTapOutSide: (event) => {
-                FocusScope.of(context).unfocus(),
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: FurnitureTextField(
-                controller: TextEditingController(),
-                hintText: context.tr(Localization.enterEmail),
-                label: context.tr(Localization.email),
-                isSecure: false,
-                onTapOutSide: (event) => {
-                      FocusScope.of(context).requestFocus(FocusNode()),
-                    }),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: FurnitureTextField(
-                controller: TextEditingController(),
-                hintText: context.tr(Localization.enterPassword),
-                label: context.tr(Localization.password),
-                isSecure: true,
-                onTapOutSide: (event) => {
-                      FocusScope.of(context).requestFocus(FocusNode()),
-                    }),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: FurnitureSearchInput(
-                searchHintText: context.tr(Localization.searchFurniture),
-                onTapOutSide: (event) => {
-                      FocusScope.of(context).requestFocus(FocusNode()),
-                    }),
-          ),
+                    FocusScope.of(context).requestFocus(FocusNode()),
+                  }).paddingAll(20.0),
+          FurnitureTextField(
+              controller: TextEditingController(),
+              hintText: context.tr(Localization.enterPassword),
+              label: context.tr(Localization.password),
+              isSecure: true,
+              onTapOutSide: (event) => {
+                    FocusScope.of(context).requestFocus(FocusNode()),
+                  }).paddingAll(20.0),
+          FurnitureSearchInput(
+              searchHintText: context.tr(Localization.searchFurniture),
+              onTapOutSide: (event) => {
+                    FocusScope.of(context).requestFocus(FocusNode()),
+                  }).paddingAll(20.0),
           FurnitureElevatedButton(
               onTap: () {
                 formKey.currentState!.validate();

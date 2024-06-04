@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
@@ -45,15 +46,12 @@ class _SplashScreenState extends State<SplashScreen>
         FurnitureAssets.images.projectLogo
             // ignore: deprecated_member_use
             .svg(color: FurnitureColors.whiteColor),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 24.h),
-          child: Text(
-            context.tr(Localization.craftyFurniture),
-            textAlign: TextAlign.center,
-            style: switzer32MediumTextStyle.copyWith(
-                color: FurnitureColors.whiteColor),
-          ),
-        )
+        Text(
+          context.tr(Localization.craftyFurniture),
+          textAlign: TextAlign.center,
+          style: switzer32MediumTextStyle.copyWith(
+              color: FurnitureColors.whiteColor),
+        ).paddingSymmetric(vertical: 24.h),
       ],
     );
   }

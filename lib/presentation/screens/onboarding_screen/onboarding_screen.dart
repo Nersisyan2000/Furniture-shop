@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
@@ -19,53 +20,46 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: SafeArea(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            72.verticalSpace,
-            FurnitureCircleAvatar(
-              isRounded: 180.h,
-              image: onboardingData[index].img,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 48.0),
-              child: Text(
-                onboardingData[index].description,
-                style: switzer24MediumTextStyle,
-                textAlign: TextAlign.center,
+      body: SafeArea(
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          72.verticalSpace,
+          FurnitureCircleAvatar(
+            isRounded: 180.h,
+            image: onboardingData[index].img,
+          ),
+          Text(
+            onboardingData[index].description,
+            style: switzer24MediumTextStyle,
+            textAlign: TextAlign.center,
+          ).paddingSymmetric(horizontal: 24.h, vertical: 48.0),
+          FurnitureDots(
+              pageLength: onboardingData.length, currentIndexPage: index),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              FurnitureTextButton(
+                title: context.tr(Localization.skip),
+                onTap: () {}, // Navigator.pushNamed(context, getYouInRoute)
+                color: FurnitureColors.subTextColor,
               ),
-            ),
-            FurnitureDots(
-                pageLength: onboardingData.length, currentIndexPage: index),
-            Expanded(
-                child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FurnitureTextButton(
-                  title: context.tr(Localization.skip),
-                  onTap: () {}, // Navigator.pushNamed(context, getYouInRoute)
-                  color: FurnitureColors.subTextColor,
-                ),
-                FurnitureIconButton(
-                  icon: FurnitureAssets.icons.directionRight3.svg(),
-                  onTap: () {
-                    setState(() {
-                      if (index < onboardingData.length - 1) {
-                        index++;
-                      } else {
-                        return; // Navigator.pushNamed(context, getYouInRoute)
-                      }
-                    });
-                  },
-                )
-              ],
-            ))
-          ],
-        )),
-      ),
+              FurnitureIconButton(
+                icon: FurnitureAssets.icons.directionRight3.svg(),
+                onTap: () {
+                  setState(() {
+                    if (index < onboardingData.length - 1) {
+                      index++;
+                    } else {
+                      return; // Navigator.pushNamed(context, getYouInRoute)
+                    }
+                  });
+                },
+              )
+            ],
+          ).expanded(),
+        ],
+      )).paddingSymmetric(horizontal: 20.0),
     );
   }
 }
