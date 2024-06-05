@@ -79,12 +79,12 @@ class HomeScreen extends StatelessWidget {
                 width: 264.w,
                 height: 130.h,
                 decoration: BoxDecoration(
-                    // image: DecorationImage(
-                    //   image: AssetImage(
-                    //     FurnitureAssets.images.onboardingCircleImg.keyName,
-                    //   ),
-                    // ),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      FurnitureAssets.images.discountImg.keyName,
                     ),
+                  ),
+                ),
                 child: Column(
                   children: [
                     const Text('25% discount'),
