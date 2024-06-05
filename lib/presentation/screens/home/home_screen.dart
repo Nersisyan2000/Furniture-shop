@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/routes/app_router.dart';
@@ -80,11 +79,12 @@ class HomeScreen extends StatelessWidget {
                 width: 264.w,
                 height: 130.h,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image:
-                        AssetImage(FurnitureAssets.images.discountImg.keyName),
-                  ),
-                ),
+                    // image: DecorationImage(
+                    //   image: AssetImage(
+                    //     FurnitureAssets.images.onboardingCircleImg.keyName,
+                    //   ),
+                    // ),
+                    ),
                 child: Column(
                   children: [
                     const Text('25% discount'),

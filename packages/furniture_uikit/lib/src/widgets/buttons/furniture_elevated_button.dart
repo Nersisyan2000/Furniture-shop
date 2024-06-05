@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_uikit/src/theme/furniture_button_styles.dart';
-import 'package:furniture_uikit/src/theme/furniture_text_styles.dart';
 
 class FurnitureElevatedButton extends StatelessWidget {
   const FurnitureElevatedButton({
@@ -8,11 +7,13 @@ class FurnitureElevatedButton extends StatelessWidget {
     required this.title,
     this.onTap,
     this.whiteMode = false,
+    this.textStyle,
   });
 
   final String title;
   final VoidCallback? onTap;
   final bool whiteMode;
+  final TextStyle? textStyle;
 
   factory FurnitureElevatedButton.whiteMode({
     required String title,
@@ -29,7 +30,7 @@ class FurnitureElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onTap,
       style: whiteMode ? furnitureElevatedButtonWhiteMode : null,
-      child: Text(title, style: switzer16SemiboldTextStyle),
+      child: Text(title, style: textStyle),
     );
   }
 }
