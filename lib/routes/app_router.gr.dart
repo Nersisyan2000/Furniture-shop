@@ -33,6 +33,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const FeedPage(),
       );
     },
+    FilterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const FilterScreen(),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -49,6 +55,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ProfileScreen(),
+      );
+    },
+    SearchRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SearchScreen(),
       );
     },
     ShoppingRoute.name: (routeData) {
@@ -109,6 +121,20 @@ class FeedRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [FilterScreen]
+class FilterRoute extends PageRouteInfo<void> {
+  const FilterRoute({List<PageRouteInfo>? children})
+      : super(
+          FilterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FilterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [HomeScreen]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
@@ -146,6 +172,20 @@ class ProfileRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SearchScreen]
+class SearchRoute extends PageRouteInfo<void> {
+  const SearchRoute({List<PageRouteInfo>? children})
+      : super(
+          SearchRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
