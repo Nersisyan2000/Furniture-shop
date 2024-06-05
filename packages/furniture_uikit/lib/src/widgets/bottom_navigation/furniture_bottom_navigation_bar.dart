@@ -5,23 +5,12 @@ import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
 import 'package:furniture_uikit/src/widgets/bottom_navigation/widgets/furniture_bottom_navigation_bar_item.dart';
 
-class FurnitureBottomNavigation extends StatefulWidget {
-  const FurnitureBottomNavigation({super.key});
+class FurnitureBottomNavigation extends StatelessWidget {
+  const FurnitureBottomNavigation(
+      {super.key, required this.currentIndex, required this.setActiveIndex});
 
-  @override
-  State<FurnitureBottomNavigation> createState() =>
-      _FurnitureBottomNavigationState();
-}
-
-class _FurnitureBottomNavigationState
-    extends State<FurnitureBottomNavigation> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  final int currentIndex;
+  final Function(dynamic) setActiveIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -36,58 +25,61 @@ class _FurnitureBottomNavigationState
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           FurnitureBottomNavigationBarItem(
-            color: _selectedIndex == 0
+            color: currentIndex == 0
                 ? FurnitureColors.primaryColor
                 : FurnitureColors.appBarTitleColor,
             itemIcon: FurnitureAssets.icons.home.svg(
-              color: _selectedIndex == 0
+              color: currentIndex == 0
                   ? FurnitureColors.primaryColor
                   : FurnitureColors.appBarTitleColor,
             ),
             title: context.tr(Localization.home),
             onTap: () {
-              _onItemTapped(0);
+              setActiveIndex(0);
             },
           ),
           FurnitureBottomNavigationBarItem(
-              color: _selectedIndex == 1
-                  ? FurnitureColors.primaryColor
-                  : FurnitureColors.appBarTitleColor,
-              itemIcon: FurnitureAssets.icons.heart.svg(
-                  color: _selectedIndex == 1
-                      ? FurnitureColors.primaryColor
-                      : FurnitureColors.appBarTitleColor),
-              title: context.tr(Localization.favourite),
-              onTap: () {
-                _onItemTapped(1);
-              }),
+            color: currentIndex == 1
+                ? FurnitureColors.primaryColor
+                : FurnitureColors.appBarTitleColor,
+            itemIcon: FurnitureAssets.icons.heart.svg(
+                color: currentIndex == 1
+                    ? FurnitureColors.primaryColor
+                    : FurnitureColors.appBarTitleColor),
+            title: context.tr(Localization.favourite),
+            onTap: () {
+              setActiveIndex(1);
+            },
+          ),
           20.horizontalSpace,
           FurnitureBottomNavigationBarItem(
-              color: _selectedIndex == 2
+            color: currentIndex == 2
+                ? FurnitureColors.primaryColor
+                : FurnitureColors.appBarTitleColor,
+            itemIcon: FurnitureAssets.icons.cart.svg(
+              color: currentIndex == 2
                   ? FurnitureColors.primaryColor
                   : FurnitureColors.appBarTitleColor,
-              itemIcon: FurnitureAssets.icons.cart.svg(
-                color: _selectedIndex == 2
-                    ? FurnitureColors.primaryColor
-                    : FurnitureColors.appBarTitleColor,
-              ),
-              title: context.tr(Localization.shopping),
-              onTap: () {
-                _onItemTapped(2);
-              }),
+            ),
+            title: context.tr(Localization.shopping),
+            onTap: () {
+              setActiveIndex(2);
+            },
+          ),
           FurnitureBottomNavigationBarItem(
-              color: _selectedIndex == 3
+            color: currentIndex == 3
+                ? FurnitureColors.primaryColor
+                : FurnitureColors.appBarTitleColor,
+            itemIcon: FurnitureAssets.icons.user.svg(
+              color: currentIndex == 3
                   ? FurnitureColors.primaryColor
                   : FurnitureColors.appBarTitleColor,
-              itemIcon: FurnitureAssets.icons.user.svg(
-                color: _selectedIndex == 3
-                    ? FurnitureColors.primaryColor
-                    : FurnitureColors.appBarTitleColor,
-              ),
-              title: context.tr(Localization.profile),
-              onTap: () {
-                _onItemTapped(3);
-              }),
+            ),
+            title: context.tr(Localization.profile),
+            onTap: () {
+              setActiveIndex(3);
+            },
+          ),
         ],
       ),
     );

@@ -21,6 +21,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ExampleScreen(),
       );
     },
+    FavouriteRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const FavouriteScreen(),
+      );
+    },
+    FeedRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const FeedPage(),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -31,6 +43,18 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const OnboardingScreen(),
+      );
+    },
+    ProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileScreen(),
+      );
+    },
+    ShoppingRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ShoppingScreen(),
       );
     },
     SplashRoute.name: (routeData) {
@@ -52,6 +76,34 @@ class ExampleRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ExampleRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [FavouriteScreen]
+class FavouriteRoute extends PageRouteInfo<void> {
+  const FavouriteRoute({List<PageRouteInfo>? children})
+      : super(
+          FavouriteRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FavouriteRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [FeedPage]
+class FeedRoute extends PageRouteInfo<void> {
+  const FeedRoute({List<PageRouteInfo>? children})
+      : super(
+          FeedRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FeedRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -80,6 +132,34 @@ class OnboardingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'OnboardingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProfileScreen]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ShoppingScreen]
+class ShoppingRoute extends PageRouteInfo<void> {
+  const ShoppingRoute({List<PageRouteInfo>? children})
+      : super(
+          ShoppingRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ShoppingRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
