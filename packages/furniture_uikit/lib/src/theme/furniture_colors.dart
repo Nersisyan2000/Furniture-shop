@@ -11,5 +11,5 @@ abstract class FurnitureColors {
   static const unratedColor = Color.fromARGB(255, 230, 230, 234);
   static const transparent = Colors.transparent;
   static const appBarTitleColor = Color(0xFF828A89);
-  static const dotsInactiveColor = Color(0xFF98B7B3);
+  static const dotsInactiveColor = Color(0xFFD1E5E2);
 }
