@@ -14,7 +14,7 @@ EdgeInsets get paddingV8 => const EdgeInsets.symmetric(vertical: 8.0);
 EdgeInsets get paddingH16 => const EdgeInsets.symmetric(horizontal: 16.0);
 
 EdgeInsets get paddingAll16 => const EdgeInsets.all(16.0);
--
+
 EdgeInsets get paddingBottm8 => const EdgeInsets.only(bottom: 8.0);
 
 EdgeInsets get paddingAll7 => const EdgeInsets.all(7.0);
