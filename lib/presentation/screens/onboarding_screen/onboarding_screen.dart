@@ -3,8 +3,9 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
-import 'package:furniture_shop/data/local/onboarding_data/onboarding_data.dart';
+import 'package:furniture_shop/presentation/screens/onboarding_screen/onboarding_screen_provider.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class OnboardingScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final onBoardingData = context.watch<OnBoardingProvider>().onBoardData;
     return Scaffold(
       body: SafeArea(
           child: Column(
@@ -27,15 +29,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           72.verticalSpace,
           FurnitureCircleAvatar(
             isRounded: 180.h,
-            image: onboardingData[index].img,
+            image: onBoardingData[index].img,
           ),
           Text(
-            onboardingData[index].description,
+            onBoardingData[index].description,
             style: switzer24MediumTextStyle,
             textAlign: TextAlign.center,
           ).paddingSymmetric(horizontal: 24.h, vertical: 48.0),
           FurnitureDots(
-              pageLength: onboardingData.length, currentIndexPage: index),
+              pageLength: onBoardingData.length, currentIndexPage: index),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -48,7 +50,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 icon: FurnitureAssets.icons.directionRight3.svg(),
                 onTap: () {
                   setState(() {
-                    if (index < onboardingData.length - 1) {
+                    if (index < onBoardingData.length - 1) {
                       index++;
                     } else {
                       return; // Navigator.pushNamed(context, getYouInRoute)
