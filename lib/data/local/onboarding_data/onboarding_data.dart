@@ -1,4 +1,4 @@
-import 'package:furniture_shop/domain/models/onboarding_models.dart';
+import 'package:furniture_shop/domain/models/onboarding/onboarding_models.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 List<OnboardModel> onboardingData = [
