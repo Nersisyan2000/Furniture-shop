@@ -65,6 +65,8 @@ class _OtherElementsState extends State<OtherElements> {
         20.verticalSpace,
         const ChipElement(),
         20.verticalSpace,
+        const FurnitureCachedNetworkImage(),
+        20.verticalSpace,
       ],
     );
   }
