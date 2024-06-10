@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:furniture_uikit/furniture_uikit.dart';
 
 class FurnitureCachedNetworkImage extends StatelessWidget {
   const FurnitureCachedNetworkImage(
@@ -15,8 +15,8 @@ class FurnitureCachedNetworkImage extends StatelessWidget {
       imageUrl: imageUrl ??
           "https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png",
       imageBuilder: (context, imageProvider) => Container(
-        width: width ?? 48.0,
-        height: height ?? 48.0,
+        width: width ?? 48.w,
+        height: height ?? 48.h,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: imageProvider,

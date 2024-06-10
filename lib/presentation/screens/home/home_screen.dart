@@ -17,10 +17,7 @@ class HomeScreen extends StatelessWidget {
       children: [
         Row(
           children: [
-            FurnitureCircleAvatar(
-              image: FurnitureAssets.images.logedUser.keyName,
-              isRounded: 32.w,
-            ),
+            const FurnitureCachedNetworkImage(),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
