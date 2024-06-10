@@ -16,9 +16,11 @@ export 'src/widgets/reviews_progress/reviews_progress.dart';
 export 'src/widgets/chip_element/chip_element.dart';
 export 'src/widgets/bottom_navigation/furniture_bottom_navigation_bar.dart';
 export 'src/widgets/dots/furniture_dots.dart';
+export 'src/widgets/cached_network_image/furniture_cached_network_image.dart';
 
 export 'src/assets/assets.gen.dart';
 export 'src/assets/fonts.gen.dart';
+
 export 'src/theme/furniture_main_theme.dart';
 export 'src/theme/furniture_colors.dart';
 export 'src/theme/furniture_text_styles.dart';
@@ -27,3 +29,4 @@ export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:badges/badges.dart';
 export 'package:percent_indicator/percent_indicator.dart';
 export 'package:dots_indicator/dots_indicator.dart';
+export 'package:cached_network_image/cached_network_image.dart';
