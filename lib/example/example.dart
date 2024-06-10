@@ -2,7 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
-import 'package:furniture_shop/example/bottom_tab_bar.dart';
+// import 'package:furniture_shop/example/bottom_tab_bar.dart';
 import 'package:furniture_shop/example/buttons.dart';
 import 'package:furniture_shop/example/other_elements.dart';
 import 'package:furniture_shop/example/text_fields.dart';
@@ -57,7 +57,7 @@ class ExampleScreen extends StatelessWidget {
           ],
         ),
       )),
-      bottomNavigationBar: const BottomTabBarExample(),
+      // bottomNavigationBar: const FurnitureBottomNavigation(currentIndex: 0),
     );
   }
 }

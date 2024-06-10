@@ -10,10 +10,14 @@ class FurnitureSearchInput extends StatelessWidget {
     super.key,
     required this.searchHintText,
     this.onTapOutSide,
+    this.onNavigateSearch,
+    this.onNavigateFilter,
   });
 
   final String searchHintText;
   final Function(PointerDownEvent)? onTapOutSide;
+  final VoidCallback? onNavigateFilter;
+  final VoidCallback? onNavigateSearch;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +26,19 @@ class FurnitureSearchInput extends StatelessWidget {
       decoration: searchInputDecoration.copyWith(
         hintText: searchHintText,
         prefixIconConstraints: boxConstraintsH24,
-        prefixIcon: Padding(
-          padding: paddingH16,
-          child: FurnitureAssets.icons.searchIcon.svg(),
+        prefixIcon: InkWell(
+          onTap: onNavigateSearch,
+          child: Padding(
+            padding: paddingH16,
+            child: FurnitureAssets.icons.searchIcon.svg(),
+          ),
         ),
-        suffixIcon: Padding(
-          padding: paddingH16,
-          child: FurnitureAssets.icons.filterIcon.svg(),
+        suffixIcon: InkWell(
+          onTap: onNavigateFilter,
+          child: Padding(
+            padding: paddingH16,
+            child: FurnitureAssets.icons.filterIcon.svg(),
+          ),
         ),
         suffixIconConstraints: boxConstraintsH24,
       ),
