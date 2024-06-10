@@ -1,10 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/data/local/onboarding_data/onboarding_data.dart';
-import 'package:furniture_shop/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 @RoutePage()
@@ -32,23 +31,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               isRounded: 180.h,
               image: onboardingData[index].img,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 48.0),
-              child: Text(
-                onboardingData[index].description,
-                style: switzer24MediumTextStyle,
-                textAlign: TextAlign.center,
-              ),
-            ),
+            Text(
+              onboardingData[index].description,
+              style: switzer24MediumTextStyle,
+              textAlign: TextAlign.center,
+            ).paddingSymmetric(horizontal: 24.h, vertical: 48.0),
             FurnitureDots(
                 pageLength: onboardingData.length, currentIndexPage: index),
-            Expanded(
-                child: Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 FurnitureTextButton(
                   title: context.tr(Localization.skip),
-                  onTap: () => context.router.push(const FeedRoute()),
+                  onTap: () => context.router.pushNamed('/homeScreen'),
                   color: FurnitureColors.subTextColor,
                 ),
                 FurnitureIconButton(
@@ -58,13 +53,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       if (index < onboardingData.length - 1) {
                         index++;
                       } else {
-                        context.router.push(const FeedRoute());
+                        context.router.pushNamed('/homeScreen');
                       }
                     });
                   },
                 )
               ],
-            ))
+            ).expanded()
           ],
         )),
       ),
