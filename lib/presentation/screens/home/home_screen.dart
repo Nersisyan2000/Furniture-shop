@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
     return FurnitureSearchInput(
       searchHintText: context.tr(Localization.searchFurniture),
       onTapOutSide: (event) => {
-        FocusManager.instance.primaryFocus?.unfocus(),
+        FocusScope.of(context).unfocus(),
       },
       onNavigateSearch: () {
         context.router.push(const SearchRoute());
@@ -76,18 +76,15 @@ class HomeScreen extends StatelessWidget {
                 style: switzer16SemiboldTextStyle,
               ),
               Container(
-                width: 234.w,
+                width: 264.w,
                 height: 130.h,
-                alignment: AlignmentDirectional.centerStart,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                      FurnitureAssets.images.discountImg.keyName,
-                    ),
+                    image:
+                        AssetImage(FurnitureAssets.images.discountImg.keyName),
                   ),
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text('25% discount'),
                     const Text('For a cozy yellow set!'),
