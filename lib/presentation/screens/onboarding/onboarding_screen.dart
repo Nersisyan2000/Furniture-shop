@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen_provider.dart';
+import 'package:furniture_shop/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:provider/provider.dart';
 
@@ -43,7 +44,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               FurnitureTextButton(
                 title: context.tr(Localization.skip),
-                onTap: () => context.router.pushNamed('/homeScreen'),
+                onTap: () => context.router.push(const FeedRoute()),
                 color: FurnitureColors.subTextColor,
               ),
               FurnitureIconButton(
@@ -53,7 +54,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     if (index < onBoardingData.length - 1) {
                       index++;
                     } else {
-                      context.router.pushNamed('/homeScreen');
+                      context.router.push(const FeedRoute());
                     }
                   });
                 },
