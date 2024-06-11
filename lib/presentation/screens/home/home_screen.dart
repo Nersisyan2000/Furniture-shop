@@ -3,7 +3,8 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
-import 'package:furniture_shop/presentation/screens/home/widgets/carousel.dart';
+import 'package:furniture_shop/presentation/screens/home/widgets/carousel/carousel.dart';
+import 'package:furniture_shop/presentation/screens/home/widgets/products/products.dart';
 import 'package:furniture_shop/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
@@ -67,6 +68,7 @@ class HomeScreen extends StatelessWidget {
           _userInfo(context),
           _searchField(context),
           const Carousel(),
+          const Products(),
         ],
       ).paddingOnly(top: 20.h),
     ).paddingSymmetric(horizontal: 20.w));

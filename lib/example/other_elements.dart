@@ -70,7 +70,7 @@ class _OtherElementsState extends State<OtherElements> {
           ],
         ),
         20.verticalSpace,
-        const ChipElement(),
+        const FurnitureChipElement(title: 'hello'),
         20.verticalSpace,
       ],
     );

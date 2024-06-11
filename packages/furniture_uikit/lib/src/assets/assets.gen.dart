@@ -8,8 +8,9 @@
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class $AssetsFontsGen {
   const $AssetsFontsGen();
@@ -62,14 +63,23 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/arm_chair_icon.svg
+  SvgGenImage get armChairIcon => const SvgGenImage('assets/icons/arm_chair_icon.svg');
+
   /// File path: assets/icons/arrow_back.svg
   SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow_back.svg');
+
+  /// File path: assets/icons/bed_icon.svg
+  SvgGenImage get bedIcon => const SvgGenImage('assets/icons/bed_icon.svg');
 
   /// File path: assets/icons/call.svg
   SvgGenImage get call => const SvgGenImage('assets/icons/call.svg');
 
   /// File path: assets/icons/cart.svg
   SvgGenImage get cart => const SvgGenImage('assets/icons/cart.svg');
+
+  /// File path: assets/icons/chair_icon.svg
+  SvgGenImage get chairIcon => const SvgGenImage('assets/icons/chair_icon.svg');
 
   /// File path: assets/icons/direction_right 3.svg
   SvgGenImage get directionRight3 => const SvgGenImage('assets/icons/direction_right 3.svg');
@@ -95,6 +105,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/home.svg
   SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
 
+  /// File path: assets/icons/light_icon.svg
+  SvgGenImage get lightIcon => const SvgGenImage('assets/icons/light_icon.svg');
+
   /// File path: assets/icons/minusIcon.svg
   SvgGenImage get minusIcon => const SvgGenImage('assets/icons/minusIcon.svg');
 
@@ -119,9 +132,12 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        armChairIcon,
         arrowBack,
+        bedIcon,
         call,
         cart,
+        chairIcon,
         directionRight3,
         eyeScanner,
         filterIcon,
@@ -130,6 +146,7 @@ class $AssetsIconsGen {
         heart,
         hearthIcon,
         home,
+        lightIcon,
         minusIcon,
         notification,
         notificationBellIcon,
@@ -191,11 +208,13 @@ class FurnitureAssets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName);
+  const AssetGenImage(this._assetName, {this.size = null});
 
   final String _assetName;
 
   static const String package = 'furniture_uikit';
+
+  final Size? size;
 
   Image image({
     Key? key,
@@ -267,11 +286,22 @@ class AssetGenImage {
 }
 
 class SvgGenImage {
-  const SvgGenImage(this._assetName);
+  const SvgGenImage(
+    this._assetName, {
+    this.size = null,
+  }) : _isVecFormat = false;
+
+  const SvgGenImage.vec(
+    this._assetName, {
+    this.size = null,
+  }) : _isVecFormat = true;
 
   final String _assetName;
 
   static const String package = 'furniture_uikit';
+
+  final Size? size;
+  final bool _isVecFormat;
 
   SvgPicture svg({
     Key? key,
@@ -286,19 +316,19 @@ class SvgGenImage {
     WidgetBuilder? placeholderBuilder,
     String? semanticsLabel,
     bool excludeFromSemantics = false,
-    SvgTheme theme = const SvgTheme(),
+    SvgTheme? theme,
     ColorFilter? colorFilter,
     Clip clipBehavior = Clip.hardEdge,
     @deprecated Color? color,
     @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
     @deprecated bool cacheColorFilter = false,
   }) {
-    return SvgPicture.asset(
-      _assetName,
+    return SvgPicture(
+      _isVecFormat
+          ? AssetBytesLoader(_assetName, assetBundle: bundle, packageName: package)
+          : SvgAssetLoader(_assetName, assetBundle: bundle, packageName: package),
       key: key,
       matchTextDirection: matchTextDirection,
-      bundle: bundle,
-      package: package,
       width: width,
       height: height,
       fit: fit,
@@ -308,9 +338,7 @@ class SvgGenImage {
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
       theme: theme,
-      colorFilter: colorFilter,
-      color: color,
-      colorBlendMode: colorBlendMode,
+      colorFilter: colorFilter ?? (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
     );
