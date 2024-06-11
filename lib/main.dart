@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_shop/presentation/screens/home/home_screen_provider.dart';
 import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen_provider.dart';
 import 'package:furniture_shop/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => OnBoardingProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => HomeProvider(),
         ),
       ],
       child: ScreenUtilInit(
