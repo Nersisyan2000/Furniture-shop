@@ -11,6 +11,7 @@ class FurnitureIconButton extends StatelessWidget {
     this.mode,
     this.width,
     this.height,
+    this.padding,
   });
 
   final VoidCallback? onTap;
@@ -19,6 +20,7 @@ class FurnitureIconButton extends StatelessWidget {
   final bool? mode;
   final double? width;
   final double? height;
+  final EdgeInsets? padding;
 
   factory FurnitureIconButton.whiteMode({
     required Widget icon,
@@ -26,6 +28,7 @@ class FurnitureIconButton extends StatelessWidget {
     double? width,
     double? height,
     bool? mode,
+    EdgeInsets? padding,
     // bool? desable,
   }) {
     return FurnitureIconButton(
@@ -56,7 +59,7 @@ class FurnitureIconButton extends StatelessWidget {
       onPressed: onTap,
       icon: icon,
       style: whiteMode ? furnitureIconButtonWhiteMode : null,
-      padding: paddingAll16,
+      padding: padding ?? paddingAll16,
     );
   }
 }

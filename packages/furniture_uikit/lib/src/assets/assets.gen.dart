@@ -69,6 +69,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/arrow_back.svg
   SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow_back.svg');
 
+  /// File path: assets/icons/basket.svg
+  SvgGenImage get basket => const SvgGenImage('assets/icons/basket.svg');
+
   /// File path: assets/icons/bed_icon.svg
   SvgGenImage get bedIcon => const SvgGenImage('assets/icons/bed_icon.svg');
 
@@ -134,6 +137,7 @@ class $AssetsIconsGen {
   List<SvgGenImage> get values => [
         armChairIcon,
         arrowBack,
+        basket,
         bedIcon,
         call,
         cart,
@@ -159,6 +163,9 @@ class $AssetsIconsGen {
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/armchair_img.png
+  AssetGenImage get armchairImg => const AssetGenImage('assets/images/armchair_img.png');
 
   /// File path: assets/images/discount_img.png
   AssetGenImage get discountImg => const AssetGenImage('assets/images/discount_img.png');
@@ -187,6 +194,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        armchairImg,
         discountImg,
         logedUser,
         onboardingCircleImg,

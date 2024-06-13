@@ -32,6 +32,8 @@ EdgeInsets get paddingH8 => const EdgeInsets.symmetric(horizontal: 8.0);
 
 EdgeInsets get paddingH20 => const EdgeInsets.symmetric(horizontal: 20);
 
+EdgeInsets get paddingZero => EdgeInsets.zero;
+
 // Radiuses -------------------------------------------------------
 
 RoundedRectangleBorder get radius14 => RoundedRectangleBorder(

@@ -12,4 +12,5 @@ abstract class FurnitureColors {
   static const transparent = Colors.transparent;
   static const appBarTitleColor = Color(0xFF828A89);
   static const dotsInactiveColor = Color(0xFFD1E5E2);
+  static const priceColor = Color(0xFFF2A666);
 }
