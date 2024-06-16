@@ -69,7 +69,7 @@ class HomeScreen extends StatelessWidget {
           _userInfo(context),
           _searchField(context),
           const Carousel(),
-          const Products(),
+          const ProductsTemplates(),
           const MostInterestedList(),
         ],
       ).paddingOnly(top: 20.h),

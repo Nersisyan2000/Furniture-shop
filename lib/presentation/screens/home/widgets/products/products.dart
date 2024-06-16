@@ -4,22 +4,23 @@ import 'package:furniture_shop/presentation/screens/home/home_screen_provider.da
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:provider/provider.dart';
 
-class Products extends StatelessWidget {
-  const Products({super.key});
+class ProductsTemplates extends StatelessWidget {
+  const ProductsTemplates({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final productData = context.watch<HomeProvider>().productData;
+    final productTemplatesData =
+        context.watch<HomeProvider>().productsTemplatesData;
     return SizedBox(
       height: 32.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: productData.length,
+        itemCount: productTemplatesData.length,
         itemBuilder: (context, index) {
           return FurnitureChipElement(
-            title: productData[index].productName,
-            prefixIcon: productData[index].productPrefixIcon,
+            title: productTemplatesData[index].productName,
+            prefixIcon: productTemplatesData[index].productPrefixIcon,
           ).paddingOnly(right: 12.w);
         },
       ),

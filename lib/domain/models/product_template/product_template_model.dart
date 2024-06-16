@@ -1,7 +1,7 @@
 import 'package:furniture_uikit/furniture_uikit.dart';
 
-class ProductModel {
-  ProductModel({
+class ProductTemplatesModel {
+  ProductTemplatesModel({
     required this.productPrefixIcon,
     required this.productName,
     this.suffixIcon,
