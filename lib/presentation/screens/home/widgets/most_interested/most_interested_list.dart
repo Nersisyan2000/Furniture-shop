@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
+import 'package:furniture_shop/presentation/screens/home/home_screen_provider.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
+import 'package:provider/provider.dart';
 
 class MostInterestedList extends StatelessWidget {
   const MostInterestedList({super.key});
 
-  Widget _mostInterestedItem() {
+  Widget _mostInterestedItem(productItem) {
     return Card(
       // color: Colors.blueAccent,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image.asset(FurnitureAssets.images.armchairImg.keyName),
-          _mostInterestedItemFooterPart(),
+          _mostInterestedItemFooterPart(productItem),
         ],
       ).paddingAll(16.w),
     );
   }
 
-  Widget _mostInterestedItemFooterPart() {
+  Widget _mostInterestedItemFooterPart(productItem) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _mostInterestedItemInfo(),
+        _mostInterestedItemInfo(productItem),
         FurnitureIconButton(
           icon: FurnitureAssets.icons.basket.svg(),
           padding: paddingZero,
@@ -32,12 +34,13 @@ class MostInterestedList extends StatelessWidget {
     );
   }
 
-  Widget _mostInterestedItemInfo() {
+  Widget _mostInterestedItemInfo(productItem) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Ox Mathis Chair',
+          productItem.productName,
+          softWrap: false,
           style: switzer16SemiboldTextStyle,
         ),
         Text(
@@ -56,6 +59,7 @@ class MostInterestedList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final productData = context.watch<HomeProvider>().productsData;
     return SizedBox(
       height: 264.h, // Height of the container that holds the horizontal list
       child: ListView.builder(
@@ -64,7 +68,8 @@ class MostInterestedList extends StatelessWidget {
         itemBuilder: (context, index) {
           return SizedBox(
             width: 232.w, // Width of each card
-            child: _mostInterestedItem().paddingOnly(right: 8.w),
+            child:
+                _mostInterestedItem(productData[index]).paddingOnly(right: 8.w),
           );
         },
       ),
