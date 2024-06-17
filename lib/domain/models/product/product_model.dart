@@ -7,8 +7,9 @@ part 'product_model.g.dart';
 class ProductModel with _$ProductModel {
   factory ProductModel({
     String? productName,
+    String? companyName,
     int? productSeenCount,
-    dynamic productImg,
+    String? productImg,
     int? productLiked,
     double? productPrice,
     String? productDescription,

@@ -1,11 +1,12 @@
 import 'package:furniture_shop/domain/models/product/product_model.dart';
-import 'package:furniture_uikit/furniture_uikit.dart';
 
 List<ProductModel> productData = [
   ProductModel(
     productName: 'Ox Mathis Chair',
+    companyName: 'Hans j. wegner',
     productSeenCount: 341,
-    productImg: FurnitureAssets.images.armchairImg.keyName,
+    productImg:
+        'https://static.vecteezy.com/system/resources/previews/026/552/664/original/armchair-art-deco-style-in-yellow-isolated-on-transparent-background-front-view-series-of-furniture-ai-generated-png.png',
     productLiked: 294,
     productPrice: 90.99,
     productDescription:
@@ -13,8 +14,10 @@ List<ProductModel> productData = [
   ),
   ProductModel(
     productName: 'Ox Mathis Furniture Modern Style',
+    companyName: 'Hans j. wegner',
     productSeenCount: 205,
-    productImg: FurnitureAssets.images.armchairImg.keyName,
+    productImg:
+        'https://r2.erweima.ai/midjourney/1712302125_be440a89a6fb431091071da8c1a6a159.png',
     productLiked: 155,
     productPrice: 76.43,
     productDescription:
@@ -22,8 +25,10 @@ List<ProductModel> productData = [
   ),
   ProductModel(
     productName: 'Rotating Lounge Chair',
+    companyName: 'Hans j. wegner',
     productSeenCount: 288,
-    productImg: FurnitureAssets.images.armchairImg.keyName,
+    productImg:
+        'https://static.vecteezy.com/system/resources/previews/011/794/197/non_2x/brown-leather-armchair-soft-cushion-with-metal-leg-3d-rendering-modern-interior-design-for-living-room-free-png.png',
     productLiked: 215,
     productPrice: 39.00,
     productDescription:
@@ -31,8 +36,10 @@ List<ProductModel> productData = [
   ),
   ProductModel(
     productName: 'Trapeziam Arm Chair',
+    companyName: 'Hans j. wegner',
     productSeenCount: 401,
-    productImg: FurnitureAssets.images.armchairImg.keyName,
+    productImg:
+        'https://r2.erweima.ai/midjourney/1712302125_be440a89a6fb431091071da8c1a6a159.png',
     productLiked: 273,
     productPrice: 36.00,
     productDescription:
@@ -40,8 +47,10 @@ List<ProductModel> productData = [
   ),
   ProductModel(
     productName: 'Corada D3 Lounge Chair',
+    companyName: 'Hans j. wegner',
     productSeenCount: 324,
-    productImg: FurnitureAssets.images.armchairImg.keyName,
+    productImg:
+        'https://i.pinimg.com/originals/4d/76/4c/4d764cb0c947632623f9026210f4f2f6.png',
     productLiked: 214,
     productPrice: 45.21,
     productDescription:
@@ -49,8 +58,10 @@ List<ProductModel> productData = [
   ),
   ProductModel(
     productName: 'Pearl Beading Fur Textured ',
+    companyName: 'Hans j. wegner',
     productSeenCount: 127,
-    productImg: FurnitureAssets.images.armchairImg.keyName,
+    productImg:
+        'https://static.vecteezy.com/system/resources/previews/026/552/664/original/armchair-art-deco-style-in-yellow-isolated-on-transparent-background-front-view-series-of-furniture-ai-generated-png.png',
     productLiked: 101,
     productPrice: 29.68,
     productDescription:

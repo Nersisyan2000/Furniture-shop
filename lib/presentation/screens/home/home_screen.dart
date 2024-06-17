@@ -63,16 +63,18 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          _userInfo(context),
-          _searchField(context),
-          const Carousel(),
-          const ProductsTemplates(),
-          const MostInterestedList(),
-        ],
-      ).paddingOnly(top: 20.h),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            _userInfo(context),
+            _searchField(context),
+            const Carousel(),
+            const ProductsTemplates(),
+            const MostInterestedList(),
+          ],
+        ).paddingOnly(top: 20.h),
+      ),
     ).paddingSymmetric(horizontal: 20.w));
   }
 }

@@ -21,8 +21,9 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ProductModel {
   String? get productName => throw _privateConstructorUsedError;
+  String? get companyName => throw _privateConstructorUsedError;
   int? get productSeenCount => throw _privateConstructorUsedError;
-  dynamic get productImg => throw _privateConstructorUsedError;
+  String? get productImg => throw _privateConstructorUsedError;
   int? get productLiked => throw _privateConstructorUsedError;
   double? get productPrice => throw _privateConstructorUsedError;
   String? get productDescription => throw _privateConstructorUsedError;
@@ -41,8 +42,9 @@ abstract class $ProductModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String? productName,
+      String? companyName,
       int? productSeenCount,
-      dynamic productImg,
+      String? productImg,
       int? productLiked,
       double? productPrice,
       String? productDescription});
@@ -62,6 +64,7 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
   @override
   $Res call({
     Object? productName = freezed,
+    Object? companyName = freezed,
     Object? productSeenCount = freezed,
     Object? productImg = freezed,
     Object? productLiked = freezed,
@@ -73,6 +76,10 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
           ? _value.productName
           : productName // ignore: cast_nullable_to_non_nullable
               as String?,
+      companyName: freezed == companyName
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String?,
       productSeenCount: freezed == productSeenCount
           ? _value.productSeenCount
           : productSeenCount // ignore: cast_nullable_to_non_nullable
@@ -80,7 +87,7 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
       productImg: freezed == productImg
           ? _value.productImg
           : productImg // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       productLiked: freezed == productLiked
           ? _value.productLiked
           : productLiked // ignore: cast_nullable_to_non_nullable
@@ -107,8 +114,9 @@ abstract class _$$ProductModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? productName,
+      String? companyName,
       int? productSeenCount,
-      dynamic productImg,
+      String? productImg,
       int? productLiked,
       double? productPrice,
       String? productDescription});
@@ -126,6 +134,7 @@ class __$$ProductModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? productName = freezed,
+    Object? companyName = freezed,
     Object? productSeenCount = freezed,
     Object? productImg = freezed,
     Object? productLiked = freezed,
@@ -137,6 +146,10 @@ class __$$ProductModelImplCopyWithImpl<$Res>
           ? _value.productName
           : productName // ignore: cast_nullable_to_non_nullable
               as String?,
+      companyName: freezed == companyName
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String?,
       productSeenCount: freezed == productSeenCount
           ? _value.productSeenCount
           : productSeenCount // ignore: cast_nullable_to_non_nullable
@@ -144,7 +157,7 @@ class __$$ProductModelImplCopyWithImpl<$Res>
       productImg: freezed == productImg
           ? _value.productImg
           : productImg // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       productLiked: freezed == productLiked
           ? _value.productLiked
           : productLiked // ignore: cast_nullable_to_non_nullable
@@ -166,6 +179,7 @@ class __$$ProductModelImplCopyWithImpl<$Res>
 class _$ProductModelImpl implements _ProductModel {
   _$ProductModelImpl(
       {this.productName,
+      this.companyName,
       this.productSeenCount,
       this.productImg,
       this.productLiked,
@@ -178,9 +192,11 @@ class _$ProductModelImpl implements _ProductModel {
   @override
   final String? productName;
   @override
+  final String? companyName;
+  @override
   final int? productSeenCount;
   @override
-  final dynamic productImg;
+  final String? productImg;
   @override
   final int? productLiked;
   @override
@@ -190,7 +206,7 @@ class _$ProductModelImpl implements _ProductModel {
 
   @override
   String toString() {
-    return 'ProductModel(productName: $productName, productSeenCount: $productSeenCount, productImg: $productImg, productLiked: $productLiked, productPrice: $productPrice, productDescription: $productDescription)';
+    return 'ProductModel(productName: $productName, companyName: $companyName, productSeenCount: $productSeenCount, productImg: $productImg, productLiked: $productLiked, productPrice: $productPrice, productDescription: $productDescription)';
   }
 
   @override
@@ -200,10 +216,12 @@ class _$ProductModelImpl implements _ProductModel {
             other is _$ProductModelImpl &&
             (identical(other.productName, productName) ||
                 other.productName == productName) &&
+            (identical(other.companyName, companyName) ||
+                other.companyName == companyName) &&
             (identical(other.productSeenCount, productSeenCount) ||
                 other.productSeenCount == productSeenCount) &&
-            const DeepCollectionEquality()
-                .equals(other.productImg, productImg) &&
+            (identical(other.productImg, productImg) ||
+                other.productImg == productImg) &&
             (identical(other.productLiked, productLiked) ||
                 other.productLiked == productLiked) &&
             (identical(other.productPrice, productPrice) ||
@@ -217,8 +235,9 @@ class _$ProductModelImpl implements _ProductModel {
   int get hashCode => Object.hash(
       runtimeType,
       productName,
+      companyName,
       productSeenCount,
-      const DeepCollectionEquality().hash(productImg),
+      productImg,
       productLiked,
       productPrice,
       productDescription);
@@ -240,8 +259,9 @@ class _$ProductModelImpl implements _ProductModel {
 abstract class _ProductModel implements ProductModel {
   factory _ProductModel(
       {final String? productName,
+      final String? companyName,
       final int? productSeenCount,
-      final dynamic productImg,
+      final String? productImg,
       final int? productLiked,
       final double? productPrice,
       final String? productDescription}) = _$ProductModelImpl;
@@ -252,9 +272,11 @@ abstract class _ProductModel implements ProductModel {
   @override
   String? get productName;
   @override
+  String? get companyName;
+  @override
   int? get productSeenCount;
   @override
-  dynamic get productImg;
+  String? get productImg;
   @override
   int? get productLiked;
   @override

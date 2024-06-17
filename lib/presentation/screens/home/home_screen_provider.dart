@@ -12,6 +12,7 @@ class HomeProvider extends ChangeNotifier {
   final List<ProductTemplatesModel> _productTemplatesData =
       productTemplatesData;
   final List<ProductModel> _productsData = productData;
+  List<ProductModel> _mostInterestedData = [];
 
   UnmodifiableListView<DiscountModel> get discountsData =>
       UnmodifiableListView(_discountData);
@@ -21,4 +22,12 @@ class HomeProvider extends ChangeNotifier {
 
   UnmodifiableListView<ProductModel> get productsData =>
       UnmodifiableListView(_productsData);
+
+  UnmodifiableListView<ProductModel> get mostInterestedData =>
+      UnmodifiableListView(_mostInterestedData);
+
+  void getMostInterested() {
+    _mostInterestedData =
+        _productsData.where((value) => value.productSeenCount! > 300).toList();
+  }
 }

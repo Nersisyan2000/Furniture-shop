@@ -9,8 +9,9 @@ part of 'product_model.dart';
 _$ProductModelImpl _$$ProductModelImplFromJson(Map<String, dynamic> json) =>
     _$ProductModelImpl(
       productName: json['productName'] as String?,
+      companyName: json['companyName'] as String?,
       productSeenCount: (json['productSeenCount'] as num?)?.toInt(),
-      productImg: json['productImg'],
+      productImg: json['productImg'] as String?,
       productLiked: (json['productLiked'] as num?)?.toInt(),
       productPrice: (json['productPrice'] as num?)?.toDouble(),
       productDescription: json['productDescription'] as String?,
@@ -19,6 +20,7 @@ _$ProductModelImpl _$$ProductModelImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$ProductModelImplToJson(_$ProductModelImpl instance) =>
     <String, dynamic>{
       'productName': instance.productName,
+      'companyName': instance.companyName,
       'productSeenCount': instance.productSeenCount,
       'productImg': instance.productImg,
       'productLiked': instance.productLiked,

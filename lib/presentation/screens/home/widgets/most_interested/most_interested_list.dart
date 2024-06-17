@@ -4,16 +4,25 @@ import 'package:furniture_shop/presentation/screens/home/home_screen_provider.da
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:provider/provider.dart';
 
-class MostInterestedList extends StatelessWidget {
+class MostInterestedList extends StatefulWidget {
   const MostInterestedList({super.key});
 
+  @override
+  State<MostInterestedList> createState() => _MostInterestedListState();
+}
+
+class _MostInterestedListState extends State<MostInterestedList> {
   Widget _mostInterestedItem(productItem) {
     return Card(
       // color: Colors.blueAccent,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(FurnitureAssets.images.armchairImg.keyName),
+          FurnitureCachedNetworkImage(
+            imageUrl: productItem.productImg,
+            width: 110.w,
+            height: 120.h,
+          ).expanded(),
           _mostInterestedItemFooterPart(productItem),
         ],
       ).paddingAll(16.w),
@@ -38,18 +47,22 @@ class MostInterestedList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          productItem.productName,
-          softWrap: false,
-          style: switzer16SemiboldTextStyle,
+        SizedBox(
+          width: 130.w,
+          child: Text(
+            productItem.productName,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: switzer16SemiboldTextStyle,
+          ),
         ),
         Text(
-          'Hans j. wegner',
+          productItem.companyName,
           style: switzer13RegularTextStyle.copyWith(
               color: FurnitureColors.subTextColor),
         ),
         Text(
-          '\$9.99',
+          '\$${productItem.productPrice}',
           style: switzer16MediumTextStyle.copyWith(
               color: FurnitureColors.priceColor),
         ).paddingOnly(top: 12.h),
@@ -58,13 +71,19 @@ class MostInterestedList extends StatelessWidget {
   }
 
   @override
+  void initState() {
+    context.read<HomeProvider>().getMostInterested();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final productData = context.watch<HomeProvider>().productsData;
+    final productData = context.watch<HomeProvider>().mostInterestedData;
     return SizedBox(
       height: 264.h, // Height of the container that holds the horizontal list
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 5, // Number of items in the list
+        itemCount: productData.length, // Number of items in the list
         itemBuilder: (context, index) {
           return SizedBox(
             width: 232.w, // Width of each card
