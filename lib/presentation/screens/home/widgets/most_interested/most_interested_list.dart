@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
+import 'package:furniture_localization/furniture_localization.dart';
+import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/presentation/screens/home/home_screen_provider.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:provider/provider.dart';
@@ -79,19 +81,43 @@ class _MostInterestedListState extends State<MostInterestedList> {
   @override
   Widget build(BuildContext context) {
     final productData = context.watch<HomeProvider>().mostInterestedData;
-    return SizedBox(
-      height: 264.h, // Height of the container that holds the horizontal list
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: productData.length, // Number of items in the list
-        itemBuilder: (context, index) {
-          return SizedBox(
-            width: 232.w, // Width of each card
-            child:
-                _mostInterestedItem(productData[index]).paddingOnly(right: 8.w),
-          );
-        },
-      ),
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              context.tr(
+                Localization.mostInterested,
+              ),
+              style: switzer16SemiboldTextStyle,
+            ),
+            Text(
+              context.tr(
+                Localization.viewAll,
+              ),
+              style: switzer13RegularTextStyle.copyWith(
+                color: FurnitureColors.priceColor,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height:
+              264.h, // Height of the container that holds the horizontal list
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: productData.length, // Number of items in the list
+            itemBuilder: (context, index) {
+              return SizedBox(
+                width: 232.w, // Width of each card
+                child: _mostInterestedItem(productData[index])
+                    .paddingOnly(right: 8.w),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
