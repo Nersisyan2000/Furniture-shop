@@ -18,7 +18,7 @@ class FurnitureTextButton extends StatelessWidget {
     return TextButton(
       onPressed: onTap,
       style: const ButtonStyle(
-        overlayColor: MaterialStatePropertyAll(Colors.transparent),
+        overlayColor: WidgetStatePropertyAll(Colors.transparent),
       ),
       child: Text(
         title,

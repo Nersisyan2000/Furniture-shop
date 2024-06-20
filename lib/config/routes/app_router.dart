@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:furniture_shop/example/example.dart';
 import 'package:furniture_shop/presentation/screens/auto_tabs/auto_tabs_screen.dart';
+import 'package:furniture_shop/presentation/screens/categories/categories_screen.dart';
 import 'package:furniture_shop/presentation/screens/home/home_screen.dart';
 
 import '../../presentation/screens/favourite/favourite_screen.dart';
@@ -28,5 +29,6 @@ class AppRouter extends _$AppRouter {
         ]),
         AutoRoute(page: SearchRoute.page),
         AutoRoute(page: FilterRoute.page),
+        AutoRoute(page: CategoriesRoute.page),
       ];
 }
