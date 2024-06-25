@@ -3,6 +3,7 @@ import 'package:furniture_shop/example/example.dart';
 import 'package:furniture_shop/presentation/screens/auto_tabs/auto_tabs_screen.dart';
 import 'package:furniture_shop/presentation/screens/categories/categories_screen.dart';
 import 'package:furniture_shop/presentation/screens/home/home_screen.dart';
+import 'package:furniture_shop/presentation/screens/most_interested/most_interested_screen.dart';
 
 import '../../presentation/screens/favourite/favourite_screen.dart';
 import '../../presentation/screens/filter/filter_screen.dart';
@@ -30,5 +31,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SearchRoute.page),
         AutoRoute(page: FilterRoute.page),
         AutoRoute(page: CategoriesRoute.page),
+        AutoRoute(page: MostInterestedRoute.page),
       ];
 }

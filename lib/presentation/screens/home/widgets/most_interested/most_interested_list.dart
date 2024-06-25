@@ -89,7 +89,7 @@ class _MostInterestedListState extends State<MostInterestedList> {
             Localization.viewAll,
           ),
           color: FurnitureColors.priceColor,
-          onTap: () => context.router.push(const CategoriesRoute()),
+          onTap: () => context.router.push(const MostInterestedRoute()),
         ),
       ],
     );
