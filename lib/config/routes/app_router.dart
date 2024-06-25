@@ -25,12 +25,12 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: FeedRoute.page, children: [
           AutoRoute(page: HomeRoute.page),
           AutoRoute(page: FavouriteRoute.page),
-          AutoRoute(page: ShoppingRoute.page),
+          AutoRoute(page: CategoriesRoute.page),
           AutoRoute(page: ProfileRoute.page),
         ]),
         AutoRoute(page: SearchRoute.page),
         AutoRoute(page: FilterRoute.page),
-        AutoRoute(page: CategoriesRoute.page),
+        AutoRoute(page: ShoppingRoute.page),
         AutoRoute(page: MostInterestedRoute.page),
       ];
 }

@@ -14,7 +14,7 @@ class FeedPage extends StatelessWidget {
       routes: const [
         HomeRoute(),
         FavouriteRoute(),
-        ShoppingRoute(),
+        CategoriesRoute(),
         ProfileRoute(),
       ],
       // transitionBuilder: (context, child, animation) {
@@ -30,10 +30,12 @@ class FeedPage extends StatelessWidget {
           floatingActionButton: Visibility(
             visible: !keyboardIsOpen,
             child: FloatingActionButton(
-              onPressed: () {},
+              onPressed: () => context.router.push(const ShoppingRoute()),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)),
-              child: FurnitureAssets.icons.eyeScanner.svg(),
+              child: FurnitureAssets.icons.cart.svg(
+                color: FurnitureColors.whiteColor,
+              ),
             ),
           ),
           floatingActionButtonLocation:

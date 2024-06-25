@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
-import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
 import 'package:furniture_uikit/src/widgets/bottom_navigation/widgets/furniture_bottom_navigation_bar_item.dart';
 
 class FurnitureBottomNavigation extends StatelessWidget {
@@ -56,12 +55,12 @@ class FurnitureBottomNavigation extends StatelessWidget {
             color: currentIndex == 2
                 ? FurnitureColors.primaryColor
                 : FurnitureColors.appBarTitleColor,
-            itemIcon: FurnitureAssets.icons.cart.svg(
+            itemIcon: FurnitureAssets.icons.category.svg(
               color: currentIndex == 2
                   ? FurnitureColors.primaryColor
                   : FurnitureColors.appBarTitleColor,
             ),
-            title: context.tr(Localization.shopping),
+            title: context.tr(Localization.categories),
             onTap: () {
               setActiveIndex(2);
             },
