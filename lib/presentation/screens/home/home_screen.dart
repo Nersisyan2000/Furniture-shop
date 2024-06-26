@@ -3,7 +3,7 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
-import 'package:furniture_shop/presentation/screens/home/widgets/carousel/carousel.dart';
+import 'package:furniture_shop/presentation/screens/home/widgets/carousel/carousel_page.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/most_interested/most_interested_list.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/products/products.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
@@ -69,7 +69,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             _userInfo(context),
             _searchField(context),
-            const Carousel(),
+            const CarouselPage(),
             const ProductsTemplates(),
             const MostInterestedList(),
           ],
