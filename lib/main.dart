@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_shop/presentation/screens/auth/auth_screen.dart';
+import 'package:furniture_shop/presentation/screens/auth/auth_screen_provider.dart';
 import 'package:furniture_shop/presentation/screens/home/home_screen_provider.dart';
+import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen.dart';
 import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen_provider.dart';
 import 'package:furniture_shop/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
@@ -34,6 +37,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => HomeProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => AuthProvider(),
+        )
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 812),
