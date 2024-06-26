@@ -98,6 +98,8 @@ class CarouselView extends StatelessWidget {
                   });
                 }).toList(),
               ).paddingOnly(top: 8.h);
+            } else if (state is DiscountEmpty) {
+              return const Text('No data available');
             } else if (state is DiscountFailure) {
               return Text('Error: ${state.message}');
             }

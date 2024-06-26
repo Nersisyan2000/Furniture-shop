@@ -17,7 +17,11 @@ class DiscountCubit extends Cubit<DiscountState> {
       emit(DiscountLoading());
       // final data = await _service.fetchDiscountData();
       await Future.delayed(const Duration(seconds: 2));
-      emit(DiscountLoaded(discountData));
+      if (discountData.isEmpty) {
+        emit(DiscountEmpty());
+      } else {
+        emit(DiscountLoaded(discountData));
+      }
     } catch (e) {
       emit(DiscountFailure(e.toString()));
     }
