@@ -8,6 +8,7 @@ import 'package:furniture_shop/domain/models/discount/discount_model.dart';
 // import 'package:furniture_shop/presentation/screens/home/home_screen_provider.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/carousel/cubit/discount_cubit.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/carousel/cubit/discount_state.dart';
+import 'package:furniture_shop/presentation/widgets/furniture_empty_widget.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_progress_indicator.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 // import 'package:provider/provider.dart';
@@ -99,7 +100,9 @@ class CarouselView extends StatelessWidget {
                 }).toList(),
               ).paddingOnly(top: 8.h);
             } else if (state is DiscountEmpty) {
-              return const Text('No data available');
+              return FurnitureEmptyWidget(
+                height: 145.h,
+              );
             } else if (state is DiscountFailure) {
               return Text('Error: ${state.message}');
             }

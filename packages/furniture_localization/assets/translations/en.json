@@ -84,5 +84,6 @@
   "reviewsCount": "{reviewCount} reviews",
   "stars": "{starNumber} Stars",
   "craftyFurniture": "Crafty Furniture",
-  "learnMore": "Learn More"
+  "learnMore": "Learn More",
+  "noDataAvailable": "No data available"
 }

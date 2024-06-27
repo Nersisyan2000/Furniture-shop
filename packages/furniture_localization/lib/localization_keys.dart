@@ -85,4 +85,5 @@ abstract class Localization {
   static const String stars = 'stars';
   static const String craftyFurniture = 'craftyFurniture';
   static const String learnMore = 'learnMore';
+  static const String noDataAvailable = 'noDataAvailable';
 }
