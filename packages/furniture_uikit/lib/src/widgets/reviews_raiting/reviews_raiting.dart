@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
-import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
-import 'package:furniture_uikit/src/theme/furniture_text_styles.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class ReviewsRaiting extends StatelessWidget {
-  const ReviewsRaiting(
-      {super.key, required this.raiting, required this.reviewCount});
+class FurnitureReviewsRaiting extends StatelessWidget {
+  const FurnitureReviewsRaiting({super.key, this.raiting, this.reviewCount});
 
-  final double raiting;
-  final int reviewCount;
+  final double? raiting;
+  final int? reviewCount;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          '$raiting',
-          style: switzer32MediumTextStyle,
-        ),
+        if (raiting != null)
+          Text(
+            '$raiting',
+            style: switzer32MediumTextStyle,
+          ),
         Padding(
           padding: paddingV8,
           child: RatingBar.builder(
@@ -40,8 +38,9 @@ class ReviewsRaiting extends StatelessWidget {
             },
           ),
         ),
-        const Text('reviewsCount')
-            .tr(namedArgs: {'reviewCount': '$reviewCount'}),
+        if (reviewCount != null)
+          const Text('reviewsCount')
+              .tr(namedArgs: {'reviewCount': '$reviewCount'}),
       ],
     );
   }

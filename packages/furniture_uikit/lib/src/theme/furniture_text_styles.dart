@@ -62,7 +62,7 @@ TextStyle get switzer32SemiboldTextStyle => TextStyle(
 TextStyle get switzer14MediumTextStyle => TextStyle(
       fontFamily: FontFamily.switzer,
       fontWeight: FontWeight.w500,
-      height: 14.0 / 20.0,
+      height: 20.0 / 14.0,
       fontSize: 14.sp,
       color: FurnitureColors.textColor,
       package: packageName,
@@ -71,7 +71,7 @@ TextStyle get switzer14MediumTextStyle => TextStyle(
 TextStyle get switzer14RegularTextStyle => TextStyle(
       fontFamily: FontFamily.switzer,
       fontWeight: FontWeight.w400,
-      height: 14.0 / 20.0,
+      height: 20.0 / 14.0,
       fontSize: 14.sp,
       color: FurnitureColors.textColor,
       package: packageName,
@@ -80,7 +80,7 @@ TextStyle get switzer14RegularTextStyle => TextStyle(
 TextStyle get switzer13RegularTextStyle => TextStyle(
       fontFamily: FontFamily.switzer,
       fontWeight: FontWeight.w400, //
-      height: 13.0 / 18.0,
+      height: 18.0 / 13.0,
       fontSize: 13.sp,
       color: FurnitureColors.textColor,
       package: packageName,
@@ -89,7 +89,7 @@ TextStyle get switzer13RegularTextStyle => TextStyle(
 TextStyle get switzer13Medium00TextStyle => TextStyle(
       fontFamily: FontFamily.switzer,
       fontWeight: FontWeight.w500,
-      height: 13.0 / 18.0,
+      height: 18.0 / 13.0,
       fontSize: 13.sp,
       color: FurnitureColors.textColor,
       package: packageName,
@@ -98,7 +98,7 @@ TextStyle get switzer13Medium00TextStyle => TextStyle(
 TextStyle get switzer20SemiboldTextStyle => TextStyle(
       fontFamily: FontFamily.switzer,
       fontWeight: FontWeight.w600,
-      height: 20.0 / 28.0,
+      height: 28.0 / 20.0,
       fontSize: 20.sp,
       color: FurnitureColors.textColor,
       package: packageName,
@@ -107,7 +107,7 @@ TextStyle get switzer20SemiboldTextStyle => TextStyle(
 TextStyle get switzer20MediumTextStyle => TextStyle(
       fontFamily: FontFamily.switzer,
       fontWeight: FontWeight.w500,
-      height: 20.0 / 28.0,
+      height: 28.0 / 20.0,
       fontSize: 20.sp,
       color: FurnitureColors.textColor,
       package: packageName,
@@ -116,7 +116,7 @@ TextStyle get switzer20MediumTextStyle => TextStyle(
 TextStyle get switzer12RegularTextStyle => TextStyle(
       fontFamily: FontFamily.switzer,
       fontWeight: FontWeight.w400,
-      height: 12.0 / 16.0,
+      height: 16.0 / 12.0,
       fontSize: 12.sp,
       color: FurnitureColors.textColor,
       package: packageName,
@@ -125,7 +125,7 @@ TextStyle get switzer12RegularTextStyle => TextStyle(
 TextStyle get switzer12MediumTextStyle => TextStyle(
       fontFamily: FontFamily.switzer,
       fontWeight: FontWeight.w500,
-      height: 12.0 / 16.0,
+      height: 16.0 / 12.0,
       fontSize: 12.sp,
       color: FurnitureColors.textColor,
       package: packageName,
@@ -134,7 +134,7 @@ TextStyle get switzer12MediumTextStyle => TextStyle(
 TextStyle get switzer11MediumTextStyle => TextStyle(
       fontFamily: FontFamily.switzer,
       fontWeight: FontWeight.w500,
-      height: 11.0 / 14.0,
+      height: 14.0 / 11.0,
       fontSize: 11.sp,
       color: FurnitureColors.textColor,
       package: packageName,
@@ -143,7 +143,7 @@ TextStyle get switzer11MediumTextStyle => TextStyle(
 TextStyle get switzer11RegularTextStyle => TextStyle(
       fontFamily: FontFamily.switzer,
       fontWeight: FontWeight.w400,
-      height: 11.0 / 14.0,
+      height: 14.0 / 11.0,
       fontSize: 11.sp,
       color: FurnitureColors.textColor,
       package: packageName,

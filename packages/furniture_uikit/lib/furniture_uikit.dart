@@ -17,6 +17,7 @@ export 'src/widgets/chip_element/chip_element.dart';
 export 'src/widgets/bottom_navigation/furniture_bottom_navigation_bar.dart';
 export 'src/widgets/dots/furniture_dots.dart';
 export 'src/widgets/cached_network_image/furniture_cached_network_image.dart';
+export 'src/widgets/image_stack/furniture_image_stack.dart';
 
 export 'src/assets/assets.gen.dart';
 export 'src/assets/fonts.gen.dart';
@@ -31,3 +32,4 @@ export 'package:badges/badges.dart';
 export 'package:percent_indicator/percent_indicator.dart';
 export 'package:dots_indicator/dots_indicator.dart';
 export 'package:cached_network_image/cached_network_image.dart';
+export 'package:image_stack/image_stack.dart';
