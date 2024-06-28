@@ -2,16 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:furniture_shop/example/example.dart';
 import 'package:furniture_shop/presentation/screens/auto_tabs/auto_tabs_screen.dart';
 import 'package:furniture_shop/presentation/screens/categories/categories_screen.dart';
+import 'package:furniture_shop/presentation/screens/favourite/favourite_screen.dart';
+import 'package:furniture_shop/presentation/screens/filter/filter_screen.dart';
 import 'package:furniture_shop/presentation/screens/home/home_screen.dart';
 import 'package:furniture_shop/presentation/screens/most_interested/most_interested_screen.dart';
-
-import '../../presentation/screens/favourite/favourite_screen.dart';
-import '../../presentation/screens/filter/filter_screen.dart';
-import '../../presentation/screens/onboarding/onboarding_screen.dart';
-import '../../presentation/screens/profile/profile_screen.dart';
-import '../../presentation/screens/search/search_screen.dart';
-import '../../presentation/screens/shopping/shopping_screen.dart';
-import '../../presentation/screens/splash/splash_screen.dart';
+import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen.dart';
+import 'package:furniture_shop/presentation/screens/popular/popular_screen.dart';
+import 'package:furniture_shop/presentation/screens/profile/profile_screen.dart';
+import 'package:furniture_shop/presentation/screens/search/search_screen.dart';
+import 'package:furniture_shop/presentation/screens/shopping/shopping_screen.dart';
+import 'package:furniture_shop/presentation/screens/splash/splash_screen.dart';
 
 part 'app_router.gr.dart';
 
@@ -32,5 +32,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: FilterRoute.page),
         AutoRoute(page: ShoppingRoute.page),
         AutoRoute(page: MostInterestedRoute.page),
+        AutoRoute(page: PopularRoute.page),
       ];
 }
