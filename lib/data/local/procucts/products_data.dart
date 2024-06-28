@@ -2,6 +2,7 @@ import 'package:furniture_shop/domain/models/product/product_model.dart';
 
 List<ProductModel> productData = [
   ProductModel(
+    id: '1',
     productName: 'Ox Mathis Chair',
     companyName: 'Hans j. wegner',
     productSeenCount: 341,
@@ -13,6 +14,7 @@ List<ProductModel> productData = [
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   ),
   ProductModel(
+    id: '2',
     productName: 'Ox Mathis Furniture Modern Style',
     companyName: 'Hans j. wegner',
     productSeenCount: 205,
@@ -24,6 +26,7 @@ List<ProductModel> productData = [
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   ),
   ProductModel(
+    id: '3',
     productName: 'Rotating Lounge Chair',
     companyName: 'Hans j. wegner',
     productSeenCount: 288,
@@ -35,6 +38,7 @@ List<ProductModel> productData = [
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   ),
   ProductModel(
+    id: '4',
     productName: 'Trapeziam Arm Chair',
     companyName: 'Hans j. wegner',
     productSeenCount: 401,
@@ -46,6 +50,7 @@ List<ProductModel> productData = [
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   ),
   ProductModel(
+    id: '5',
     productName: 'Corada D3 Lounge Chair',
     companyName: 'Hans j. wegner',
     productSeenCount: 324,
@@ -57,6 +62,7 @@ List<ProductModel> productData = [
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   ),
   ProductModel(
+    id: '6',
     productName: 'Pearl Beading Fur Textured ',
     companyName: 'Hans j. wegner',
     productSeenCount: 127,

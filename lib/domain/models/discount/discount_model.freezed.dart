@@ -20,6 +20,7 @@ DiscountModel _$DiscountModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DiscountModel {
+  String get id => throw _privateConstructorUsedError;
   int get discount => throw _privateConstructorUsedError;
   String get discountInfo => throw _privateConstructorUsedError;
   String get discountImg => throw _privateConstructorUsedError;
@@ -36,7 +37,7 @@ abstract class $DiscountModelCopyWith<$Res> {
           DiscountModel value, $Res Function(DiscountModel) then) =
       _$DiscountModelCopyWithImpl<$Res, DiscountModel>;
   @useResult
-  $Res call({int discount, String discountInfo, String discountImg});
+  $Res call({String id, int discount, String discountInfo, String discountImg});
 }
 
 /// @nodoc
@@ -52,11 +53,16 @@ class _$DiscountModelCopyWithImpl<$Res, $Val extends DiscountModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? discount = null,
     Object? discountInfo = null,
     Object? discountImg = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       discount: null == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -81,7 +87,7 @@ abstract class _$$DiscountModelImplCopyWith<$Res>
       __$$DiscountModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int discount, String discountInfo, String discountImg});
+  $Res call({String id, int discount, String discountInfo, String discountImg});
 }
 
 /// @nodoc
@@ -95,11 +101,16 @@ class __$$DiscountModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? discount = null,
     Object? discountInfo = null,
     Object? discountImg = null,
   }) {
     return _then(_$DiscountModelImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       discount: null == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -120,13 +131,16 @@ class __$$DiscountModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DiscountModelImpl implements _DiscountModel {
   const _$DiscountModelImpl(
-      {required this.discount,
+      {required this.id,
+      required this.discount,
       required this.discountInfo,
       required this.discountImg});
 
   factory _$DiscountModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DiscountModelImplFromJson(json);
 
+  @override
+  final String id;
   @override
   final int discount;
   @override
@@ -136,7 +150,7 @@ class _$DiscountModelImpl implements _DiscountModel {
 
   @override
   String toString() {
-    return 'DiscountModel(discount: $discount, discountInfo: $discountInfo, discountImg: $discountImg)';
+    return 'DiscountModel(id: $id, discount: $discount, discountInfo: $discountInfo, discountImg: $discountImg)';
   }
 
   @override
@@ -144,6 +158,7 @@ class _$DiscountModelImpl implements _DiscountModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DiscountModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.discount, discount) ||
                 other.discount == discount) &&
             (identical(other.discountInfo, discountInfo) ||
@@ -155,7 +170,7 @@ class _$DiscountModelImpl implements _DiscountModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, discount, discountInfo, discountImg);
+      Object.hash(runtimeType, id, discount, discountInfo, discountImg);
 
   @JsonKey(ignore: true)
   @override
@@ -173,13 +188,16 @@ class _$DiscountModelImpl implements _DiscountModel {
 
 abstract class _DiscountModel implements DiscountModel {
   const factory _DiscountModel(
-      {required final int discount,
+      {required final String id,
+      required final int discount,
       required final String discountInfo,
       required final String discountImg}) = _$DiscountModelImpl;
 
   factory _DiscountModel.fromJson(Map<String, dynamic> json) =
       _$DiscountModelImpl.fromJson;
 
+  @override
+  String get id;
   @override
   int get discount;
   @override

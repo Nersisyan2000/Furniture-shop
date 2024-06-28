@@ -6,6 +6,7 @@ part 'discount_model.g.dart';
 @freezed
 class DiscountModel with _$DiscountModel {
   const factory DiscountModel({
+    required String id,
     required int discount,
     required String discountInfo,
     required String discountImg,
