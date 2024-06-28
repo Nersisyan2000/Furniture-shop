@@ -5,6 +5,7 @@ import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/carousel/carousel_page.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/most_interested/most_interested_list.dart';
+import 'package:furniture_shop/presentation/screens/home/widgets/popular/popular_furnitures.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/products/products.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
@@ -72,6 +73,7 @@ class HomeScreen extends StatelessWidget {
             const CarouselPage(),
             const ProductsTemplates(),
             const MostInterestedList(),
+            const PopularFurnitures(),
           ],
         ).paddingOnly(top: 20.h),
       ),

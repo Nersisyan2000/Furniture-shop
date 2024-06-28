@@ -63,6 +63,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const OnboardingScreen(),
       );
     },
+    PopularRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PopularScreen(),
+      );
+    },
     ProfileRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -198,6 +204,20 @@ class OnboardingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'OnboardingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PopularScreen]
+class PopularRoute extends PageRouteInfo<void> {
+  const PopularRoute({List<PageRouteInfo>? children})
+      : super(
+          PopularRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PopularRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
