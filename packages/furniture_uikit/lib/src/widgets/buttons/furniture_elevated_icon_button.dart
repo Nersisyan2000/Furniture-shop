@@ -10,6 +10,7 @@ class FurnitureElevatedIconButton extends StatelessWidget {
     required this.title,
     this.buttonStyle,
     this.primary = false,
+    this.padding,
   });
 
   final Widget icon;
@@ -17,16 +18,19 @@ class FurnitureElevatedIconButton extends StatelessWidget {
   final VoidCallback onTap;
   final ButtonStyle? buttonStyle;
   final bool primary;
+  final EdgeInsets? padding;
 
   factory FurnitureElevatedIconButton.whiteMode({
     required Widget icon,
     required String title,
     required VoidCallback onTap,
+    EdgeInsets? padding,
   }) {
     return FurnitureElevatedIconButton(
       icon: icon,
       onTap: onTap,
       title: title,
+      padding: padding,
       primary: true,
       buttonStyle: furnitureElevatedIconButtonWhiteMode,
     );
@@ -36,11 +40,13 @@ class FurnitureElevatedIconButton extends StatelessWidget {
     required Widget icon,
     required String title,
     required VoidCallback onTap,
+    EdgeInsets? padding,
   }) {
     return FurnitureElevatedIconButton(
       icon: icon,
       onTap: onTap,
       title: title,
+      padding: padding,
       primary: true,
       buttonStyle: furnitureElevatedIconButtonSettingMode,
     );

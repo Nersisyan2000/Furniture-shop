@@ -81,6 +81,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/cart.svg
   SvgGenImage get cart => const SvgGenImage('assets/icons/cart.svg');
 
+  /// File path: assets/icons/cart_two.svg
+  SvgGenImage get cartTwo => const SvgGenImage('assets/icons/cart_two.svg');
+
   /// File path: assets/icons/category.svg
   SvgGenImage get category => const SvgGenImage('assets/icons/category.svg');
 
@@ -144,6 +147,7 @@ class $AssetsIconsGen {
         bedIcon,
         call,
         cart,
+        cartTwo,
         category,
         chairIcon,
         directionRight3,

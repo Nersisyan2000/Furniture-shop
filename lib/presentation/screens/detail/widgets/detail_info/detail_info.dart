@@ -64,40 +64,44 @@ class DetailInfo extends StatelessWidget {
     );
   }
 
+  Widget _descriptionSection(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          context.tr(
+            Localization.description,
+          ),
+          style: switzer20MediumTextStyle,
+        ),
+        SizedBox(
+          child: Text(
+            'The Swedish Designer Monica Forstar’s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
+            style: switzer14RegularTextStyle.copyWith(
+              color: FurnitureColors.subTextColor,
+            ),
+          ).paddingSymmetric(
+            vertical: 8.h,
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         FurnitureCachedNetworkImage(
-          height: 236.h,
+          height: 226.h,
           contain: true,
           imageUrl:
               'https://static.vecteezy.com/system/resources/previews/011/794/197/non_2x/brown-leather-armchair-soft-cushion-with-metal-leg-3d-rendering-modern-interior-design-for-living-room-free-png.png',
         ),
         _namePriceSection(),
         _efficiencySection(context).paddingSymmetric(vertical: 24.h),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              context.tr(
-                Localization.description,
-              ),
-              style: switzer20MediumTextStyle,
-            ),
-            SizedBox(
-              child: Text(
-                'The Swedish Designer Monica Forstar’s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
-                style: switzer14RegularTextStyle.copyWith(
-                  color: FurnitureColors.subTextColor,
-                ),
-              ).paddingSymmetric(
-                vertical: 8.h,
-              ),
-            ),
-          ],
-        )
+        _descriptionSection(context),
       ],
     );
   }

@@ -12,7 +12,7 @@ class DetailScreen extends StatelessWidget {
 
   PreferredSize _appBarSection() {
     return PreferredSize(
-      preferredSize: Size.fromHeight(90.h),
+      preferredSize: Size.fromHeight(60.h),
       child: AppBar(
         leading: FurnitureIconButton.whiteMode(
           icon: FurnitureAssets.icons.arrowBack.svg(),
@@ -27,7 +27,57 @@ class DetailScreen extends StatelessWidget {
             onTap: () {},
           )
         ],
-      ).paddingAll(20.0),
+      ).paddingOnly(left: 20.w, right: 20.w, top: 10.h),
+    );
+  }
+
+  Widget _totalPriceSection() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        FurnitureChangeCountElement(
+          count: 1,
+          minCount: 0,
+          maxCount: 15,
+          onChange: (count) => debugPrint(
+            '$count',
+          ),
+        ),
+        Text(
+          'Total : \$90.900',
+          style: switzer16MediumTextStyle,
+        )
+      ],
+    );
+  }
+
+  Widget _footerSection() {
+    return ClipRRect(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(
+          24.r,
+        ), // Add radius to the top left corner
+        topRight: Radius.circular(
+          24.r,
+        ), // Add radius to the top right corner
+      ),
+      child: ColoredBox(
+        color: Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            _totalPriceSection(),
+            24.verticalSpace,
+            FurnitureElevatedIconButton(
+              icon: FurnitureAssets.icons.cartTwo.svg(),
+              onTap: () {},
+              title: 'Add To Card',
+            ).expanded(),
+          ],
+        ).paddingAll(
+          24.0,
+        ),
+      ),
     );
   }
 
@@ -35,15 +85,16 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBarSection(),
-      body: const SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              DetailInfo(),
-            ],
-          ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            const DetailInfo().paddingSymmetric(
+              horizontal: 20.w,
+            ),
+            _footerSection().expanded(),
+          ],
         ),
-      ).paddingAll(20.0),
+      ),
     );
   }
 }
