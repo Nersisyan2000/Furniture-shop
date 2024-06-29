@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -6,6 +7,8 @@ import 'package:furniture_shop/presentation/screens/auth/auth_screen_provider.da
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
+
+import '../../home/home_screen.dart';
 
 class SignUpWidget extends StatefulWidget {
   const SignUpWidget({
@@ -50,7 +53,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 onTapOutSide: (event) => {
                   FocusScope.of(context).requestFocus(FocusNode()),
                 }).paddingAll(20.0),
-            20.verticalSpace,
+            // 20.verticalSpace,
+
           ],
         ),
       );

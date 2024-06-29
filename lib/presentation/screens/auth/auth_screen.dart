@@ -2,12 +2,15 @@ import "package:awesome_extensions/awesome_extensions.dart";
 import "package:flutter/gestures.dart";
 import "package:flutter/material.dart";
 import 'package:auto_route/auto_route.dart';
-
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import "package:furniture_shop/presentation/screens/auth/widgets/login_widget.dart";
 import "package:furniture_shop/presentation/screens/auth/widgets/sign_up_widget.dart";
 import "package:furniture_uikit/furniture_uikit.dart";
+import "package:provider/provider.dart";
+
+import "../../../routes/app_router.dart";
+import "auth_screen_provider.dart";
 
 @RoutePage()
 class AuthScreen extends StatefulWidget {
@@ -19,6 +22,7 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   bool activeSignUp = false;
+  bool _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +51,36 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
               ],
             ),
-            activeSignUp ? const SignUpWidget() : const LoginWidget(),
+            activeSignUp
+                ? const SignUpWidget()
+                : LoginWidget(
+                    value: _isSelected,
+                    onChanged: onChangedCheckbox,
+                  ),
+            Consumer<AuthProvider>(
+              builder: (context, provider, _) {
+                return FurnitureElevatedButton(
+                  onTap: () {
+                    if (provider.formKey.currentState != null) {
+                      if (provider.formKey.currentState!.validate()) {
+                        debugPrint("validated");
+                        context.router.push(const FeedRoute());
+                      } else {
+                        debugPrint("not validated");
+                        provider.formKey.currentState!.validate();
+                      }
+                    }
+                  },
+                  title: context.tr(Localization.signIn),
+                ).paddingAll(20.0);
+              },
+            ),
             FurnitureElevatedIconButton.whiteMode(
               onTap: () {},
               title: context.tr(Localization.signInWithGoogle),
               icon: FurnitureAssets.icons.googleIcon.svg(),
             ).paddingAll(20.0),
-            20.verticalSpace,
+            // 20.verticalSpace,
             buildSignUpLoginRichText(),
           ],
         )),
@@ -72,12 +99,15 @@ class _AuthScreenState extends State<AuthScreen> {
       textAlign: TextAlign.center,
       text: TextSpan(
         text: title,
-        style: switzer14RegularTextStyle,
+        style: switzer14RegularTextStyle.copyWith(
+            color: FurnitureColors.subTextColor),
         children: <TextSpan>[
           TextSpan(
               text: action,
               recognizer: TapGestureRecognizer()
-                ..onTap = onTapSignUpLogin(!activeSignUp),
+                ..onTap = () {
+                  onTapSignUpLogin(!activeSignUp);
+                },
               style: switzer14MediumTextStyle),
         ],
       ),
@@ -88,6 +118,11 @@ class _AuthScreenState extends State<AuthScreen> {
     setState(() {
       activeSignUp = signUp;
       debugPrint("$activeSignUp");
+    });
+  }
+  onChangedCheckbox(bool newValue) {
+    setState(() {
+      _isSelected = newValue;
     });
   }
 }
