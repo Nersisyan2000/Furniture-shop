@@ -90,6 +90,17 @@ class DetailInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return BlocBuilder<DetailCubit, DetailState>(
+    //   builder: (
+    //     context,
+    //     state,
+    //   ) {
+    //     if (state is DetailLoading) {
+    //       return SizedBox(
+    //         height: 145.h,
+    //         child: const FurnitureProgressIndicator(),
+    //       );
+    //     } else if (state is DetailLoaded) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -104,5 +115,11 @@ class DetailInfo extends StatelessWidget {
         _descriptionSection(context),
       ],
     );
+    //   } else if (state is DetailFailure) {
+    //     return Text('Error: ${state.message}');
+    //   }
+    //   return const SizedBox.shrink();
+    // },
+    // );
   }
 }

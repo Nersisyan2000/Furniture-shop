@@ -18,7 +18,7 @@ class MostInterestedList extends StatefulWidget {
 class _MostInterestedListState extends State<MostInterestedList> {
   Widget _mostInterestedItem(productItem) {
     return InkWell(
-      onTap: () => context.router.push(DetailRoute(id: productItem.id)),
+      onTap: () => context.router.push(DetailRoute()),
       child: Card(
         // color: Colors.blueAccent,
         child: Column(

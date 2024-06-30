@@ -38,13 +38,13 @@ class PopularFurnitures extends StatelessWidget {
       children: [
         _headerSection(context),
         SizedBox(
-          height: 114.h,
+          height: 124.h,
           child: ListView.builder(
             itemCount: 4,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return InkWell(
-                onTap: () => context.router.push(DetailRoute(id: '2')),
+                onTap: () => context.router.push(const PopularRoute()),
                 child: const FurniturePackedCard(
                   imageUrl:
                       'https://i.pinimg.com/originals/4d/76/4c/4d764cb0c947632623f9026210f4f2f6.png',

@@ -22,15 +22,14 @@ class FurnitureIconButton extends StatelessWidget {
   final double? height;
   final EdgeInsets? padding;
 
-  factory FurnitureIconButton.whiteMode({
-    required Widget icon,
-    VoidCallback? onTap,
-    double? width,
-    double? height,
-    bool? mode,
-    EdgeInsets? padding,
-    // bool? desable,
-  }) {
+  factory FurnitureIconButton.whiteMode(
+      {required Widget icon,
+      VoidCallback? onTap,
+      double? width,
+      double? height,
+      bool? mode,
+      EdgeInsets? padding,
+      bool? clicked}) {
     return FurnitureIconButton(
       onTap: onTap,
       icon: icon,
