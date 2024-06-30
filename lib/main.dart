@@ -3,6 +3,7 @@ import 'package:furniture_shop/presentation/screens/favourite/favourite_screen_p
 import 'package:furniture_shop/presentation/screens/home/home_screen_provider.dart';
 import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen_provider.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
+import 'package:furniture_shop/presentation/screens/shopping/shopping_screen_provider.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:provider/provider.dart';
@@ -35,8 +36,12 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => HomeProvider(),
-        ), ChangeNotifierProvider(
+        ),
+        ChangeNotifierProvider(
           create: (context) => FavouriteProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ShoppingProvider(),
         ),
       ],
       child: ScreenUtilInit(

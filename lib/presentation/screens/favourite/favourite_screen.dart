@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
+import '../../../config/routes/app_router.dart';
 import 'favourite_screen_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -58,7 +59,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
           children: <Widget>[
             for (var id = 2; id < favouriteProductData.length; id++)
               InkWell(
-                onTap: () {},
+                onTap: ()=> context.router.push(const ShoppingRoute()),
                 child: Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
