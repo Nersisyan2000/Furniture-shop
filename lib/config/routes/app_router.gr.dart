@@ -21,6 +21,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CategoriesScreen(),
       );
     },
+    DetailRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<DetailRouteArgs>(
+          orElse: () => DetailRouteArgs(id: pathParams.optString('id')));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: DetailScreen(
+          key: args.key,
+          id: args.id,
+        ),
+      );
+    },
     ExampleRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -108,6 +120,44 @@ class CategoriesRoute extends PageRouteInfo<void> {
   static const String name = 'CategoriesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DetailScreen]
+class DetailRoute extends PageRouteInfo<DetailRouteArgs> {
+  DetailRoute({
+    Key? key,
+    String? id,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DetailRoute.name,
+          args: DetailRouteArgs(
+            key: key,
+            id: id,
+          ),
+          rawPathParams: {'id': id},
+          initialChildren: children,
+        );
+
+  static const String name = 'DetailRoute';
+
+  static const PageInfo<DetailRouteArgs> page = PageInfo<DetailRouteArgs>(name);
+}
+
+class DetailRouteArgs {
+  const DetailRouteArgs({
+    this.key,
+    this.id,
+  });
+
+  final Key? key;
+
+  final String? id;
+
+  @override
+  String toString() {
+    return 'DetailRouteArgs{key: $key, id: $id}';
+  }
 }
 
 /// generated route for

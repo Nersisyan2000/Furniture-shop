@@ -3,11 +3,12 @@ import 'package:furniture_uikit/furniture_uikit.dart';
 
 class FurnitureCachedNetworkImage extends StatelessWidget {
   const FurnitureCachedNetworkImage(
-      {super.key, this.imageUrl, this.width, this.height});
+      {super.key, this.imageUrl, this.width, this.height, this.contain});
 
   final String? imageUrl;
   final double? width;
   final double? height;
+  final bool? contain;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class FurnitureCachedNetworkImage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: imageProvider,
-            fit: BoxFit.cover,
+            fit: contain == true ? BoxFit.contain : BoxFit.cover,
           ),
         ),
       ),

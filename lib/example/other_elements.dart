@@ -59,18 +59,22 @@ class _OtherElementsState extends State<OtherElements> {
         const Row(
           children: [
             Expanded(
-                child: ReviewsRaiting(
-              raiting: 4.6,
-              reviewCount: 367,
-            )),
+              child: FurnitureReviewsRaiting(
+                raiting: 4.6,
+                reviewCount: 367,
+              ),
+            ),
             Expanded(
-                child: ReviewsProgress(
-              percentValue: [100, 320, 35, 78, 10],
-            )),
+              child: ReviewsProgress(
+                percentValue: [100, 320, 35, 78, 10],
+              ),
+            ),
           ],
         ),
         20.verticalSpace,
-        const FurnitureChipElement(title: 'hello'),
+        const FurnitureChipElement(
+          title: 'hello',
+        ),
         20.verticalSpace,
       ],
     );

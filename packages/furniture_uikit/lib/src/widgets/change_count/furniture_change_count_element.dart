@@ -40,14 +40,16 @@ class _FurnitureChangeCountElementState
       children: [
         FurnitureIconButton.whiteMode(
           // desable: localCount == widget.minCount ? true : false,
-          onTap: localCount != widget.minCount ? () {
-            if (localCount > widget.minCount) {
-              setState(() {
-                localCount--;
-              });
-            }
-            widget.onChange?.call(localCount);
-          } : null,
+          onTap: localCount != widget.minCount
+              ? () {
+                  if (localCount > widget.minCount) {
+                    setState(() {
+                      localCount--;
+                    });
+                  }
+                  widget.onChange?.call(localCount);
+                }
+              : null,
           icon: FurnitureAssets.icons.minusIcon.svg(),
           mode: true,
           width: 22.0,

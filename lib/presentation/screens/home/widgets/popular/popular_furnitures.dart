@@ -38,19 +38,22 @@ class PopularFurnitures extends StatelessWidget {
       children: [
         _headerSection(context),
         SizedBox(
-          height: 114.h,
+          height: 124.h,
           child: ListView.builder(
             itemCount: 4,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return const FurniturePackedCard(
-                imageUrl:
-                    'https://i.pinimg.com/originals/4d/76/4c/4d764cb0c947632623f9026210f4f2f6.png',
-                title: 'Swoon Lounge',
-                subTitle: 'Regal Do Lobo',
-                price: 136.79,
-              ).paddingOnly(
-                right: 8.w,
+              return InkWell(
+                onTap: () => context.router.push(const PopularRoute()),
+                child: const FurniturePackedCard(
+                  imageUrl:
+                      'https://i.pinimg.com/originals/4d/76/4c/4d764cb0c947632623f9026210f4f2f6.png',
+                  title: 'Swoon Lounge',
+                  subTitle: 'Regal Do Lobo',
+                  price: 136.79,
+                ).paddingOnly(
+                  right: 8.w,
+                ),
               );
             },
           ),

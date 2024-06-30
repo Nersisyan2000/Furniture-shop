@@ -16,7 +16,7 @@ class DiscountLoaded extends DiscountState {
   DiscountLoaded(this.data);
 
   @override
-  List<Object?> get props => [data];
+  List<List<DiscountModel>> get props => [data];
 }
 
 class DiscountEmpty extends DiscountState {}
@@ -27,5 +27,5 @@ class DiscountFailure extends DiscountState {
   DiscountFailure(this.message);
 
   @override
-  List<Object?> get props => [message];
+  List<String> get props => [message];
 }

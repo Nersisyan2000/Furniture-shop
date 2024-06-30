@@ -17,19 +17,22 @@ class MostInterestedList extends StatefulWidget {
 
 class _MostInterestedListState extends State<MostInterestedList> {
   Widget _mostInterestedItem(productItem) {
-    return Card(
-      // color: Colors.blueAccent,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          FurnitureCachedNetworkImage(
-            imageUrl: productItem.productImg,
-            width: 110.w,
-            height: 120.h,
-          ).expanded(),
-          _mostInterestedItemFooterPart(productItem),
-        ],
-      ).paddingAll(16.w),
+    return InkWell(
+      onTap: () => context.router.push(DetailRoute()),
+      child: Card(
+        // color: Colors.blueAccent,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            FurnitureCachedNetworkImage(
+              imageUrl: productItem.productImg,
+              width: 110.w,
+              height: 120.h,
+            ).expanded(),
+            _mostInterestedItemFooterPart(productItem),
+          ],
+        ).paddingAll(16.w),
+      ),
     );
   }
 

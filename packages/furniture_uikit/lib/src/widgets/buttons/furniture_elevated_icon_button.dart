@@ -22,6 +22,7 @@ class FurnitureElevatedIconButton extends StatelessWidget {
     required Widget icon,
     required String title,
     required VoidCallback onTap,
+    EdgeInsets? padding,
   }) {
     return FurnitureElevatedIconButton(
       icon: icon,
@@ -36,6 +37,7 @@ class FurnitureElevatedIconButton extends StatelessWidget {
     required Widget icon,
     required String title,
     required VoidCallback onTap,
+    EdgeInsets? padding,
   }) {
     return FurnitureElevatedIconButton(
       icon: icon,
