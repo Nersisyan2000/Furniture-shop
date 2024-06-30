@@ -6,6 +6,7 @@ import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'favourite_screen_provider.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class FavouriteScreen extends StatefulWidget {
@@ -16,7 +17,11 @@ class FavouriteScreen extends StatefulWidget {
 }
 
 class _FavouriteScreenState extends State<FavouriteScreen> {
-  List<int> model = [1, 2, 3, 4];
+  @override
+  void initState() {
+    context.read<FavouriteProvider>().favouriteProductData;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,63 +51,81 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
       body: SafeArea(
         child: GridView.count(
           primary: false,
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(8),
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           crossAxisCount: 2,
           children: <Widget>[
-            // for(var i in productData)
             for (var id = 2; id < favouriteProductData.length; id++)
               InkWell(
                 onTap: () {},
-                child: Card(
+                child: Expanded(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.white,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            // AssetImage(favouriteProductData[id].productImg),
-                            //  FurnitureCachedNetworkImage(imageUrl: FurnitureAssets.images.armchairImg),
-                            FurnitureCachedNetworkImage(
-                              imageUrl:'https://i.pinimg.com/originals/4d/76/4c/4d764cb0c947632623f9026210f4f2f6.png',
-                              width: 110.w,
-                              height: 120.h,
+                      Expanded(
+                        child: Card(
+                          child: Container(
+                            width: 156.0,
+                            height: 160.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: Colors.white,
                             ),
-                            Text(
-                              '${favouriteProductData[id].productName}',
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: switzer16SemiboldTextStyle,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: <Widget>[
+                                Container(
+                                  margin: const EdgeInsets.all(10.0),
+                                  width: 120.0,
+                                  height: 110.0,
+                                  child: FurnitureCachedNetworkImage(
+                                    imageUrl:
+                                        favouriteProductData[id].productImg,
+                                    width: 110.w,
+                                    height: 120.h,
+                                  ),
+                                ),
+                                Align(
+                                  alignment: Alignment.topRight,
+                                  child: Container(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      alignment: Alignment.center,
+                                      child: FurnitureIconButton.whiteMode(
+                                        icon: FurnitureAssets.icons.hearthIcon
+                                            .svg(
+                                          color: Colors.black,
+                                        ),
+                                        onTap: () {},
+                                      )),
+                                )
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                       ),
-                      Text(
-                        "${favouriteProductData[id].productName}",
-                        style: switzer14MediumTextStyle,
-                      ),
-                      Text(
-                        "${favouriteProductData[id].productPrice}",
-                        style: switzer14MediumTextStyle,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "${favouriteProductData[id].productName}",
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: switzer16MediumTextStyle,
+                          ),
+                          Text(
+                            "\$ ${favouriteProductData[id].productPrice}",
+                            // overflow: TextOverflow.ellipsis,
+                            style: switzer16MediumTextStyle.copyWith(
+                                color: FurnitureColors.priceColor),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-
-                // Column(
-                //   // crossAxisAlignment: CrossAxisAlignment.end,
-                //   children: [
-                //     Text(
-                //       "${favouriteProductData[id].productName}",
-                //       style: switzer14MediumTextStyle,
-                //     ),
-                //   ],
-                // ),
               ),
           ],
         ),
