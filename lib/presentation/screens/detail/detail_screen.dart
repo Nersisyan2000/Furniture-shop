@@ -10,13 +10,13 @@ class DetailScreen extends StatelessWidget {
 
   final String? id;
 
-  PreferredSize _appBarSection() {
+  PreferredSize _appBarSection(BuildContext context) {
     return PreferredSize(
       preferredSize: Size.fromHeight(60.h),
       child: AppBar(
         leading: FurnitureIconButton.whiteMode(
           icon: FurnitureAssets.icons.arrowBack.svg(),
-          onTap: () {},
+          onTap: () => context.router.maybePop(),
         ),
         backgroundColor: FurnitureColors.whiteBackground,
         actions: [
@@ -84,7 +84,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBarSection(),
+      appBar: _appBarSection(context),
       body: SafeArea(
         child: Column(
           children: [
