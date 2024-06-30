@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_shop/presentation/screens/favourite/favourite_screen_provider.dart';
 import 'package:furniture_shop/presentation/screens/home/home_screen_provider.dart';
 import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen_provider.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
@@ -34,6 +35,8 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => HomeProvider(),
+        ), ChangeNotifierProvider(
+          create: (context) => FavouriteProvider(),
         ),
       ],
       child: ScreenUtilInit(
