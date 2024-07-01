@@ -44,7 +44,9 @@ class PopularFurnitures extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return InkWell(
-                onTap: () => context.router.push(const PopularRoute()),
+                onTap: () => context.router.push(
+                  DetailRoute(),
+                ),
                 child: const FurniturePackedCard(
                   imageUrl:
                       'https://i.pinimg.com/originals/4d/76/4c/4d764cb0c947632623f9026210f4f2f6.png',

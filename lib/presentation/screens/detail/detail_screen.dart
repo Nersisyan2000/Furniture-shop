@@ -1,10 +1,14 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:furniture_localization/furniture_localization.dart';
+import 'package:furniture_localization/localization_keys.dart';
+import 'package:furniture_shop/presentation/screens/detail/detail_cubit/detail_cubit.dart';
 import 'package:furniture_shop/presentation/screens/detail/widgets/detail_info/detail_info.dart';
+import 'package:furniture_shop/presentation/widgets/furniture_progress_indicator.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
-@RoutePage()
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key, @PathParam('id') this.id});
 
@@ -31,7 +35,7 @@ class DetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _totalPriceSection() {
+  Widget _totalPriceSection(BuildContext context, state) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -44,14 +48,14 @@ class DetailScreen extends StatelessWidget {
           ),
         ),
         Text(
-          'Total : \$90.900',
+          '${context.tr(Localization.total)} : \$${state.productPrice}',
           style: switzer16MediumTextStyle,
         )
       ],
     );
   }
 
-  Widget _footerSection() {
+  Widget _footerSection(BuildContext context, state) {
     return ClipRRect(
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(
@@ -66,12 +70,14 @@ class DetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _totalPriceSection(),
+            _totalPriceSection(context, state),
             24.verticalSpace,
             FurnitureElevatedIconButton(
               icon: FurnitureAssets.icons.cartTwo.svg(),
               onTap: () {},
-              title: 'Add To Card',
+              title: context.tr(
+                Localization.addToCard,
+              ),
             ).expanded(),
           ],
         ).paddingAll(
@@ -86,13 +92,34 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: _appBarSection(context),
       body: SafeArea(
-        child: Column(
-          children: [
-            const DetailInfo().paddingSymmetric(
-              horizontal: 20.w,
-            ),
-            _footerSection().expanded(),
-          ],
+        child: BlocBuilder<DetailCubit, DetailState>(
+          builder: (
+            context,
+            state,
+          ) {
+            if (state is DetailLoading) {
+              return const SizedBox(
+                // height: 145.h,
+                child: FurnitureProgressIndicator(),
+              );
+            } else if (state is DetailLoaded) {
+              return Column(
+                children: [
+                  DetailInfo(
+                    detailItemData: state.detailItem,
+                  ).paddingSymmetric(
+                    horizontal: 20.w,
+                  ),
+                  _footerSection(context, state.detailItem).expanded(),
+                ],
+              );
+            } else if (state is DetailFailure) {
+              return Text('Error: ${state.message}');
+            }
+            return const ColoredBox(
+              color: Colors.green,
+            );
+          },
         ),
       ),
     );

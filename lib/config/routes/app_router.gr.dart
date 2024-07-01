@@ -22,12 +22,11 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     DetailRoute.name: (routeData) {
-      final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<DetailRouteArgs>(
-          orElse: () => DetailRouteArgs(id: pathParams.optString('id')));
+          orElse: () => const DetailRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: DetailScreen(
+        child: DetailPage(
           key: args.key,
           id: args.id,
         ),
@@ -123,7 +122,7 @@ class CategoriesRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [DetailScreen]
+/// [DetailPage]
 class DetailRoute extends PageRouteInfo<DetailRouteArgs> {
   DetailRoute({
     Key? key,
@@ -135,7 +134,6 @@ class DetailRoute extends PageRouteInfo<DetailRouteArgs> {
             key: key,
             id: id,
           ),
-          rawPathParams: {'id': id},
           initialChildren: children,
         );
 

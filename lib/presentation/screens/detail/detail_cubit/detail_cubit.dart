@@ -12,15 +12,11 @@ class DetailCubit extends Cubit<DetailState> {
         );
 
   void fetchDetailItem() async {
+    emit(
+      DetailLoading(),
+    );
     try {
-      emit(
-        DetailLoading(),
-      );
-      await Future.delayed(
-        const Duration(
-          seconds: 2,
-        ),
-      );
+      await Future.delayed(const Duration(seconds: 2));
       emit(
         DetailLoaded(
           detailItem,
