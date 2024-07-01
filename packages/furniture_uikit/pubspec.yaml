@@ -1,0 +1,73 @@
+name: furniture_uikit
+description: "App package uikit"
+version: 1.0.0+1
+publish_to: none
+#homepage:
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  badges: ^3.1.2
+  flutter:
+    sdk: flutter
+  furniture_localization:
+    path: ../../packages/furniture_localization
+
+  flutter_rating_bar: ^4.0.1
+  flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.10+1
+  percent_indicator: ^4.2.3
+  dots_indicator: ^3.0.0
+  cached_network_image: ^3.3.1
+  image_stack: ^2.1.1
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.9
+  flutter_gen: ^5.4.0
+  flutter_gen_runner: ^5.4.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/fonts/
+    - assets/icons/
+    - assets/images/
+
+  fonts:
+    - family: Switzer
+      fonts:
+        - asset: assets/fonts/Switzer-Thin.otf
+          weight: 100
+        - asset: assets/fonts/Switzer-Extralight.otf
+          weight: 200
+        - asset: assets/fonts/Switzer-Light.otf
+          weight: 300
+        - asset: assets/fonts/Switzer-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Switzer-Medium.otf
+          weight: 500
+        - asset: assets/fonts/Switzer-Semibold.otf
+          weight: 600
+        - asset: assets/fonts/Switzer-Bold.otf
+          weight: 700
+        - asset: assets/fonts/Switzer-Extrabold.otf
+          weight: 800
+        - asset: assets/fonts/Switzer-Black.otf
+          weight: 900
+
+flutter_gen:
+  output: lib/src/assets/
+  line_length: 100
+
+  assets:
+    enabled: true
+    outputs:
+      package_parameter_enabled: true
+      class_name: FurnitureAssets
+
+  integrations:
+    flutter_svg: true
