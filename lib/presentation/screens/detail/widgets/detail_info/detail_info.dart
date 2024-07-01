@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/data/local/image_stack_data/image_stack_data.dart';
+import 'package:furniture_shop/domain/models/product/product_model.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 class DetailInfo extends StatelessWidget {
-  const DetailInfo({super.key});
+  const DetailInfo({super.key, required this.detailItemData});
+
+  final ProductModel detailItemData;
 
   Widget _namePriceSection() {
     return Row(
@@ -15,14 +18,14 @@ class DetailInfo extends StatelessWidget {
         SizedBox(
           width: 200.w,
           child: Text(
-            'Ox Mathis Furniture Modern Style',
+            detailItemData.productName ?? '',
             style: switzer24MediumTextStyle,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
           ),
         ),
         Text(
-          '\$90.99',
+          '\$${detailItemData.productPrice}',
           style: switzer24MediumTextStyle.copyWith(
             color: FurnitureColors.priceColor,
           ),
@@ -43,13 +46,13 @@ class DetailInfo extends StatelessWidget {
               children: [
                 FurnitureProductInfo(
                   icon: FurnitureAssets.icons.seenPeopleIcon.svg(),
-                  count: 341,
+                  count: detailItemData.productSeenCount,
                   action: context.tr(Localization.seen),
                 ),
                 8.horizontalSpace,
                 FurnitureProductInfo(
                   icon: FurnitureAssets.icons.hearthIcon.svg(),
-                  count: 294,
+                  count: detailItemData.productLiked,
                   action: context.tr(Localization.liked),
                 ),
               ],
@@ -76,7 +79,7 @@ class DetailInfo extends StatelessWidget {
         ),
         SizedBox(
           child: Text(
-            'The Swedish Designer Monica Forstar’s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
+            detailItemData.productDescription ?? '',
             style: switzer14RegularTextStyle.copyWith(
               color: FurnitureColors.subTextColor,
             ),
@@ -90,36 +93,18 @@ class DetailInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return BlocBuilder<DetailCubit, DetailState>(
-    //   builder: (
-    //     context,
-    //     state,
-    //   ) {
-    //     if (state is DetailLoading) {
-    //       return SizedBox(
-    //         height: 145.h,
-    //         child: const FurnitureProgressIndicator(),
-    //       );
-    //     } else if (state is DetailLoaded) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         FurnitureCachedNetworkImage(
           height: 226.h,
           contain: true,
-          imageUrl:
-              'https://static.vecteezy.com/system/resources/previews/011/794/197/non_2x/brown-leather-armchair-soft-cushion-with-metal-leg-3d-rendering-modern-interior-design-for-living-room-free-png.png',
+          imageUrl: detailItemData.productImg,
         ),
         _namePriceSection(),
         _efficiencySection(context).paddingSymmetric(vertical: 24.h),
         _descriptionSection(context),
       ],
     );
-    //   } else if (state is DetailFailure) {
-    //     return Text('Error: ${state.message}');
-    //   }
-    //   return const SizedBox.shrink();
-    // },
-    // );
   }
 }

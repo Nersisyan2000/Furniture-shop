@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:furniture_shop/example/example.dart';
 import 'package:furniture_shop/presentation/screens/auto_tabs/auto_tabs_screen.dart';
 import 'package:furniture_shop/presentation/screens/categories/categories_screen.dart';
-import 'package:furniture_shop/presentation/screens/detail/detail_screen.dart';
+import 'package:furniture_shop/presentation/screens/detail/detail_page.dart';
 import 'package:furniture_shop/presentation/screens/favourite/favourite_screen.dart';
 import 'package:furniture_shop/presentation/screens/filter/filter_screen.dart';
 import 'package:furniture_shop/presentation/screens/home/home_screen.dart';
