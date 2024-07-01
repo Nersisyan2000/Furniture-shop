@@ -13,7 +13,9 @@ class MostInterestedCubit extends Cubit<MostInterestedState> {
         emit(MostInterestedEmptyState());
       } else {
         emit(
-          MostInterestedLoadedState(productData),
+          MostInterestedLoadedState(productData
+              .where((value) => value.productSeenCount! > 300)
+              .toList()),
         );
       }
     } catch (e) {

@@ -7,6 +7,7 @@ import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/carousel/carousel_page.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/most_interested/most_interested_list_page.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/popular/popular_furnitures.dart';
+// import 'package:furniture_shop/presentation/screens/home/widgets/popular/popular_furnitures_page.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/products/products.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
