@@ -18,6 +18,7 @@ export 'src/widgets/bottom_navigation/furniture_bottom_navigation_bar.dart';
 export 'src/widgets/dots/furniture_dots.dart';
 export 'src/widgets/cached_network_image/furniture_cached_network_image.dart';
 export 'src/widgets/image_stack/furniture_image_stack.dart';
+export 'src/widgets/search_button/furniture_search_button.dart';
 
 export 'src/assets/assets.gen.dart';
 export 'src/assets/fonts.gen.dart';
@@ -26,6 +27,7 @@ export 'src/theme/furniture_main_theme.dart';
 export 'src/theme/furniture_colors.dart';
 export 'src/theme/furniture_text_styles.dart';
 export 'src/theme/furniture_dimensions.dart';
+export 'src/theme/furniture_border_styles.dart';
 
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:badges/badges.dart';

@@ -3,11 +3,11 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
+import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/carousel/carousel_page.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/most_interested/most_interested_list.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/popular/popular_furnitures.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/products/products.dart';
-import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 @RoutePage()
@@ -46,17 +46,13 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _searchField(BuildContext context) {
-    return FurnitureSearchInput(
-      searchHintText: context.tr(Localization.searchFurniture),
-      onTapOutSide: (event) => {
-        FocusScope.of(context).unfocus(),
-      },
-      onNavigateSearch: () {
-        context.router.push(const SearchRoute());
-      },
-      onNavigateFilter: () {
-        context.router.push(const FilterRoute());
-      },
+    return FurnitureSearchButton(
+      searchButtonHint: context.tr(
+        Localization.searchFurniture,
+      ),
+      onNavigateSearch: () => context.router.push(
+        const SearchRoute(),
+      ),
     ).paddingSymmetric(vertical: 24.h);
   }
 
