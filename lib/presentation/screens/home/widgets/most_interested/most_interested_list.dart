@@ -1,12 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_shop/presentation/screens/home/home_screen_provider.dart';
+import 'package:furniture_shop/presentation/screens/home/widgets/most_interested/most_interested_cubit/most_interested_cubit.dart';
+import 'package:furniture_shop/presentation/screens/home/widgets/most_interested/most_interested_cubit/most_interested_state.dart';
+import 'package:furniture_shop/presentation/widgets/furniture_empty_widget.dart';
+import 'package:furniture_shop/presentation/widgets/furniture_progress_indicator.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
-import 'package:provider/provider.dart';
 
 class MostInterestedList extends StatefulWidget {
   const MostInterestedList({super.key});
@@ -108,24 +112,49 @@ class _MostInterestedListState extends State<MostInterestedList> {
 
   @override
   Widget build(BuildContext context) {
-    final productData = context.watch<HomeProvider>().mostInterestedData;
+    // final productData = context.watch<HomeProvider>().mostInterestedData;
     return Column(
       children: [
         _headerSection(context),
-        SizedBox(
-          height:
-              264.h, // Height of the container that holds the horizontal list
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: productData.length, // Number of items in the list
-            itemBuilder: (context, index) {
+        BlocBuilder<MostInterestedCubit, MostInterestedState>(
+          builder: (context, state) {
+            if (state is MostInterestedLoadingState) {
               return SizedBox(
-                width: 232.w, // Width of each card
-                child: _mostInterestedItem(productData[index])
-                    .paddingOnly(right: 8.w),
+                height: 264.h,
+                child: const FurnitureProgressIndicator(),
               );
-            },
-          ),
+            } else if (state is MostInterestedLoadedState) {
+              return Column(
+                children: [
+                  SizedBox(
+                    height: 264
+                        .h
+                        .h, // Height of the container that holds the horizontal list
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: state.mostInterestedData
+                          .length, // Number of items in the list
+                      itemBuilder: (context, index) {
+                        return SizedBox(
+                          width: 232.w, // Width of each card
+                          child: _mostInterestedItem(
+                                  state.mostInterestedData[index])
+                              .paddingOnly(right: 8.w),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              );
+            } else if (state is MostInterestedEmptyState) {
+              return FurnitureEmptyWidget(
+                height: 264.h,
+              );
+            } else if (state is MostInterestedFailureState) {
+              return Text('Error: ${state.message}');
+            }
+            return const SizedBox.shrink();
+          },
         ),
       ],
     );
