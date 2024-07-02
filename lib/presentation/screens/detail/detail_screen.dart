@@ -10,9 +10,7 @@ import 'package:furniture_shop/presentation/widgets/furniture_progress_indicator
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key, @PathParam('id') this.id});
-
-  final String? id;
+  const DetailScreen({super.key});
 
   PreferredSize _appBarSection(BuildContext context) {
     return PreferredSize(
@@ -65,8 +63,11 @@ class DetailScreen extends StatelessWidget {
           24.r,
         ), // Add radius to the top right corner
       ),
-      child: ColoredBox(
-        color: Colors.white,
+      child: Container(
+        constraints: BoxConstraints(maxHeight: 154.h),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -104,13 +105,14 @@ class DetailScreen extends StatelessWidget {
               );
             } else if (state is DetailLoaded) {
               return Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   DetailInfo(
                     detailItemData: state.detailItem,
                   ).paddingSymmetric(
                     horizontal: 20.w,
                   ),
-                  _footerSection(context, state.detailItem).expanded(),
+                  _footerSection(context, state.detailItem),
                 ],
               );
             } else if (state is DetailFailure) {

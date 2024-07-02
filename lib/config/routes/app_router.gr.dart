@@ -22,8 +22,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     DetailRoute.name: (routeData) {
-      final args = routeData.argsAs<DetailRouteArgs>(
-          orElse: () => const DetailRouteArgs());
+      final args = routeData.argsAs<DetailRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: DetailPage(
@@ -126,7 +125,7 @@ class CategoriesRoute extends PageRouteInfo<void> {
 class DetailRoute extends PageRouteInfo<DetailRouteArgs> {
   DetailRoute({
     Key? key,
-    String? id,
+    required String id,
     List<PageRouteInfo>? children,
   }) : super(
           DetailRoute.name,
@@ -145,12 +144,12 @@ class DetailRoute extends PageRouteInfo<DetailRouteArgs> {
 class DetailRouteArgs {
   const DetailRouteArgs({
     this.key,
-    this.id,
+    required this.id,
   });
 
   final Key? key;
 
-  final String? id;
+  final String id;
 
   @override
   String toString() {

@@ -57,7 +57,7 @@ class PopularFurnitures extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () => context.router.push(
-                      DetailRoute(),
+                      DetailRoute(id: state.popularData[index].id),
                     ),
                     child: FurniturePackedCard(
                       imageUrl: state.popularData[index].productImg ??

@@ -22,7 +22,7 @@ class MostInterestedList extends StatefulWidget {
 class _MostInterestedListState extends State<MostInterestedList> {
   Widget _mostInterestedItem(productItem) {
     return InkWell(
-      onTap: () => context.router.push(DetailRoute()),
+      onTap: () => context.router.push(DetailRoute(id: productItem.id)),
       child: Card(
         // color: Colors.blueAccent,
         child: Column(
@@ -127,22 +127,19 @@ class _MostInterestedListState extends State<MostInterestedList> {
               return Column(
                 children: [
                   SizedBox(
-                    height: 264
-                        .h
-                        .h, // Height of the container that holds the horizontal list
+                    height: 264.h,
                     child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.mostInterestedData
-                          .length, // Number of items in the list
-                      itemBuilder: (context, index) {
-                        return SizedBox(
-                          width: 232.w, // Width of each card
-                          child: _mostInterestedItem(
-                                  state.mostInterestedData[index])
-                              .paddingOnly(right: 8.w),
-                        );
-                      },
-                    ),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: state.mostInterestedData
+                            .length, // Number of items in the list
+                        itemBuilder: (context, index) {
+                          return SizedBox(
+                            width: 232.w, // Width of each card
+                            child: _mostInterestedItem(
+                                    state.mostInterestedData[index])
+                                .paddingOnly(right: 8.w),
+                          );
+                        }),
                   ),
                 ],
               );

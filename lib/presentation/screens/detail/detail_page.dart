@@ -7,17 +7,15 @@ import 'package:furniture_shop/presentation/screens/detail/detail_screen.dart';
 
 @RoutePage()
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key, this.id});
+  const DetailPage({super.key, required this.id});
 
-  final String? id;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => getIt<DetailCubit>()..fetchDetailItem(),
-      child: DetailScreen(
-        id: id,
-      ),
+      create: (_) => getIt<DetailCubit>()..fetchDetailItem(id),
+      child: const DetailScreen(),
     );
   }
 }
