@@ -13,6 +13,8 @@ import 'package:furniture_shop/presentation/screens/search/search_screen.dart';
 import 'package:furniture_shop/presentation/screens/shopping/shopping_screen.dart';
 import 'package:furniture_shop/presentation/screens/splash/splash_screen.dart';
 
+import '../../presentation/screens/check_out/check_out_screen.dart';
+
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
@@ -33,5 +35,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ShoppingRoute.page),
         AutoRoute(page: MostInterestedRoute.page),
         AutoRoute(page: PopularRoute.page),
+        AutoRoute(page: CheckOutRoute.page),
       ];
 }

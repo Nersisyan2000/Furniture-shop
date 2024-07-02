@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
+import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_shop/presentation/screens/shopping/shopping_screen_provider.dart';
 import 'package:furniture_shop/presentation/screens/shopping/widgets/order_summary.dart';
 import 'package:furniture_shop/presentation/screens/shopping/widgets/product_card.dart';
@@ -26,7 +27,7 @@ class ShoppingScreen extends StatelessWidget {
         backgroundColor: FurnitureColors.whiteBackground,
         actions: [
           FurnitureIconButton.whiteMode(
-            icon: FurnitureAssets.icons.hearthIcon.svg(
+            icon: FurnitureAssets.icons.trash.svg(
               color: Colors.black,
             ),
             onTap: () {},
@@ -65,7 +66,7 @@ class ShoppingScreen extends StatelessWidget {
                 children: [
                   const OrderSummary(),
                   FurnitureElevatedButton(
-                    onTap: () {},
+                    onTap: () => context.router.push(const CheckOutRoute()),
                     title: context.tr(Localization.checkOut),
                   ).paddingAll(10.0),
                 ],

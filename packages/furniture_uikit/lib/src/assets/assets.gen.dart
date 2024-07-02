@@ -90,6 +90,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/direction_right 3.svg
   SvgGenImage get directionRight3 => const SvgGenImage('assets/icons/direction_right 3.svg');
 
+  /// File path: assets/icons/edit.svg
+  SvgGenImage get edit => const SvgGenImage('assets/icons/edit.svg');
+
   /// File path: assets/icons/eye_scanner.svg
   SvgGenImage get eyeScanner => const SvgGenImage('assets/icons/eye_scanner.svg');
 
@@ -133,6 +136,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/seen_people_icon.svg
   SvgGenImage get seenPeopleIcon => const SvgGenImage('assets/icons/seen_people_icon.svg');
 
+  /// File path: assets/icons/trash.svg
+  SvgGenImage get trash => const SvgGenImage('assets/icons/trash.svg');
+
   /// File path: assets/icons/user.svg
   SvgGenImage get user => const SvgGenImage('assets/icons/user.svg');
 
@@ -147,6 +153,7 @@ class $AssetsIconsGen {
         category,
         chairIcon,
         directionRight3,
+        edit,
         eyeScanner,
         filterIcon,
         frame,
@@ -161,6 +168,7 @@ class $AssetsIconsGen {
         plusIcon,
         searchIcon,
         seenPeopleIcon,
+        trash,
         user
       ];
 }
@@ -168,8 +176,14 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/apple_pay.png
+  AssetGenImage get applePay => const AssetGenImage('assets/images/apple_pay.png');
+
   /// File path: assets/images/armchair_img.png
   AssetGenImage get armchairImg => const AssetGenImage('assets/images/armchair_img.png');
+
+  /// File path: assets/images/credi_card.png
+  AssetGenImage get crediCard => const AssetGenImage('assets/images/credi_card.png');
 
   /// File path: assets/images/discount_img.png
   AssetGenImage get discountImg => const AssetGenImage('assets/images/discount_img.png');
@@ -193,18 +207,24 @@ class $AssetsImagesGen {
   AssetGenImage get onboardingThirdImg =>
       const AssetGenImage('assets/images/onboarding_third_img.png');
 
+  /// File path: assets/images/paypal.png
+  AssetGenImage get paypal => const AssetGenImage('assets/images/paypal.png');
+
   /// File path: assets/images/project-logo.svg
   SvgGenImage get projectLogo => const SvgGenImage('assets/images/project-logo.svg');
 
   /// List of all assets
   List<dynamic> get values => [
+        applePay,
         armchairImg,
+        crediCard,
         discountImg,
         logedUser,
         onboardingCircleImg,
         onboardingFirstImg,
         onboardingSecondImg,
         onboardingThirdImg,
+        paypal,
         projectLogo
       ];
 }
@@ -220,13 +240,18 @@ class FurnitureAssets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName, {this.size = null});
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
 
   final String _assetName;
 
   static const String package = 'furniture_uikit';
 
   final Size? size;
+  final Set<String> flavors;
 
   Image image({
     Key? key,
@@ -300,20 +325,22 @@ class AssetGenImage {
 class SvgGenImage {
   const SvgGenImage(
     this._assetName, {
-    this.size = null,
+    this.size,
+    this.flavors = const {},
   }) : _isVecFormat = false;
 
   const SvgGenImage.vec(
     this._assetName, {
-    this.size = null,
+    this.size,
+    this.flavors = const {},
   }) : _isVecFormat = true;
 
   final String _assetName;
+  final Size? size;
+  final Set<String> flavors;
+  final bool _isVecFormat;
 
   static const String package = 'furniture_uikit';
-
-  final Size? size;
-  final bool _isVecFormat;
 
   SvgPicture svg({
     Key? key,
@@ -335,10 +362,23 @@ class SvgGenImage {
     @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
     @deprecated bool cacheColorFilter = false,
   }) {
+    final BytesLoader loader;
+    if (_isVecFormat) {
+      loader = AssetBytesLoader(
+        _assetName,
+        assetBundle: bundle,
+        packageName: package,
+      );
+    } else {
+      loader = SvgAssetLoader(
+        _assetName,
+        assetBundle: bundle,
+        packageName: package,
+        theme: theme,
+      );
+    }
     return SvgPicture(
-      _isVecFormat
-          ? AssetBytesLoader(_assetName, assetBundle: bundle, packageName: package)
-          : SvgAssetLoader(_assetName, assetBundle: bundle, packageName: package),
+      loader,
       key: key,
       matchTextDirection: matchTextDirection,
       width: width,
@@ -349,7 +389,6 @@ class SvgGenImage {
       placeholderBuilder: placeholderBuilder,
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
-      theme: theme,
       colorFilter: colorFilter ?? (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
