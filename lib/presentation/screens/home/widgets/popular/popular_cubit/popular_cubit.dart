@@ -9,12 +9,13 @@ class PopularCubit extends Cubit<PopularState> {
     emit(PopularLoadingState());
     try {
       await Future.delayed(const Duration(seconds: 2));
-      if (productData.isEmpty) {
+      final filteredData =
+          productData.where((value) => value.productLiked! > 200).toList();
+      if (filteredData.isEmpty) {
         emit(PopularEmptyState());
       } else {
         emit(
-          PopularLoadedState(
-              productData.where((value) => value.productLiked! > 300).toList()),
+          PopularLoadedState(filteredData),
         );
       }
     } catch (e) {

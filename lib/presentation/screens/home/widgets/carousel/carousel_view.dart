@@ -72,12 +72,12 @@ class CarouselView extends StatelessWidget {
         ),
         BlocBuilder<DiscountCubit, DiscountState>(
           builder: (context, state) {
-            if (state is DiscountLoading) {
+            if (state is DiscountLoadingState) {
               return SizedBox(
                 height: 145.h,
                 child: const FurnitureProgressIndicator(),
               );
-            } else if (state is DiscountLoaded) {
+            } else if (state is DiscountLoadedState) {
               return FlutterCarousel(
                 options: CarouselOptions(
                   padEnds: false,
@@ -99,11 +99,11 @@ class CarouselView extends StatelessWidget {
                   });
                 }).toList(),
               ).paddingOnly(top: 8.h);
-            } else if (state is DiscountEmpty) {
+            } else if (state is DiscountEmptyState) {
               return FurnitureEmptyWidget(
                 height: 145.h,
               );
-            } else if (state is DiscountFailure) {
+            } else if (state is DiscountFailureState) {
               return Text('Error: ${state.message}');
             }
             return const SizedBox.shrink();

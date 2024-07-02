@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/popular/popular_cubit/popular_cubit.dart';
+import 'package:furniture_shop/presentation/screens/home/widgets/popular/popular_furnitures.dart';
 
 class PopularFurnituresPage extends StatelessWidget {
   const PopularFurnituresPage({super.key});
@@ -9,7 +10,7 @@ class PopularFurnituresPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => PopularCubit()..fetchPopularData(),
-      child: const PopularFurnituresPage(),
+      child: const PopularFurnitures(),
     );
   }
 }
