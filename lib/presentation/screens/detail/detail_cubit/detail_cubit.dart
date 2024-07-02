@@ -2,9 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:furniture_shop/data/local/detail_item_data/detail_item_data.dart';
 import 'package:furniture_shop/domain/models/product/product_model.dart';
+import 'package:injectable/injectable.dart';
 
 part 'detail_state.dart';
 
+@injectable
 class DetailCubit extends Cubit<DetailState> {
   DetailCubit()
       : super(

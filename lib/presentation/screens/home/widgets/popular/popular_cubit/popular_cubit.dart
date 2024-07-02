@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:furniture_shop/data/local/procucts/products_data.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/popular/popular_cubit/popular_state.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class PopularCubit extends Cubit<PopularState> {
   PopularCubit() : super(PopularInitialState());
 

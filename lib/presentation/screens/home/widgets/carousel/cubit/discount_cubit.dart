@@ -3,7 +3,9 @@ import 'package:bloc/bloc.dart';
 import 'package:furniture_shop/data/local/discount_data/discount_data.dart';
 // import 'package:furniture_shop/data/services/discount_service.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/carousel/cubit/discount_state.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class DiscountCubit extends Cubit<DiscountState> {
   // final GetDiscountsService _service;
 
