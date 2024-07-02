@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:furniture_shop/data/local/procucts/products_data.dart';
 import 'package:furniture_shop/presentation/screens/home/widgets/most_interested/most_interested_cubit/most_interested_state.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class MostInterestedCubit extends Cubit<MostInterestedState> {
   MostInterestedCubit() : super(MostInterestedInitialState());
 

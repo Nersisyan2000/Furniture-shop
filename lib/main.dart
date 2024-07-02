@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_shop/data/locator/service_locator.dart';
 import 'package:furniture_shop/presentation/screens/home/home_screen_provider.dart';
 import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen_provider.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
@@ -9,6 +10,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  configureDependencies();
 
   runApp(
     EasyLocalization(
