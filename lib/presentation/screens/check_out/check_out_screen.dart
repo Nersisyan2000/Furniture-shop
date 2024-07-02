@@ -3,14 +3,17 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
+import 'package:furniture_shop/data/local/check_out_data/amount_data/amount_data.dart';
+import 'package:furniture_shop/data/local/check_out_data/payment_method_data/payment_method_data.dart';
+import 'package:furniture_shop/data/local/check_out_data/shipping_address_data/shipping_address_data.dart';
 import 'package:furniture_shop/presentation/screens/check_out/widgets/amount/amount_widget.dart';
 import 'package:furniture_shop/presentation/screens/check_out/widgets/payment_method/payment_method_list_tile.dart';
 import 'package:furniture_shop/presentation/screens/check_out/widgets/shipping_address/shipping_address_card.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
+// import '../../../data/local/check_out_data/amount_data/amount_data.dart';
+// import '../../../data/local/check_out_data/payment_method_data/payment_method_data.dart';
+// import '../../../data/local/check_out_data/shipping_address_data/shipping_address_data.dart';
 
-import '../../../data/local/check_out_data/amount_data/amount_data.dart';
-import '../../../data/local/check_out_data/payment_method_data/payment_method_data.dart';
-import '../../../data/local/check_out_data/shipping_address_data/shipping_address_data.dart';
 @RoutePage()
 class CheckOutScreen extends StatefulWidget {
   const CheckOutScreen({super.key});
@@ -20,10 +23,10 @@ class CheckOutScreen extends StatefulWidget {
 }
 
 class _CheckOutScreenState extends State<CheckOutScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+  PreferredSize _checkOutAppBar(BuildContext context) {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(60.h),
+      child: AppBar(
         leading: FurnitureIconButton.whiteMode(
           icon: FurnitureAssets.icons.arrowBack.svg(),
           onTap: () {},
@@ -42,12 +45,18 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
             context.tr(Localization.shopping),
           ),
         ),
-      ),
+      ).paddingOnly(left: 20.w, right: 20.w, top: 10.h),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: _checkOutAppBar(context),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             for (var shippingAddress in shippingAddressData)
               ShippingAddressCard(
                 title: shippingAddress.title,
@@ -84,7 +93,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                       princeName: amountData[amountItem].priceName,
                       prince: amountData[amountItem].price,
                     ),
-                  Divider(color:FurnitureColors.subTextColor ,),
+                  const Divider(color:FurnitureColors.subTextColor ,),
                   AmountWidget(
                     princeName: amountData[amountData.length-1].priceName,
                     prince: amountData[amountData.length-1].price,
@@ -101,4 +110,6 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
       ),
     );
   }
+
+  
 }

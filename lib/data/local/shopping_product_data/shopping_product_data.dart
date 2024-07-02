@@ -1,5 +1,3 @@
-import 'package:furniture_shop/domain/models/product/product_model.dart';
-
 import '../../../domain/models/shopping_product/shopping_product_model.dart';
 
 List<ShoppingProductModel> shoppingProductData = [

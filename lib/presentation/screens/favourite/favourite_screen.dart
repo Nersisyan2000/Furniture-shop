@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_localization/furniture_localization.dart';
