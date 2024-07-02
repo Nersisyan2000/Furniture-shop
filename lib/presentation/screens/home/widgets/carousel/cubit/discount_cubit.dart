@@ -7,20 +7,20 @@ import 'package:furniture_shop/presentation/screens/home/widgets/carousel/cubit/
 class DiscountCubit extends Cubit<DiscountState> {
   // final GetDiscountsService _service;
 
-  DiscountCubit() : super(DiscountInitial());
+  DiscountCubit() : super(DiscountInitialState());
 
   void fetchDiscountData() async {
-    emit(DiscountLoading());
+    emit(DiscountLoadingState());
     try {
       // final data = await _service.fetchDiscountData();
       await Future.delayed(const Duration(seconds: 2));
       if (discountData.isEmpty) {
-        emit(DiscountEmpty());
+        emit(DiscountEmptyState());
       } else {
-        emit(DiscountLoaded(discountData));
+        emit(DiscountLoadedState(discountData));
       }
     } catch (e) {
-      emit(DiscountFailure(e.toString()));
+      emit(DiscountFailureState(e.toString()));
     }
   }
 }

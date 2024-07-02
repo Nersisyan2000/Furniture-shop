@@ -6,25 +6,25 @@ abstract class DiscountState extends Equatable {
   List<Object?> get props => [];
 }
 
-class DiscountInitial extends DiscountState {}
+class DiscountInitialState extends DiscountState {}
 
-class DiscountLoading extends DiscountState {}
+class DiscountLoadingState extends DiscountState {}
 
-class DiscountLoaded extends DiscountState {
+class DiscountLoadedState extends DiscountState {
   final List<DiscountModel> data;
 
-  DiscountLoaded(this.data);
+  DiscountLoadedState(this.data);
 
   @override
   List<List<DiscountModel>> get props => [data];
 }
 
-class DiscountEmpty extends DiscountState {}
+class DiscountEmptyState extends DiscountState {}
 
-class DiscountFailure extends DiscountState {
+class DiscountFailureState extends DiscountState {
   final String message;
 
-  DiscountFailure(this.message);
+  DiscountFailureState(this.message);
 
   @override
   List<String> get props => [message];

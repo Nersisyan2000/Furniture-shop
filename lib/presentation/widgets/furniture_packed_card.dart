@@ -30,9 +30,14 @@ class FurniturePackedCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: switzer16SemiboldTextStyle,
+                SizedBox(
+                  width: 130.w,
+                  child: Text(
+                    title,
+                    style: switzer16SemiboldTextStyle,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 Text(
                   subTitle,
