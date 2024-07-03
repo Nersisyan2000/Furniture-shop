@@ -14,7 +14,7 @@ abstract class Localization {
   static const String dontHaveAnAccount = 'dontHaveAnAccount';
   static const String signUpForFree = 'signUpForFree';
   static const String createAccount = 'createAccount';
-  static const String createAccountTogether = 'createAccountTogeter';
+  static const String createAccountTogether = 'createAccountTogether';
   static const String fullName = 'fullName';
   static const String enterYourName = 'enterYourName';
   static const String signUp = 'signUp';
@@ -86,4 +86,5 @@ abstract class Localization {
   static const String craftyFurniture = 'craftyFurniture';
   static const String learnMore = 'learnMore';
   static const String noDataAvailable = 'noDataAvailable';
+  static const String enterYourPassword = 'enterYourPassword';
 }

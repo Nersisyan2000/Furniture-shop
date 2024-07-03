@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
-import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
-import 'package:furniture_uikit/src/theme/furniture_text_styles.dart';
 
 class FurnitureTextField extends StatefulWidget {
   const FurnitureTextField({
@@ -18,7 +16,7 @@ class FurnitureTextField extends StatefulWidget {
 
   final String? hintText;
   final String label;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final bool isSecure;
   final Function(PointerDownEvent)? onTapOutSide;
   final Function(String)? onChanged;
@@ -60,8 +58,8 @@ class _FurnitureTextField extends State<FurnitureTextField> {
         ),
         onSaved: widget.onSaved,
         validator: (txt) {
-          if(txt == null) return "This field is mandatory";
-          if(txt.isEmpty) return "This field must be filled";
+          if (txt == null) return "This field is mandatory";
+          if (txt.isEmpty) return "This field must be filled";
           return null;
         },
       ),

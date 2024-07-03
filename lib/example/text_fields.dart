@@ -35,7 +35,7 @@ class _TextFieldsState extends State<TextFields> {
               label: context.tr(Localization.email),
               isSecure: false,
               onTapOutSide: (event) => {
-                    FocusScope.of(context).requestFocus(FocusNode()),
+                    FocusScope.of(context).unfocus(),
                   }).paddingAll(20.0),
           FurnitureTextField(
               controller: TextEditingController(),
@@ -43,12 +43,12 @@ class _TextFieldsState extends State<TextFields> {
               label: context.tr(Localization.password),
               isSecure: true,
               onTapOutSide: (event) => {
-                    FocusScope.of(context).requestFocus(FocusNode()),
+                    FocusScope.of(context).unfocus(),
                   }).paddingAll(20.0),
           FurnitureSearchInput(
               searchHintText: context.tr(Localization.searchFurniture),
               onTapOutSide: (event) => {
-                    FocusScope.of(context).requestFocus(FocusNode()),
+                    FocusScope.of(context).unfocus(),
                   }).paddingAll(20.0),
           FurnitureElevatedButton(
               onTap: () {
