@@ -8,21 +8,24 @@ class FurnitureElevatedButton extends StatelessWidget {
     this.onTap,
     this.whiteMode = false,
     this.textStyle,
+    this.padding,
   });
 
   final String title;
   final VoidCallback? onTap;
   final bool whiteMode;
   final TextStyle? textStyle;
+  final EdgeInsets? padding;
 
-  factory FurnitureElevatedButton.whiteMode({
-    required String title,
-    required VoidCallback? onTap,
-  }) =>
+  factory FurnitureElevatedButton.whiteMode(
+          {required String title,
+          required VoidCallback? onTap,
+          EdgeInsets? padding}) =>
       FurnitureElevatedButton(
         title: title,
         onTap: onTap,
         whiteMode: true,
+        padding: padding,
       );
 
   @override
@@ -30,7 +33,10 @@ class FurnitureElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onTap,
       style: whiteMode ? furnitureElevatedButtonWhiteMode : null,
-      child: Text(title, style: textStyle),
+      child: Padding(
+        padding: padding ?? EdgeInsets.zero,
+        child: Text(title, style: textStyle),
+      ),
     );
   }
 }

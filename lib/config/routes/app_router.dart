@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:furniture_shop/example/example.dart';
+import 'package:furniture_shop/presentation/screens/auth/sign_in/sign_in_screen.dart';
+import 'package:furniture_shop/presentation/screens/auth/sign_up/sign_up_screen.dart';
 import 'package:furniture_shop/presentation/screens/auto_tabs/auto_tabs_screen.dart';
 import 'package:furniture_shop/presentation/screens/categories/categories_screen.dart';
 import 'package:furniture_shop/presentation/screens/detail/detail_page.dart';
@@ -24,6 +26,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ExampleRoute.page),
         AutoRoute(page: SplashRoute.page, initial: true),
         AutoRoute(page: OnboardingRoute.page, path: '/onboardingScreen'),
+        AutoRoute(page: SignInRoute.page),
+        AutoRoute(page: SignUpRoute.page),
         AutoRoute(page: FeedRoute.page, children: [
           AutoRoute(page: HomeRoute.page),
           AutoRoute(page: FavouriteRoute.page),
