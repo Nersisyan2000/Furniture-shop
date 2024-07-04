@@ -58,7 +58,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
           children: <Widget>[
             for (var id = 2; id < favouriteProductData.length; id++)
               InkWell(
-                onTap: ()=> context.router.push(const ShoppingRoute()),
+                onTap: () => context.router.push(const ShoppingRoute()),
                 child: Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,16 +76,10 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                             child: Stack(
                               alignment: Alignment.center,
                               children: <Widget>[
-                                Container(
-                                  margin: const EdgeInsets.all(10.0),
-                                  width: 120.0,
-                                  height: 110.0,
-                                  child: FurnitureCachedNetworkImage(
-                                    imageUrl:
-                                        favouriteProductData[id].productImg,
-                                    width: 110.w,
-                                    height: 120.h,
-                                  ),
+                                FurnitureCachedNetworkImage(
+                                  imageUrl: favouriteProductData[id].productImg,
+                                  width: 80.w,
+                                  height: 100.h,
                                 ),
                                 Align(
                                   alignment: Alignment.topRight,
@@ -99,6 +93,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                           color: Colors.black,
                                         ),
                                         onTap: () {},
+                                        mode: true,
                                       )),
                                 )
                               ],

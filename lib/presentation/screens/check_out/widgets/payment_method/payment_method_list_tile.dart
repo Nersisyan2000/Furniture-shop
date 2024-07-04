@@ -24,7 +24,7 @@ class _PaymentMethodListTileState extends State<PaymentMethodListTile> {
     return Column(
       children: <Widget>[
         ListTile(
-          leading: Text(widget.paymentImg),
+          leading: Image.asset(widget.paymentImg),
           title: Text(widget.paymentName),
           trailing: Radio<SingingCharacter>(
             value: SingingCharacter.lafayette,

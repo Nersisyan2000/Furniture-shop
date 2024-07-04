@@ -5,12 +5,10 @@ import 'package:furniture_uikit/furniture_uikit.dart';
 class ShippingAddressCard extends StatefulWidget {
   const ShippingAddressCard({
     super.key,
-
     required this.title,
     required this.shippingAddress,
     required this.phone,
   });
-
 
   final String title;
   final String shippingAddress;
@@ -19,18 +17,19 @@ class ShippingAddressCard extends StatefulWidget {
   @override
   State<ShippingAddressCard> createState() => _ShippingAddressCardState();
 }
+
 enum SingingCharacter { lafayette, jefferson }
+
 class _ShippingAddressCardState extends State<ShippingAddressCard> {
   SingingCharacter? _character = SingingCharacter.lafayette;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: FurnitureColors.whiteColor,
+      color: Colors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-
           Radio<SingingCharacter>(
             value: SingingCharacter.lafayette,
             groupValue: _character,
@@ -41,12 +40,12 @@ class _ShippingAddressCardState extends State<ShippingAddressCard> {
             },
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 widget.title,
-                style: switzer16SemiboldTextStyle,
+                style: switzer16MediumTextStyle,
               ),
               Text(
                 widget.phone,
@@ -56,24 +55,23 @@ class _ShippingAddressCardState extends State<ShippingAddressCard> {
               ),
               Text(
                 widget.shippingAddress,
-                style: switzer16MediumTextStyle.copyWith(
+                style: switzer13RegularTextStyle.copyWith(
                   color: FurnitureColors.subTextColor,
                 ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
-          ).paddingOnly(
-            left: 12.w,
           ),
           FurnitureIconButton.whiteMode(
             icon: FurnitureAssets.icons.edit.svg(
               color: Colors.black,
             ),
             onTap: () {},
+            mode: true,
           )
         ],
-      ).paddingAll(
-        16.w,
-      ),
-    ).paddingSymmetric(horizontal: 16.0,vertical: 8.0);
+      ).paddingAll(16.0),
+    );
   }
 }

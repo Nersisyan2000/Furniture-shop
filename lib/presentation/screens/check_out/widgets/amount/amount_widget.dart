@@ -1,4 +1,3 @@
-import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
@@ -29,6 +28,6 @@ class _AmountWidgetState extends State<AmountWidget> {
               color: FurnitureColors.subTextColor),
         ),
       ],
-    ).paddingAll(24.0);
+    );
   }
 }
