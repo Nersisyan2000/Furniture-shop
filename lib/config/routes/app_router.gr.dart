@@ -40,7 +40,7 @@ abstract class _$AppRouter extends RootStackRouter {
     FavouriteRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const FavouriteScreen(),
+        child: const FavouritePage(),
       );
     },
     FeedRoute.name: (routeData) {
@@ -184,7 +184,7 @@ class ExampleRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [FavouriteScreen]
+/// [FavouritePage]
 class FavouriteRoute extends PageRouteInfo<void> {
   const FavouriteRoute({List<PageRouteInfo>? children})
       : super(

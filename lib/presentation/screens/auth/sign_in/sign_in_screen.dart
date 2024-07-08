@@ -42,7 +42,7 @@ class SignInScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         FurnitureElevatedButton(
-          onTap: () {},
+          onTap: () => context.router.push(const FeedRoute()),
           title: context.tr(Localization.signIn),
           textStyle: switzer16SemiboldTextStyle,
           padding: EdgeInsets.symmetric(

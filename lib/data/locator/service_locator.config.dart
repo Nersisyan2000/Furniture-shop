@@ -10,6 +10,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:furniture_shop/presentation/screens/detail/detail_cubit/detail_cubit.dart'
     as _i3;
+import 'package:furniture_shop/presentation/screens/favourite/favourite_cubit/favourite_cubit.dart'
+    as _i7;
 import 'package:furniture_shop/presentation/screens/home/widgets/carousel/cubit/discount_cubit.dart'
     as _i4;
 import 'package:furniture_shop/presentation/screens/home/widgets/most_interested/most_interested_cubit/most_interested_cubit.dart'
@@ -34,6 +36,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i4.DiscountCubit>(() => _i4.DiscountCubit());
     gh.factory<_i5.MostInterestedCubit>(() => _i5.MostInterestedCubit());
     gh.factory<_i6.PopularCubit>(() => _i6.PopularCubit());
+    gh.lazySingleton<_i7.FavouriteCubit>(() => _i7.FavouriteCubit());
     return this;
   }
 }

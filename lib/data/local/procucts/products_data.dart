@@ -10,6 +10,7 @@ List<ProductModel> productData = [
         'https://static.vecteezy.com/system/resources/previews/026/552/664/original/armchair-art-deco-style-in-yellow-isolated-on-transparent-background-front-view-series-of-furniture-ai-generated-png.png',
     productLiked: 294,
     productPrice: 90.99,
+    isFavourite: true,
     productDescription:
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   ),
@@ -22,6 +23,7 @@ List<ProductModel> productData = [
         'https://r2.erweima.ai/midjourney/1712302125_be440a89a6fb431091071da8c1a6a159.png',
     productLiked: 155,
     productPrice: 76.43,
+    isFavourite: false,
     productDescription:
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   ),
@@ -34,6 +36,7 @@ List<ProductModel> productData = [
         'https://static.vecteezy.com/system/resources/previews/011/794/197/non_2x/brown-leather-armchair-soft-cushion-with-metal-leg-3d-rendering-modern-interior-design-for-living-room-free-png.png',
     productLiked: 215,
     productPrice: 39.00,
+    isFavourite: true,
     productDescription:
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   ),
@@ -46,6 +49,7 @@ List<ProductModel> productData = [
         'https://r2.erweima.ai/midjourney/1712302125_be440a89a6fb431091071da8c1a6a159.png',
     productLiked: 273,
     productPrice: 36.00,
+    isFavourite: false,
     productDescription:
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   ),
@@ -58,6 +62,7 @@ List<ProductModel> productData = [
         'https://i.pinimg.com/originals/4d/76/4c/4d764cb0c947632623f9026210f4f2f6.png',
     productLiked: 214,
     productPrice: 45.21,
+    isFavourite: true,
     productDescription:
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   ),
@@ -70,6 +75,7 @@ List<ProductModel> productData = [
         'https://static.vecteezy.com/system/resources/previews/026/552/664/original/armchair-art-deco-style-in-yellow-isolated-on-transparent-background-front-view-series-of-furniture-ai-generated-png.png',
     productLiked: 101,
     productPrice: 29.68,
+    isFavourite: true,
     productDescription:
         'The Swedish Designer Monica Forstar\'s Style Is Characterised By her Enternal love For New Materials and Beautiful Pure Shapes.',
   )
