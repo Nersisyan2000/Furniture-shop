@@ -28,6 +28,7 @@ mixin _$ProductModel {
   int? get productLiked => throw _privateConstructorUsedError;
   double? get productPrice => throw _privateConstructorUsedError;
   String? get productDescription => throw _privateConstructorUsedError;
+  bool? get isFavourite => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +50,8 @@ abstract class $ProductModelCopyWith<$Res> {
       String? productImg,
       int? productLiked,
       double? productPrice,
-      String? productDescription});
+      String? productDescription,
+      bool? isFavourite});
 }
 
 /// @nodoc
@@ -73,6 +75,7 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
     Object? productLiked = freezed,
     Object? productPrice = freezed,
     Object? productDescription = freezed,
+    Object? isFavourite = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -107,6 +110,10 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
           ? _value.productDescription
           : productDescription // ignore: cast_nullable_to_non_nullable
               as String?,
+      isFavourite: freezed == isFavourite
+          ? _value.isFavourite
+          : isFavourite // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -127,7 +134,8 @@ abstract class _$$ProductModelImplCopyWith<$Res>
       String? productImg,
       int? productLiked,
       double? productPrice,
-      String? productDescription});
+      String? productDescription,
+      bool? isFavourite});
 }
 
 /// @nodoc
@@ -149,6 +157,7 @@ class __$$ProductModelImplCopyWithImpl<$Res>
     Object? productLiked = freezed,
     Object? productPrice = freezed,
     Object? productDescription = freezed,
+    Object? isFavourite = freezed,
   }) {
     return _then(_$ProductModelImpl(
       id: null == id
@@ -183,6 +192,10 @@ class __$$ProductModelImplCopyWithImpl<$Res>
           ? _value.productDescription
           : productDescription // ignore: cast_nullable_to_non_nullable
               as String?,
+      isFavourite: freezed == isFavourite
+          ? _value.isFavourite
+          : isFavourite // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -198,7 +211,8 @@ class _$ProductModelImpl implements _ProductModel {
       this.productImg,
       this.productLiked,
       this.productPrice,
-      this.productDescription});
+      this.productDescription,
+      this.isFavourite});
 
   factory _$ProductModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductModelImplFromJson(json);
@@ -219,10 +233,12 @@ class _$ProductModelImpl implements _ProductModel {
   final double? productPrice;
   @override
   final String? productDescription;
+  @override
+  final bool? isFavourite;
 
   @override
   String toString() {
-    return 'ProductModel(id: $id, productName: $productName, companyName: $companyName, productSeenCount: $productSeenCount, productImg: $productImg, productLiked: $productLiked, productPrice: $productPrice, productDescription: $productDescription)';
+    return 'ProductModel(id: $id, productName: $productName, companyName: $companyName, productSeenCount: $productSeenCount, productImg: $productImg, productLiked: $productLiked, productPrice: $productPrice, productDescription: $productDescription, isFavourite: $isFavourite)';
   }
 
   @override
@@ -244,7 +260,9 @@ class _$ProductModelImpl implements _ProductModel {
             (identical(other.productPrice, productPrice) ||
                 other.productPrice == productPrice) &&
             (identical(other.productDescription, productDescription) ||
-                other.productDescription == productDescription));
+                other.productDescription == productDescription) &&
+            (identical(other.isFavourite, isFavourite) ||
+                other.isFavourite == isFavourite));
   }
 
   @JsonKey(ignore: true)
@@ -258,7 +276,8 @@ class _$ProductModelImpl implements _ProductModel {
       productImg,
       productLiked,
       productPrice,
-      productDescription);
+      productDescription,
+      isFavourite);
 
   @JsonKey(ignore: true)
   @override
@@ -283,7 +302,8 @@ abstract class _ProductModel implements ProductModel {
       final String? productImg,
       final int? productLiked,
       final double? productPrice,
-      final String? productDescription}) = _$ProductModelImpl;
+      final String? productDescription,
+      final bool? isFavourite}) = _$ProductModelImpl;
 
   factory _ProductModel.fromJson(Map<String, dynamic> json) =
       _$ProductModelImpl.fromJson;
@@ -304,6 +324,8 @@ abstract class _ProductModel implements ProductModel {
   double? get productPrice;
   @override
   String? get productDescription;
+  @override
+  bool? get isFavourite;
   @override
   @JsonKey(ignore: true)
   _$$ProductModelImplCopyWith<_$ProductModelImpl> get copyWith =>

@@ -14,6 +14,7 @@ class ProductModel with _$ProductModel {
     int? productLiked,
     double? productPrice,
     String? productDescription,
+    bool? isFavourite,
   }) = _ProductModel;
 
   factory ProductModel.fromJson(Map<String, dynamic> json) =>

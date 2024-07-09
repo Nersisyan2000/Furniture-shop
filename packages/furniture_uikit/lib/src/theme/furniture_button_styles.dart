@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
-import 'package:furniture_uikit/src/theme/furniture_dimensions.dart';
 
 ButtonStyle get furnitureBottomTabItemIconButton => const ButtonStyle(
         backgroundColor: MaterialStatePropertyAll(
