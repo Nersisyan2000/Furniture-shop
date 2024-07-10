@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_app_bar.dart';
+import 'package:furniture_shop/presentation/widgets/furniture_costs_section.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_flat_card.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
@@ -16,6 +17,7 @@ class ShoppingScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80.h),
+        
         child: FurnitureAppBar(
           leading: FurnitureIconButton.whiteMode(
             icon: FurnitureAssets.icons.arrowBack.svg(),
@@ -48,54 +50,12 @@ class ShoppingScreen extends StatelessWidget {
                 ).paddingSymmetric(vertical: 8.h);
               },
             ).paddingSymmetric(horizontal: 20.w),
-            Positioned(
+            const Positioned(
               bottom: 0,
               left: 0,
               right: 0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(
-                    24.r,
-                  ), // Add radius to the top left corner
-                  topRight: Radius.circular(
-                    24.r,
-                  ), // Add radius to the top right corner
-                ),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Text(
-                        'Order Summary',
-                        style: switzer16MediumTextStyle,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Subtotal',
-                            style: switzer16RegularTextStyle.copyWith(
-                              color: FurnitureColors.subTextColor,
-                            ),
-                          ),
-                          Text(
-                            '\$926.99',
-                            style: switzer16MediumTextStyle.copyWith(
-                              color: FurnitureColors.priceColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ).paddingAll(
-                    24.0,
-                  ),
-                ),
-              ),
-            ).expanded(),
+              child: FurnitureCostsSection(),
+            ),
           ],
         ),
       ),

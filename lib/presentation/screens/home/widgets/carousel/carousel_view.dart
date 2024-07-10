@@ -17,46 +17,41 @@ class CarouselView extends StatelessWidget {
   const CarouselView({super.key});
 
   Widget _carouselItem(BuildContext context, DiscountModel item) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 234.w,
-          height: 130.h,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                item.discountImg,
-              ),
+    return Container(
+      width: 234.w,
+      height: 130.h,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            item.discountImg,
+          ),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '${item.discount}% discount',
+            style: switzer20SemiboldTextStyle.copyWith(
+              color: FurnitureColors.whiteColor,
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '${item.discount}% discount',
-                style: switzer20SemiboldTextStyle.copyWith(
-                  color: FurnitureColors.whiteColor,
-                ),
-              ),
-              Text(
-                item.discountInfo,
-                style: switzer13RegularTextStyle.copyWith(
-                  color: FurnitureColors.whiteColor,
-                ),
-              ),
-              FurnitureElevatedButton(
-                title: context.tr(Localization.learnMore),
-                onTap: () {},
-                textStyle: switzer13RegularTextStyle.copyWith(
-                  color: FurnitureColors.whiteColor,
-                ),
-              )
-            ],
-          ).paddingAll(16.w),
-        ),
-      ],
+          Text(
+            item.discountInfo,
+            style: switzer13RegularTextStyle.copyWith(
+              color: FurnitureColors.whiteColor,
+            ),
+          ),
+          FurnitureElevatedButton(
+            title: context.tr(Localization.learnMore),
+            onTap: () {},
+            textStyle: switzer13RegularTextStyle.copyWith(
+              color: FurnitureColors.whiteColor,
+            ),
+          )
+        ],
+      ).paddingAll(16.w),
     );
   }
 
