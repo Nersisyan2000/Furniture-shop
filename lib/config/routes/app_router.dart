@@ -14,7 +14,7 @@ import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen
 import 'package:furniture_shop/presentation/screens/popular/popular_screen.dart';
 import 'package:furniture_shop/presentation/screens/profile/profile_screen.dart';
 import 'package:furniture_shop/presentation/screens/search/search_screen.dart';
-import 'package:furniture_shop/presentation/screens/shopping/shopping_screen.dart';
+import 'package:furniture_shop/presentation/screens/shopping/shopping_page.dart';
 import 'package:furniture_shop/presentation/screens/splash/splash_screen.dart';
 
 part 'app_router.gr.dart';
@@ -28,7 +28,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: OnboardingRoute.page, path: '/onboardingScreen'),
         AutoRoute(page: SignInRoute.page),
         AutoRoute(page: SignUpRoute.page),
-        AutoRoute(page: FeedRoute.page, initial: true, children: [
+        AutoRoute(page: FeedRoute.page, children: [
           AutoRoute(page: HomeRoute.page),
           AutoRoute(page: FavouriteRoute.page),
           AutoRoute(page: CategoriesRoute.page),
@@ -38,6 +38,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: FilterRoute.page),
         AutoRoute(
           page: ShoppingRoute.page,
+          initial: true,
         ),
         AutoRoute(page: MostInterestedRoute.page),
         AutoRoute(page: PopularRoute.page),

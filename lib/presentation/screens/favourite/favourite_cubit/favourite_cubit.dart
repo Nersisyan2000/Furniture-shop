@@ -31,22 +31,30 @@ class FavouriteCubit extends Cubit<FavouriteState> {
     }
   }
 
-  void toggleFavourite(int index) async {
-    try {
-      productData[index] = productData[index]
-          .copyWith(isFavourite: !(productData[index].isFavourite ?? false));
-      final filteredData =
-          productData.where((value) => value.isFavourite == true).toList();
-      if (filteredData.isEmpty) {
-        emit(FavouriteEmptyState());
-      } else {
-        emit(
-          FavouriteLoadedState(filteredData),
-        ); // List<ProductModel>.from(products)
+  void toggleFavourite(String id) async {
+    if (state is FavouriteLoadedState) {
+      try {
+        // var data = productData.where((element) => element.id == id).first;
+        // data = data.copyWith(isFavourite: !(data.isFavourite ?? false));
+
+        final filteredData =
+            (state as FavouriteLoadedState).favouriteData.map((e) {
+          if (e.id == id) {
+            return e.copyWith(isFavourite: !(e.isFavourite ?? false));
+          }
+          return e;
+        }).toList();
+        if (filteredData.isEmpty) {
+          emit(FavouriteEmptyState());
+        } else {
+          emit(
+            FavouriteLoadedState(filteredData),
+          ); // List<ProductModel>.from(products)
+        }
+      } catch (e) {
+        emit(FavouriteFailureState(
+            "An error occurred while toggling favourite status."));
       }
-    } catch (e) {
-      emit(FavouriteFailureState(
-          "An error occurred while toggling favourite status."));
     }
   }
 }

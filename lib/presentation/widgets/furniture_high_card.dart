@@ -4,10 +4,16 @@ import 'package:furniture_shop/domain/models/product/product_model.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 class FurnitureHighCard extends StatelessWidget {
-  const FurnitureHighCard({super.key, this.cardData, this.index});
+  const FurnitureHighCard({
+    super.key,
+    this.cardData,
+    this.index,
+    this.toggleFavourite,
+  });
 
   final ProductModel? cardData;
   final int? index;
+  final VoidCallback? toggleFavourite;
 
   Widget _imageSection(BuildContext context) {
     return Container(
@@ -29,12 +35,16 @@ class FurnitureHighCard extends StatelessWidget {
             top: 12.h,
             right: 12.w,
             child: InkWell(
-              onTap: () {},
-              child: FurnitureAssets.icons.heart.svg(),
+              onTap: toggleFavourite,
+              child: cardData?.isFavourite == true
+                  ? FurnitureAssets.icons.heart.svg(
+                      colorFilter: const ColorFilter.mode(
+                      FurnitureColors.primaryColor,
+                      BlendMode.srcIn,
+                    ))
+                  : FurnitureAssets.icons.heart.svg(),
             ),
           ),
-
-          // context.read<FavouriteCubit>().toggleFavourite(index)
 
           // product.isFavourite == true ? Icons.favorite : Icons.favorite_border,
           //               color: product.isFavourite == true ? Colors.red : null,

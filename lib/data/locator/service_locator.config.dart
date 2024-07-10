@@ -18,6 +18,8 @@ import 'package:furniture_shop/presentation/screens/home/widgets/most_interested
     as _i5;
 import 'package:furniture_shop/presentation/screens/home/widgets/popular/popular_cubit/popular_cubit.dart'
     as _i6;
+import 'package:furniture_shop/presentation/screens/shopping/shopping_cubit/shopping_cubit.dart'
+    as _i8;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -37,6 +39,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i5.MostInterestedCubit>(() => _i5.MostInterestedCubit());
     gh.factory<_i6.PopularCubit>(() => _i6.PopularCubit());
     gh.lazySingleton<_i7.FavouriteCubit>(() => _i7.FavouriteCubit());
+    gh.lazySingleton<_i8.ShoppingCubit>(() => _i8.ShoppingCubit());
     return this;
   }
 }

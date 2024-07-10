@@ -36,9 +36,14 @@ class FurnitureFlatCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(
-                    title ?? '',
-                    style: switzer16SemiboldTextStyle,
+                  SizedBox(
+                    width: 150.w,
+                    child: Text(
+                      title ?? '',
+                      style: switzer16SemiboldTextStyle,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                   Text(
                     subTitle ?? '',

@@ -50,9 +50,12 @@ class FavouriteView extends StatelessWidget {
               ),
               itemCount: state.favouriteData.length,
               itemBuilder: (context, index) {
+                final item = state.favouriteData[index];
                 return Center(
                   child: FurnitureHighCard(
-                    cardData: state.favouriteData[index],
+                    cardData: item,
+                    toggleFavourite: () =>
+                        context.read<FavouriteCubit>().toggleFavourite(item.id),
                   ),
                 );
               },
