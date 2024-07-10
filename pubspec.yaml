@@ -38,7 +38,7 @@ dependencies:
     path: packages/furniture_uikit
   furniture_localization:
     path: packages/furniture_localization
-  auto_route: ^8.1.3
+  auto_route: ^7.8.1
   awesome_extensions: ^2.0.16
   flutter_carousel_widget: ^2.2.0
   provider: ^6.1.2
@@ -58,7 +58,7 @@ dev_dependencies:
 
   flutter_lints: ^4.0.0
   build_runner: ^2.4.9
-  auto_route_generator: ^8.0.0
+  auto_route_generator: ^7.3.2
   freezed: 2.5.2
   json_serializable: ^6.8.0
   injectable_generator: ^2.1.3

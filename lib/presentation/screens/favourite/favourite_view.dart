@@ -27,12 +27,12 @@ class FavouriteView extends StatelessWidget {
             context.tr(Localization.favourite),
             style: switzer20MediumTextStyle,
           ),
-          actions: [
-            FurnitureIconButton.whiteMode(
-              icon: FurnitureAssets.icons.heart.svg(),
-              onTap: () {},
-            )
-          ],
+          // actions: [
+          //   FurnitureIconButton.whiteMode(
+          //     icon: FurnitureAssets.icons.heart.svg(),
+          //     onTap: () {},
+          //   )
+          // ],
         ),
       ),
       body: SafeArea(
@@ -50,9 +50,12 @@ class FavouriteView extends StatelessWidget {
               ),
               itemCount: state.favouriteData.length,
               itemBuilder: (context, index) {
+                final item = state.favouriteData[index];
                 return Center(
                   child: FurnitureHighCard(
-                    cardData: state.favouriteData[index],
+                    cardData: item,
+                    toggleFavourite: () =>
+                        context.read<FavouriteCubit>().toggleFavourite(item.id),
                   ),
                 );
               },

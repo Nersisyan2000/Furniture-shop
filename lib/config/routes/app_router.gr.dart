@@ -94,7 +94,7 @@ abstract class _$AppRouter extends RootStackRouter {
     ShoppingRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ShoppingScreen(),
+        child: const ShoppingPage(),
       );
     },
     SignInRoute.name: (routeData) {
@@ -310,7 +310,7 @@ class SearchRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [ShoppingScreen]
+/// [ShoppingPage]
 class ShoppingRoute extends PageRouteInfo<void> {
   const ShoppingRoute({List<PageRouteInfo>? children})
       : super(

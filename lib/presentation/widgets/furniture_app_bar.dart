@@ -14,6 +14,7 @@ class FurnitureAppBar extends StatelessWidget {
     return AppBar(
       leading: leading,
       title: title,
+      surfaceTintColor: FurnitureColors.transparent,
       centerTitle: true,
       backgroundColor: FurnitureColors.whiteBackground,
       actions: actions,
