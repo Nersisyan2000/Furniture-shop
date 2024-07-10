@@ -25,15 +25,16 @@ class FurnitureHighCard extends StatelessWidget {
             height: 135.h,
             imageUrl: cardData?.productImg,
           ),
-          InkWell(
-            onTap:
-                () {}, // context.read<FavouriteCubit>().toggleFavourite(index)
-            child: Positioned(
-              top: 12.h,
-              right: 12.w,
+          Positioned(
+            top: 12.h,
+            right: 12.w,
+            child: InkWell(
+              onTap: () {},
               child: FurnitureAssets.icons.heart.svg(),
             ),
           ),
+
+          // context.read<FavouriteCubit>().toggleFavourite(index)
 
           // product.isFavourite == true ? Icons.favorite : Icons.favorite_border,
           //               color: product.isFavourite == true ? Colors.red : null,

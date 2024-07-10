@@ -27,12 +27,12 @@ class FavouriteView extends StatelessWidget {
             context.tr(Localization.favourite),
             style: switzer20MediumTextStyle,
           ),
-          actions: [
-            FurnitureIconButton.whiteMode(
-              icon: FurnitureAssets.icons.heart.svg(),
-              onTap: () {},
-            )
-          ],
+          // actions: [
+          //   FurnitureIconButton.whiteMode(
+          //     icon: FurnitureAssets.icons.heart.svg(),
+          //     onTap: () {},
+          //   )
+          // ],
         ),
       ),
       body: SafeArea(
