@@ -5,6 +5,7 @@ import 'package:furniture_shop/presentation/screens/auth/sign_in/sign_in_screen.
 import 'package:furniture_shop/presentation/screens/auth/sign_up/sign_up_screen.dart';
 import 'package:furniture_shop/presentation/screens/auto_tabs/auto_tabs_screen.dart';
 import 'package:furniture_shop/presentation/screens/categories/categories_screen.dart';
+import 'package:furniture_shop/presentation/screens/check_out/check_out_screen.dart';
 import 'package:furniture_shop/presentation/screens/detail/detail_page.dart';
 import 'package:furniture_shop/presentation/screens/favourite/favourite_page.dart';
 import 'package:furniture_shop/presentation/screens/filter/filter_screen.dart';
@@ -36,12 +37,10 @@ class AppRouter extends _$AppRouter {
         ]),
         AutoRoute(page: SearchRoute.page),
         AutoRoute(page: FilterRoute.page),
-        AutoRoute(
-          page: ShoppingRoute.page,
-          initial: true,
-        ),
+        AutoRoute(page: ShoppingRoute.page),
         AutoRoute(page: MostInterestedRoute.page),
         AutoRoute(page: PopularRoute.page),
         AutoRoute(page: DetailRoute.page),
+        AutoRoute(page: CheckOutRoute.page, initial: true),
       ];
 }

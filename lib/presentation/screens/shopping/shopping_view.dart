@@ -18,25 +18,7 @@ class ShoppingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80.h),
-        child: FurnitureAppBar(
-          leading: FurnitureIconButton.whiteMode(
-            icon: FurnitureAssets.icons.arrowBack.svg(),
-            onTap: () => context.router.maybePop(),
-          ),
-          title: Text(
-            context.tr(Localization.shopping),
-            style: switzer20MediumTextStyle,
-          ),
-          actions: [
-            FurnitureIconButton.whiteMode(
-              icon: FurnitureAssets.icons.trash.svg(),
-              onTap: () {},
-            )
-          ],
-        ),
-      ),
+      appBar: _appBarSection(context),
       body: SafeArea(
         child: BlocBuilder<ShoppingCubit, ShoppingState>(builder: (
           context,
@@ -80,6 +62,28 @@ class ShoppingView extends StatelessWidget {
           }
           return const SizedBox.shrink();
         }),
+      ),
+    );
+  }
+
+  PreferredSize _appBarSection(BuildContext context) {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(80.h),
+      child: FurnitureAppBar(
+        leading: FurnitureIconButton.whiteMode(
+          icon: FurnitureAssets.icons.arrowBack.svg(),
+          onTap: () => context.router.maybePop(),
+        ),
+        title: Text(
+          context.tr(Localization.shopping),
+          style: switzer20MediumTextStyle,
+        ),
+        actions: [
+          FurnitureIconButton.whiteMode(
+            icon: FurnitureAssets.icons.trash.svg(),
+            onTap: () {},
+          )
+        ],
       ),
     );
   }

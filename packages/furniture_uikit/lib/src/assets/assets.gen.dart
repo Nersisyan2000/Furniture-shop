@@ -93,6 +93,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/direction_right 3.svg
   SvgGenImage get directionRight3 => const SvgGenImage('assets/icons/direction_right 3.svg');
 
+  /// File path: assets/icons/edit.svg
+  SvgGenImage get edit => const SvgGenImage('assets/icons/edit.svg');
+
   /// File path: assets/icons/eye_scanner.svg
   SvgGenImage get eyeScanner => const SvgGenImage('assets/icons/eye_scanner.svg');
 
@@ -154,6 +157,7 @@ class $AssetsIconsGen {
         category,
         chairIcon,
         directionRight3,
+        edit,
         eyeScanner,
         filterIcon,
         frame,
