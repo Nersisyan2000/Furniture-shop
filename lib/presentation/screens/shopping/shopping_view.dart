@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
@@ -60,7 +59,7 @@ class ShoppingView extends StatelessWidget {
                         price: 279.95,
                       ).paddingSymmetric(vertical: 8.h);
                     },
-                  ).paddingSymmetric(horizontal: 20.w),
+                  ).paddingOnly(left: 20.w, right: 20.w, bottom: 265.h),
                 ),
                 const Positioned(
                   bottom: 0,
