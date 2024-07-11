@@ -3,8 +3,10 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
+import 'package:furniture_shop/domain/enums/payment_methods.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_app_bar.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_address_radio_card.dart';
+import 'package:furniture_shop/utils/extensions/payment_extensions.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 @RoutePage()
@@ -34,6 +36,53 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
     );
   }
 
+  Widget _addressesSection(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          context.tr(
+            Localization.shippintTo,
+          ),
+          textAlign: TextAlign.start,
+          style: switzer20MediumTextStyle,
+        ),
+        FurnitureAddressRadioCard(
+          title: context.tr(
+            Localization.homeAddress,
+          ),
+          phoneNumber: '(269) 444-6853',
+          roadNumber: 'Road Number 5649 Akali',
+          value: 1,
+          selectedValue: _selectedValue,
+          onChanged: (int? value) {
+            debugPrint('$value value');
+            setState(() {
+              _selectedValue = value;
+            });
+          },
+        ).paddingSymmetric(
+          vertical: 16.h,
+        ),
+        FurnitureAddressRadioCard(
+          title: context.tr(
+            Localization.officeAddress,
+          ),
+          phoneNumber: '259- 444-6853',
+          roadNumber: '1578 H Blog Shekh Para',
+          value: 2,
+          selectedValue: _selectedValue,
+          onChanged: (int? value) {
+            debugPrint('$value value');
+            setState(() {
+              _selectedValue = value;
+            });
+          },
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,38 +93,34 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
             Positioned.fill(
               child: Column(
                 children: [
+                  _addressesSection(context).paddingSymmetric(
+                    horizontal: 20.w,
+                    vertical: 16.h,
+                  ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
                         context.tr(
-                          Localization.shippintTo,
-                        ),
-                        textAlign: TextAlign.start,
-                        style: switzer20MediumTextStyle,
+                          Localization.paymentMethod,
+                        ), // Payment Method
                       ),
-                      // ListTile(
-                      //   title: Text('Option 1'),
-                      //   leading: Radio<int>(
-                      //     value: 1,
-                      //     groupValue: _selectedValue,
-                      //     onChanged: (int? value) {
-                      //       setState(() {
-                      //         _selectedValue = value;
-                      //       });
-                      //     },
-                      //   ),
-                      // ),
-                      FurnitureAddressRadioCard(
-                        selectedValue: _selectedValue,
-                        onChanged: (int? value) {
-                          setState(() {
-                            _selectedValue = value;
-                          });
-                        },
+                      SizedBox(
+                        height: 268.h,
+                        child: ListView(
+                          children: PaymentMethod.values.map((method) {
+                            return ListTile(
+                              leading: Icon(method.icon),
+                              title: Text(method.name),
+                              onTap: () {
+                                // Handle tap on payment method
+                                print('Selected ${method.name}');
+                              },
+                            );
+                          }).toList(),
+                        ),
                       ),
                     ],
-                  ).paddingSymmetric(horizontal: 20.w, vertical: 16.h),
+                  )
                 ],
               ),
             )

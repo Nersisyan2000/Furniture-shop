@@ -39,7 +39,7 @@ abstract class Localization {
   static const String shippingCost = 'shippingCost';
   static const String totalPayment = 'totalPayment';
   static const String checkOut = 'checkOut';
-  static const String paymentMethods = 'paymentMethods';
+  static const String paymentMethod = 'paymentMethod';
   static const String orderHistory = 'orderHistory';
   static const String deliveryAddress = 'deliveryAddress';
   static const String supportCenter = 'supportCenter';

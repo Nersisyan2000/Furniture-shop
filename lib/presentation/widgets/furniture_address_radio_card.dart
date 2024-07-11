@@ -8,11 +8,17 @@ class FurnitureAddressRadioCard extends StatelessWidget {
     this.selectedValue,
     this.onChanged,
     this.title,
+    this.value,
+    this.phoneNumber,
+    this.roadNumber,
   });
 
   final int? selectedValue;
   final Function(int?)? onChanged;
   final String? title;
+  final int? value;
+  final String? phoneNumber;
+  final String? roadNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +31,17 @@ class FurnitureAddressRadioCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Home Address',
+            title ?? '',
             style: switzer16MediumTextStyle,
           ),
           Text(
-            '(269) 444-6853',
+            phoneNumber ?? '',
             style: switzer13RegularTextStyle.copyWith(
               color: FurnitureColors.subTextColor,
             ),
           ),
           Text(
-            'Road Number 5649 Akali',
+            roadNumber ?? '',
             style: switzer13RegularTextStyle.copyWith(
               color: FurnitureColors.subTextColor,
             ),
@@ -45,7 +51,7 @@ class FurnitureAddressRadioCard extends StatelessWidget {
       leading: Transform.scale(
         scale: 1.5,
         child: Radio<int>(
-          value: 1,
+          value: value ?? 1,
           groupValue: selectedValue,
           onChanged: onChanged,
           activeColor: FurnitureColors.primaryColor,

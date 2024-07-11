@@ -39,7 +39,7 @@
   "shippingCost": "Shipping Cost",
   "totalPayment": "Total Payment",
   "checkOut": "Checkout",
-  "paymentMethods": "Payment Methods",
+  "paymentMethod": "Payment Method",
   "orderHistory": "Order History",
   "deliveryAddress": "Delivery Address",
   "supportCenter": "Support Center",
