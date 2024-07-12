@@ -8,6 +8,7 @@ import 'package:furniture_shop/presentation/widgets/furniture_app_bar.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_address_radio_card.dart';
 import 'package:furniture_shop/utils/extensions/payment_extensions.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
+// ignore: depend_on_referenced_packages
 
 @RoutePage()
 class CheckOutScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class CheckOutScreen extends StatefulWidget {
 
 class _CheckOutScreenState extends State<CheckOutScreen> {
   int? _selectedValue;
+  int? _selectedPaymentValue;
 
   PreferredSize _appBarSection(BuildContext context) {
     return PreferredSize(
@@ -83,6 +85,62 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
     );
   }
 
+  Widget _paymentMethodsSection(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          textAlign: TextAlign.start,
+          context.tr(
+            Localization.paymentMethod,
+          ),
+          style: switzer20MediumTextStyle,
+        ).paddingOnly(bottom: 8.h),
+        SizedBox(
+          height: 268.h,
+          child: ListView(
+              children: PaymentMethod.values.asMap().entries.map((entry) {
+            int index = entry.key;
+            PaymentMethod method = entry.value;
+            return ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: Container(
+                width: 44.w,
+                height: 44.h,
+                decoration: BoxDecoration(
+                  color: FurnitureColors.paymentGray,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: method.icon,
+              ),
+              title: Text(method.name),
+              trailing: Transform.scale(
+                scale: 1.3,
+                child: Radio<int>(
+                  value: index,
+                  groupValue: _selectedPaymentValue,
+                  activeColor: FurnitureColors.primaryColor,
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedPaymentValue = value!;
+                    });
+                  },
+                ),
+              ),
+              onTap: () {
+                setState(() {
+                  _selectedPaymentValue = index;
+                });
+                // Handle tap on payment method
+                debugPrint('Selected ${method.name}');
+              },
+            ).paddingSymmetric(vertical: 4.h);
+          }).toList()),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,35 +152,11 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
               child: Column(
                 children: [
                   _addressesSection(context).paddingSymmetric(
-                    horizontal: 20.w,
                     vertical: 16.h,
                   ),
-                  Column(
-                    children: [
-                      Text(
-                        context.tr(
-                          Localization.paymentMethod,
-                        ), // Payment Method
-                      ),
-                      SizedBox(
-                        height: 268.h,
-                        child: ListView(
-                          children: PaymentMethod.values.map((method) {
-                            return ListTile(
-                              leading: Icon(method.icon),
-                              title: Text(method.name),
-                              onTap: () {
-                                // Handle tap on payment method
-                                print('Selected ${method.name}');
-                              },
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                    ],
-                  )
+                  _paymentMethodsSection(context)
                 ],
-              ),
+              ).paddingSymmetric(horizontal: 20.w),
             )
           ],
         ),

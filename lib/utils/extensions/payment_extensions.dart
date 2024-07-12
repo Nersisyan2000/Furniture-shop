@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:furniture_shop/domain/enums/payment_methods.dart';
+import 'package:furniture_uikit/furniture_uikit.dart';
 
 extension PaymentMethodExtension on PaymentMethod {
   String get name {
@@ -15,16 +18,22 @@ extension PaymentMethodExtension on PaymentMethod {
     }
   }
 
-  IconData get icon {
+  SvgPicture? get icon {
     switch (this) {
       case PaymentMethod.creditCard:
-        return Icons.credit_card;
+        return FurnitureAssets.icons.creditCard.svg(
+          fit: BoxFit.none,
+        );
       case PaymentMethod.paypal:
-        return Icons.account_balance_wallet;
+        return FurnitureAssets.icons.payPal.svg(
+          fit: BoxFit.none,
+        );
       case PaymentMethod.applePay:
-        return Icons.phone_iphone;
+        return FurnitureAssets.icons.applePay.svg(
+          fit: BoxFit.none,
+        );
       default:
-        return Icons.payment;
+        return null;
     }
   }
 }
