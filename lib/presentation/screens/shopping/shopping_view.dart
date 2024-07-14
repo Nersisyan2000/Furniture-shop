@@ -15,6 +15,28 @@ import 'package:furniture_uikit/furniture_uikit.dart';
 class ShoppingView extends StatelessWidget {
   const ShoppingView({super.key});
 
+  PreferredSize _appBarSection(BuildContext context) {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(80.h),
+      child: FurnitureAppBar(
+        leading: FurnitureIconButton.whiteMode(
+          icon: FurnitureAssets.icons.arrowBack.svg(),
+          onTap: () => context.router.maybePop(),
+        ),
+        title: Text(
+          context.tr(Localization.shopping),
+          style: switzer20MediumTextStyle,
+        ),
+        actions: [
+          FurnitureIconButton.whiteMode(
+            icon: FurnitureAssets.icons.trash.svg(),
+            onTap: () {},
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,11 +65,20 @@ class ShoppingView extends StatelessWidget {
                     },
                   ).paddingOnly(left: 20.w, right: 20.w, bottom: 265.h),
                 ),
-                const Positioned(
+                Positioned(
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  child: FurnitureCostsSection(),
+                  child: FurnitureCostsSection(
+                    title: context.tr(Localization.orderSummary),
+                    firstSubTitle: context.tr(Localization.subtotal),
+                    firstSubTitleValue: 926.99,
+                    secondSubTitle: context.tr(Localization.shippingCost),
+                    secondSubTitleValue: 26.00,
+                    totalTitle: context.tr(Localization.totalPayment),
+                    totalValue: 956.90,
+                    buttonText: context.tr(Localization.checkOut),
+                  ),
                 ),
               ],
             );
@@ -62,28 +93,6 @@ class ShoppingView extends StatelessWidget {
           }
           return const SizedBox.shrink();
         }),
-      ),
-    );
-  }
-
-  PreferredSize _appBarSection(BuildContext context) {
-    return PreferredSize(
-      preferredSize: Size.fromHeight(80.h),
-      child: FurnitureAppBar(
-        leading: FurnitureIconButton.whiteMode(
-          icon: FurnitureAssets.icons.arrowBack.svg(),
-          onTap: () => context.router.maybePop(),
-        ),
-        title: Text(
-          context.tr(Localization.shopping),
-          style: switzer20MediumTextStyle,
-        ),
-        actions: [
-          FurnitureIconButton.whiteMode(
-            icon: FurnitureAssets.icons.trash.svg(),
-            onTap: () {},
-          )
-        ],
       ),
     );
   }

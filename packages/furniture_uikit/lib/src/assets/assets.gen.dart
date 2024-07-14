@@ -220,6 +220,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/project-logo.svg
   SvgGenImage get projectLogo => const SvgGenImage('assets/images/project-logo.svg');
 
+  /// File path: assets/images/success.png
+  AssetGenImage get success => const AssetGenImage('assets/images/success.png');
+
   /// List of all assets
   List<dynamic> get values => [
         armchairImg,
@@ -229,7 +232,8 @@ class $AssetsImagesGen {
         onboardingFirstImg,
         onboardingSecondImg,
         onboardingThirdImg,
-        projectLogo
+        projectLogo,
+        success
       ];
 }
 

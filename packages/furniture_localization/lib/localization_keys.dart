@@ -87,4 +87,5 @@ abstract class Localization {
   static const String learnMore = 'learnMore';
   static const String noDataAvailable = 'noDataAvailable';
   static const String enterYourPassword = 'enterYourPassword';
+  static const String takeOrderDescription = 'takeOrderDescription';
 }
