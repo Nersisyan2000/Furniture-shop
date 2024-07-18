@@ -5,9 +5,10 @@ import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 class FurnitureBottomSheetContent extends StatelessWidget {
-  const FurnitureBottomSheetContent({super.key, this.onBack});
+  const FurnitureBottomSheetContent({super.key, this.onBack, this.onTap});
 
   final VoidCallback? onBack;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,7 @@ class FurnitureBottomSheetContent extends StatelessWidget {
         // ),
         FurnitureTextButton(
           title: context.tr(Localization.orderSomething),
-          onTap: () {},
+          onTap: onTap,
         ),
       ],
     ).paddingSymmetric(vertical: 24.h, horizontal: 24.w);

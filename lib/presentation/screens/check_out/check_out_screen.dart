@@ -178,6 +178,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                       onBack: () => context.router.push(
                         const FeedRoute(),
                       ),
+                      onTap: () => context.router.push(const ShoppingRoute()),
                     ),
                   ),
                 ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
+import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_shop/presentation/screens/shopping/shopping_cubit/shopping_cubit.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_app_bar.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_costs_section.dart';
@@ -78,6 +79,7 @@ class ShoppingView extends StatelessWidget {
                     totalTitle: context.tr(Localization.totalPayment),
                     totalValue: 956.90,
                     buttonText: context.tr(Localization.checkOut),
+                    onTap: () => context.router.push(const CheckOutRoute()),
                   ),
                 ),
               ],

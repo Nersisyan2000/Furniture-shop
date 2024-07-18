@@ -64,5 +64,12 @@ BoxConstraints get boxConstraintsH24 => const BoxConstraints(maxHeight: 24);
 
 // Other ----------------------------------------------------------
 
-BadgePosition get badgePosition =>
-    BadgePosition.bottomEnd(end: 5.0, bottom: -2);
+BadgePosition get badgePosition => BadgePosition.bottomEnd(
+      end: 5.0,
+      bottom: -2,
+    );
+
+BadgePosition get secondaryBadgePosition => BadgePosition.bottomEnd(
+      end: 10.0,
+      bottom: 0,
+    );

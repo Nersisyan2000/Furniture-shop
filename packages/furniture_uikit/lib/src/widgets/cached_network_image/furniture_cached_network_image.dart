@@ -14,7 +14,7 @@ class FurnitureCachedNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: imageUrl ??
-          "https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black.png",
+          "https://icones.pro/wp-content/uploads/2021/02/icone-utilisateur.png",
       imageBuilder: (context, imageProvider) => Container(
         width: width ?? 48.w,
         height: height ?? 48.h,
