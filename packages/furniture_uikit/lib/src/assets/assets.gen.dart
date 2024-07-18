@@ -63,6 +63,9 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/apple_pay.svg
+  SvgGenImage get applePay => const SvgGenImage('assets/icons/apple_pay.svg');
+
   /// File path: assets/icons/arm_chair_icon.svg
   SvgGenImage get armChairIcon => const SvgGenImage('assets/icons/arm_chair_icon.svg');
 
@@ -90,8 +93,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/chair_icon.svg
   SvgGenImage get chairIcon => const SvgGenImage('assets/icons/chair_icon.svg');
 
+  /// File path: assets/icons/credit_card.svg
+  SvgGenImage get creditCard => const SvgGenImage('assets/icons/credit_card.svg');
+
   /// File path: assets/icons/direction_right 3.svg
   SvgGenImage get directionRight3 => const SvgGenImage('assets/icons/direction_right 3.svg');
+
+  /// File path: assets/icons/edit.svg
+  SvgGenImage get edit => const SvgGenImage('assets/icons/edit.svg');
 
   /// File path: assets/icons/eye_scanner.svg
   SvgGenImage get eyeScanner => const SvgGenImage('assets/icons/eye_scanner.svg');
@@ -127,6 +136,9 @@ class $AssetsIconsGen {
   SvgGenImage get notificationBellIcon =>
       const SvgGenImage('assets/icons/notification_bell_icon.svg');
 
+  /// File path: assets/icons/pay_pal.svg
+  SvgGenImage get payPal => const SvgGenImage('assets/icons/pay_pal.svg');
+
   /// File path: assets/icons/plusIcon.svg
   SvgGenImage get plusIcon => const SvgGenImage('assets/icons/plusIcon.svg');
 
@@ -144,6 +156,7 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
+        applePay,
         armChairIcon,
         arrowBack,
         basket,
@@ -153,7 +166,9 @@ class $AssetsIconsGen {
         cartTwo,
         category,
         chairIcon,
+        creditCard,
         directionRight3,
+        edit,
         eyeScanner,
         filterIcon,
         frame,
@@ -165,6 +180,7 @@ class $AssetsIconsGen {
         minusIcon,
         notification,
         notificationBellIcon,
+        payPal,
         plusIcon,
         searchIcon,
         seenPeopleIcon,
@@ -204,6 +220,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/project-logo.svg
   SvgGenImage get projectLogo => const SvgGenImage('assets/images/project-logo.svg');
 
+  /// File path: assets/images/success.png
+  AssetGenImage get success => const AssetGenImage('assets/images/success.png');
+
   /// List of all assets
   List<dynamic> get values => [
         armchairImg,
@@ -213,7 +232,8 @@ class $AssetsImagesGen {
         onboardingFirstImg,
         onboardingSecondImg,
         onboardingThirdImg,
-        projectLogo
+        projectLogo,
+        success
       ];
 }
 

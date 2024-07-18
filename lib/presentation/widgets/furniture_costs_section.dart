@@ -1,12 +1,31 @@
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:furniture_localization/furniture_localization.dart';
-import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_total_row.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 class FurnitureCostsSection extends StatelessWidget {
-  const FurnitureCostsSection({super.key});
+  const FurnitureCostsSection({
+    super.key,
+    this.title,
+    this.firstSubTitle,
+    this.firstSubTitleValue,
+    this.secondSubTitle,
+    this.secondSubTitleValue,
+    this.totalTitle,
+    this.totalValue,
+    this.buttonText,
+    this.onTap,
+  });
+
+  final String? title;
+  final String? firstSubTitle;
+  final double? firstSubTitleValue;
+  final String? secondSubTitle;
+  final double? secondSubTitleValue;
+  final String? totalTitle;
+  final double? totalValue;
+  final String? buttonText;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +46,19 @@ class FurnitureCostsSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              context.tr(
-                Localization.orderSummary,
-              ),
+              title ?? '',
               style: switzer16MediumTextStyle,
             ),
             FurnitureTotalRow(
-              title: context.tr(Localization.subtotal), // 'Subtotal'
-              value: 926.99,
+              title: firstSubTitle,
+              value: firstSubTitleValue,
             ).paddingOnly(
               top: 16.h,
               bottom: 8.h,
             ),
             FurnitureTotalRow(
-              title: context.tr(
-                Localization.shippingCost,
-              ), // 'Shipping Cost'
-              value: 26.00,
+              title: secondSubTitle,
+              value: secondSubTitleValue,
             ),
             const Opacity(
               opacity: .3,
@@ -54,16 +69,12 @@ class FurnitureCostsSection extends StatelessWidget {
             ),
             FurnitureTotalRow(
               isTotal: true,
-              title: context.tr(
-                Localization.totalPayment,
-              ),
-              value: 956.90,
+              title: totalTitle,
+              value: totalValue,
             ),
             FurnitureElevatedButton(
-              title: context.tr(
-                Localization.checkOut,
-              ), // 'Check Out'
-              onTap: () {},
+              title: buttonText ?? '', // 'Check Out'
+              onTap: onTap,
               padding: EdgeInsets.symmetric(
                 vertical: 8.h,
               ),

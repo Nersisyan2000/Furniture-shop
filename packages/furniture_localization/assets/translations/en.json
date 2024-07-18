@@ -39,7 +39,7 @@
   "shippingCost": "Shipping Cost",
   "totalPayment": "Total Payment",
   "checkOut": "Checkout",
-  "paymentMethods": "Payment Methods",
+  "paymentMethod": "Payment Method",
   "orderHistory": "Order History",
   "deliveryAddress": "Delivery Address",
   "supportCenter": "Support Center",
@@ -86,5 +86,6 @@
   "craftyFurniture": "Crafty Furniture",
   "learnMore": "Learn More",
   "noDataAvailable": "No data available",
-  "enterYourPassword": "Enter your password"
+  "enterYourPassword": "Enter your password",
+  "takeOrderDescription": "Your order been place successfully! You Can track the dwlivery in the order Section"
 }
