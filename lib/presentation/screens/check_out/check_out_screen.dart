@@ -3,6 +3,7 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
+import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_shop/domain/enums/payment_methods.dart';
 import 'package:furniture_shop/presentation/screens/check_out/widgets/furniture_bottom_sheet_content.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_app_bar.dart';
@@ -172,8 +173,12 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                 ),
                 child: Container(
                   color: Colors.white,
-                  child: const Center(
-                    child: FurnitureBottomSheetContent(),
+                  child: Center(
+                    child: FurnitureBottomSheetContent(
+                      onBack: () => context.router.push(
+                        const FeedRoute(),
+                      ),
+                    ),
                   ),
                 ),
               );

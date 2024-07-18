@@ -5,7 +5,9 @@ import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 class FurnitureBottomSheetContent extends StatelessWidget {
-  const FurnitureBottomSheetContent({super.key});
+  const FurnitureBottomSheetContent({super.key, this.onBack});
+
+  final VoidCallback? onBack;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class FurnitureBottomSheetContent extends StatelessWidget {
         FurnitureElevatedButton.whiteMode(
           title: context.tr(Localization.backHome),
           padding: EdgeInsets.symmetric(vertical: 8.h),
-          onTap: () {},
+          onTap: onBack,
         ).paddingOnly(top: 8.h),
         FurnitureElevatedButton(
           title: context.tr(Localization.trackYourOrder),

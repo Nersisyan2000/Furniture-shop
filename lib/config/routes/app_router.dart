@@ -29,7 +29,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: OnboardingRoute.page, path: '/onboardingScreen'),
         AutoRoute(page: SignInRoute.page),
         AutoRoute(page: SignUpRoute.page),
-        AutoRoute(page: FeedRoute.page, children: [
+        AutoRoute(page: FeedRoute.page, initial: true, children: [
           AutoRoute(page: HomeRoute.page),
           AutoRoute(page: FavouriteRoute.page),
           AutoRoute(page: CategoriesRoute.page),
@@ -41,6 +41,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: MostInterestedRoute.page),
         AutoRoute(page: PopularRoute.page),
         AutoRoute(page: DetailRoute.page),
-        AutoRoute(page: CheckOutRoute.page, initial: true),
+        AutoRoute(page: CheckOutRoute.page),
       ];
 }
