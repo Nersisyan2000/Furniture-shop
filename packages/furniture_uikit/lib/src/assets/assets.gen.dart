@@ -63,8 +63,14 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/align-center.svg
+  SvgGenImage get alignCenter => const SvgGenImage('assets/icons/align-center.svg');
+
   /// File path: assets/icons/apple_pay.svg
   SvgGenImage get applePay => const SvgGenImage('assets/icons/apple_pay.svg');
+
+  /// File path: assets/icons/archive.svg
+  SvgGenImage get archive => const SvgGenImage('assets/icons/archive.svg');
 
   /// File path: assets/icons/arm_chair_icon.svg
   SvgGenImage get armChairIcon => const SvgGenImage('assets/icons/arm_chair_icon.svg');
@@ -95,6 +101,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/credit_card.svg
   SvgGenImage get creditCard => const SvgGenImage('assets/icons/credit_card.svg');
+
+  /// File path: assets/icons/delivery-air_plane.svg
+  SvgGenImage get deliveryAirPlane => const SvgGenImage('assets/icons/delivery-air_plane.svg');
 
   /// File path: assets/icons/direction_right 3.svg
   SvgGenImage get directionRight3 => const SvgGenImage('assets/icons/direction_right 3.svg');
@@ -145,18 +154,29 @@ class $AssetsIconsGen {
   /// File path: assets/icons/search_icon.svg
   SvgGenImage get searchIcon => const SvgGenImage('assets/icons/search_icon.svg');
 
+  /// File path: assets/icons/security.svg
+  SvgGenImage get security => const SvgGenImage('assets/icons/security.svg');
+
   /// File path: assets/icons/seen_people_icon.svg
   SvgGenImage get seenPeopleIcon => const SvgGenImage('assets/icons/seen_people_icon.svg');
 
   /// File path: assets/icons/trash.svg
   SvgGenImage get trash => const SvgGenImage('assets/icons/trash.svg');
 
+  /// File path: assets/icons/user-circle.svg
+  SvgGenImage get userCircle => const SvgGenImage('assets/icons/user-circle.svg');
+
   /// File path: assets/icons/user.svg
   SvgGenImage get user => const SvgGenImage('assets/icons/user.svg');
 
+  /// File path: assets/icons/wallet.svg
+  SvgGenImage get wallet => const SvgGenImage('assets/icons/wallet.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
+        alignCenter,
         applePay,
+        archive,
         armChairIcon,
         arrowBack,
         basket,
@@ -167,6 +187,7 @@ class $AssetsIconsGen {
         category,
         chairIcon,
         creditCard,
+        deliveryAirPlane,
         directionRight3,
         edit,
         eyeScanner,
@@ -183,9 +204,12 @@ class $AssetsIconsGen {
         payPal,
         plusIcon,
         searchIcon,
+        security,
         seenPeopleIcon,
         trash,
-        user
+        userCircle,
+        user,
+        wallet
       ];
 }
 

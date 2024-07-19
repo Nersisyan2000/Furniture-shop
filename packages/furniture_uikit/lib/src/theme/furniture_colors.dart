@@ -14,4 +14,5 @@ abstract class FurnitureColors {
   static const dotsInactiveColor = Color(0xFFD1E5E2);
   static const priceColor = Color(0xFFF2A666);
   static const paymentGray = Color(0xFFF0F0F2);
+  static const red = Color(0xFFEA3549);
 }
