@@ -9,12 +9,18 @@ class FurnitureFlatCard extends StatelessWidget {
     this.title,
     this.subTitle,
     this.price,
+    this.isCenter,
+    this.isChangeCountElement,
+    this.arrowRightIcon,
   });
 
   final String? imageUrl;
   final String? title;
   final String? subTitle;
   final double? price;
+  final bool? isCenter;
+  final bool? isChangeCountElement;
+  final bool? arrowRightIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +40,9 @@ class FurnitureFlatCard extends StatelessWidget {
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: isCenter == true
+                    ? MainAxisAlignment.center
+                    : MainAxisAlignment.spaceAround,
                 children: [
                   SizedBox(
                     width: 150.w,
@@ -51,21 +59,29 @@ class FurnitureFlatCard extends StatelessWidget {
                       color: FurnitureColors.subTextColor,
                     ),
                   ),
-                  Text(
-                    '\$$price',
-                    style: switzer16MediumTextStyle.copyWith(
-                      color: FurnitureColors.priceColor,
+                  if (price != null)
+                    Text(
+                      '\$$price',
+                      style: switzer16MediumTextStyle.copyWith(
+                        color: FurnitureColors.priceColor,
+                      ),
                     ),
-                  ),
                 ],
               ).paddingOnly(left: 12.w),
             ],
           ),
-          FurnitureChangeCountElement(
+          if (isChangeCountElement != null)
+            FurnitureChangeCountElement(
               count: 1,
               minCount: 1,
               maxCount: 15,
-              onChange: (val) => debugPrint('$val'))
+              onChange: (val) => debugPrint('$val'),
+            ),
+          if (arrowRightIcon == true)
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: FurnitureColors.subTextColor,
+            ),
         ],
       ).paddingSymmetric(horizontal: 16.w, vertical: 12.h),
     );

@@ -8,15 +8,10 @@ part 'detail_state.dart';
 
 @injectable
 class DetailCubit extends Cubit<DetailState> {
-  DetailCubit()
-      : super(
-          DetailInitial(),
-        );
+  DetailCubit() : super(DetailInitial());
 
   void fetchDetailItem(String id) async {
-    emit(
-      DetailLoading(),
-    );
+    emit(DetailLoading());
     try {
       await Future.delayed(const Duration(seconds: 2));
       final filteredDataById =
@@ -27,11 +22,7 @@ class DetailCubit extends Cubit<DetailState> {
         ),
       );
     } catch (e) {
-      emit(
-        DetailFailure(
-          e.toString(),
-        ),
-      );
+      emit(DetailFailure(e.toString()));
     }
   }
 }

@@ -78,6 +78,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/arrow_back.svg
   SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow_back.svg');
 
+  /// File path: assets/icons/bag.svg
+  SvgGenImage get bag => const SvgGenImage('assets/icons/bag.svg');
+
   /// File path: assets/icons/basket.svg
   SvgGenImage get basket => const SvgGenImage('assets/icons/basket.svg');
 
@@ -179,6 +182,7 @@ class $AssetsIconsGen {
         archive,
         armChairIcon,
         arrowBack,
+        bag,
         basket,
         bedIcon,
         call,
