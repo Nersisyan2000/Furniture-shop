@@ -62,6 +62,7 @@ class ShoppingView extends StatelessWidget {
                         title: item.productName,
                         subTitle: item.companyName,
                         price: 279.95,
+                        isChangeCountElement: true,
                       ).paddingSymmetric(vertical: 8.h);
                     },
                   ).paddingOnly(left: 20.w, right: 20.w, bottom: 265.h),

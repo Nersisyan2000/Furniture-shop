@@ -18,7 +18,7 @@ abstract class _$AppRouter extends RootStackRouter {
     CategoriesRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CategoriesScreen(),
+        child: const CategoriesPage(),
       );
     },
     CheckOutRoute.name: (routeData) {
@@ -125,7 +125,7 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [CategoriesScreen]
+/// [CategoriesPage]
 class CategoriesRoute extends PageRouteInfo<void> {
   const CategoriesRoute({List<PageRouteInfo>? children})
       : super(
