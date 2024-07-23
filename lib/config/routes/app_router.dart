@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:furniture_shop/example/example.dart';
-import 'package:furniture_shop/presentation/screens/auth/sign_in/sign_in_screen.dart';
+import 'package:furniture_shop/presentation/screens/auth/sign_in/sign_in_page.dart';
 import 'package:furniture_shop/presentation/screens/auth/sign_up/sign_up_screen.dart';
 import 'package:furniture_shop/presentation/screens/auto_tabs/auto_tabs_screen.dart';
-import 'package:furniture_shop/presentation/screens/categories/categories_screen.dart';
+import 'package:furniture_shop/presentation/screens/categories/categories_page.dart';
 import 'package:furniture_shop/presentation/screens/check_out/check_out_screen.dart';
 import 'package:furniture_shop/presentation/screens/detail/detail_page.dart';
 import 'package:furniture_shop/presentation/screens/favourite/favourite_page.dart';
@@ -42,5 +42,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: PopularRoute.page),
         AutoRoute(page: DetailRoute.page),
         AutoRoute(page: CheckOutRoute.page),
+        AutoRoute(page: CategoriesRoute.page),
       ];
 }
