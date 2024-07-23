@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_shop/data/locator/service_locator.dart';
 import 'package:furniture_shop/presentation/screens/auth/sign_in/sign_in_cubit/sign_in_cubit.dart';
-import 'package:furniture_shop/presentation/screens/auth/sign_in/sign_in_screen.dart';
+import 'package:furniture_shop/presentation/screens/auth/sign_in/sign_in_view.dart';
 
 @RoutePage()
 class SignInPage extends StatelessWidget {
@@ -13,7 +13,7 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => getIt<SignInCubit>(),
-      child: const SignInScreen(),
+      child: const SignInView(),
     );
   }
 }

@@ -18,6 +18,8 @@ class SignUpValidation extends SignUpState {
   });
 }
 
+class SignUpLoggedOut extends SignUpState {}
+
 class SignUpLoading extends SignUpState {}
 
 class SignUpSuccess extends SignUpState {}

@@ -44,7 +44,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               FurnitureTextButton(
                 title: context.tr(Localization.skip),
-                onTap: () => context.router.replace(const SignUpRoute()),
+                onTap: () => context.router.replace(const SignInRoute()),
                 color: FurnitureColors.subTextColor,
               ),
               FurnitureIconButton(
@@ -54,7 +54,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     if (index < onBoardingData.length - 1) {
                       index++;
                     } else {
-                      context.router.replace(const SignUpRoute());
+                      context.router.replace(const SignInRoute());
                     }
                   });
                 },

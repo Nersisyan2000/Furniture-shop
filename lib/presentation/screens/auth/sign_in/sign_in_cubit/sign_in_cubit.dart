@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:furniture_shop/data/exceptions/my_exception.dart';
 import 'package:furniture_shop/data/locator/service_locator.dart';
 import 'package:furniture_shop/data/repository/auth_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -14,8 +15,8 @@ class SignInCubit extends Cubit<SignInState> {
   final TextEditingController passwordController = TextEditingController();
 
   SignInCubit() : super(SignInInitial()) {
-    emailController.addListener(_validateForm);
-    passwordController.addListener(_validateForm);
+    emailController.addListener(validateForm);
+    passwordController.addListener(validateForm);
   }
 
   bool _isEmailValid = false;
@@ -23,7 +24,7 @@ class SignInCubit extends Cubit<SignInState> {
   String? _emailError;
   String? _passwordError;
 
-  void _validateForm() {
+  void validateForm() {
     final email = emailController.text;
     final password = passwordController.text;
 
@@ -59,8 +60,11 @@ class SignInCubit extends Cubit<SignInState> {
       } else {
         emit(SignInFailure("Login failed. Please check your credentials."));
       }
+    } on MyException catch (e) {
+      emit(SignInFailure(
+          e.message)); // Assuming MyException has a message property
     } catch (e) {
-      emit(SignInFailure(e.toString()));
+      emit(SignInFailure("An unexpected error occurred. Please try again."));
     }
   }
 

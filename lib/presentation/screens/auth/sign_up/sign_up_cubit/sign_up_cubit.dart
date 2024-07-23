@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:furniture_shop/data/exceptions/my_exception.dart';
 import 'package:furniture_shop/data/locator/service_locator.dart';
 import 'package:furniture_shop/data/repository/auth_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -66,8 +67,21 @@ class SignUpCubit extends Cubit<SignUpState> {
       } else {
         emit(SignUpFailure("Registration failed. Please try again."));
       }
+    } on MyException catch (e) {
+      emit(SignUpFailure(
+          e.message)); // Assuming MyException has a message property
     } catch (e) {
-      emit(SignUpFailure(e.toString()));
+      emit(SignUpFailure("An unexpected error occurred. Please try again."));
+    }
+  }
+
+  Future<void> logout() async {
+    debugPrint('hello');
+    try {
+      await getIt<AuthRepository>().logout();
+      emit(SignUpLoggedOut());
+    } catch (e) {
+      emit(SignUpFailure("Logout failed. Please try again."));
     }
   }
 

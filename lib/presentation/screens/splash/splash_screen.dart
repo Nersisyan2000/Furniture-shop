@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen>
           });
     controller.repeat(reverse: true);
     Future.delayed(const Duration(seconds: 2), () {
-      context.router.push(const OnboardingRoute());
+      context.router.replace(const OnboardingRoute());
     });
     super.initState();
   }
