@@ -12,6 +12,7 @@ class FurnitureTextField extends StatefulWidget {
     this.onSaved,
     this.onEditingComplete,
     this.isSecure = false,
+    this.errorText,
   });
 
   final String? hintText;
@@ -21,6 +22,7 @@ class FurnitureTextField extends StatefulWidget {
   final Function(PointerDownEvent)? onTapOutSide;
   final Function(String)? onChanged;
   final Function(String?)? onSaved;
+  final String? errorText;
 
   final VoidCallback? onEditingComplete;
 
@@ -55,6 +57,7 @@ class _FurnitureTextField extends State<FurnitureTextField> {
           hintText: widget.hintText,
           hintStyle: switzer14RegularTextStyle.copyWith(
               color: FurnitureColors.subTextColor),
+          errorText: widget.errorText,
         ),
         onSaved: widget.onSaved,
         validator: (txt) {

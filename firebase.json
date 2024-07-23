@@ -1,0 +1,22 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "furniture-shop-53941",
+          "appId": "1:525903642529:android:6a4703db9faf74119995e0",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "furniture-shop-53941",
+          "configurations": {
+            "android": "1:525903642529:android:6a4703db9faf74119995e0",
+            "ios": "1:525903642529:ios:fa2f19432e6195999995e0"
+          }
+        }
+      }
+    }
+  }
+}

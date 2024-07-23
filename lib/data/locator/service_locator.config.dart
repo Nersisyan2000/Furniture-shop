@@ -8,6 +8,11 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:furniture_shop/data/repository/auth_repository.dart' as _i10;
+import 'package:furniture_shop/presentation/screens/auth/sign_in/sign_in_cubit/sign_in_cubit.dart'
+    as _i9;
+import 'package:furniture_shop/presentation/screens/auth/sign_up/sign_up_cubit/sign_up_cubit.dart'
+    as _i11;
 import 'package:furniture_shop/presentation/screens/detail/detail_cubit/detail_cubit.dart'
     as _i3;
 import 'package:furniture_shop/presentation/screens/favourite/favourite_cubit/favourite_cubit.dart'
@@ -40,6 +45,10 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i6.PopularCubit>(() => _i6.PopularCubit());
     gh.lazySingleton<_i7.FavouriteCubit>(() => _i7.FavouriteCubit());
     gh.lazySingleton<_i8.ShoppingCubit>(() => _i8.ShoppingCubit());
+    gh.factory<_i9.SignInCubit>(
+        () => _i9.SignInCubit(gh<_i10.AuthRepository>()));
+    gh.factory<_i11.SignUpCubit>(
+        () => _i11.SignUpCubit(gh<_i10.AuthRepository>()));
     return this;
   }
 }

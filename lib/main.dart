@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_shop/data/locator/service_locator.dart';
+import 'package:furniture_shop/firebase_options.dart';
 import 'package:furniture_shop/presentation/screens/home/home_screen_provider.dart';
 import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen_provider.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
@@ -9,6 +11,11 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  ).then((value) => debugPrint('${value.options.appId}: id'));
+
   await EasyLocalization.ensureInitialized();
   configureDependencies();
 

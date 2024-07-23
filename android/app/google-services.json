@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:525903642529:android:9ac27759ed713d879995e0",
+        "mobilesdk_app_id": "1:525903642529:android:6a4703db9faf74119995e0",
         "android_client_info": {
-          "package_name": "com.example.myapp"
+          "package_name": "com.example.furniture_shop"
         }
       },
       "oauth_client": [],

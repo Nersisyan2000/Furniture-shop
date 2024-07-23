@@ -1,9 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
+import 'package:furniture_shop/data/repository/auth_repository.dart';
+import 'package:furniture_shop/presentation/screens/auth/sign_up/sign_up_cubit/sign_up_cubit.dart';
 import 'package:furniture_shop/presentation/screens/auth/widgets/auth_rich_text.dart';
 import 'package:furniture_shop/presentation/screens/auth/widgets/auth_titles.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_app_bar.dart';
@@ -13,45 +16,52 @@ import 'package:furniture_uikit/furniture_uikit.dart';
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
-  Widget _fillingFields(BuildContext context) {
+  Widget _fillingFields(
+      BuildContext context, SignUpState state, SignUpCubit cubit) {
     return Column(
       children: [
         FurnitureTextField(
           label: context.tr(Localization.fullName),
-          controller: null,
-          hintText: context.tr(
-            Localization.enterYourName,
-          ),
-          onTapOutSide: (evt) => FocusScope.of(context).unfocus(),
+          controller: cubit.fullNameController,
+          hintText: context.tr(Localization.enterYourName),
+          onChanged: (value) => cubit.validateForm(),
+          errorText: state is SignUpValidation && state.fullNameError != null
+              ? state.fullNameError
+              : null,
         ),
         FurnitureTextField(
           label: context.tr(Localization.email),
-          controller: null,
-          hintText: context.tr(
-            Localization.enterEmail,
-          ),
-          onTapOutSide: (evt) => FocusScope.of(context).unfocus(),
+          controller: cubit.emailController,
+          hintText: context.tr(Localization.enterEmail),
+          onChanged: (value) => cubit.validateForm(),
+          errorText: state is SignUpValidation && state.emailError != null
+              ? state.emailError
+              : null,
         ).paddingSymmetric(vertical: 16.h),
         FurnitureTextField(
           label: context.tr(Localization.password),
-          controller: null,
-          hintText: context.tr(
-            Localization.enterPassword,
-          ),
+          controller: cubit.passwordController,
+          hintText: context.tr(Localization.enterPassword),
           isSecure: true,
-          onTapOutSide: (evt) => FocusScope.of(context).unfocus(),
+          onChanged: (value) => cubit.validateForm(),
+          errorText: state is SignUpValidation && state.passwordError != null
+              ? state.passwordError
+              : null,
         ),
       ],
     );
   }
 
-  Widget _buttonsSection(BuildContext context) {
+  Widget _buttonsSection(
+      BuildContext context, SignUpState state, SignUpCubit cubit) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         FurnitureElevatedButton(
-          onTap: () {},
-          title: context.tr(Localization.signIn),
+          onTap: state is SignUpValidation && state.isFormValid
+              ? () => cubit.signUp()
+              : null,
+          title: context.tr(Localization.signUp),
           textStyle: switzer16SemiboldTextStyle,
           padding: EdgeInsets.symmetric(
             vertical: 8.h,
@@ -61,57 +71,67 @@ class SignUpScreen extends StatelessWidget {
         FurnitureElevatedIconButton.whiteMode(
           icon: FurnitureAssets.icons.googleIcon.svg(),
           title: context.tr(Localization.signInWithGoogle),
-          onTap: () {},
-        )
+          onTap: () {}, // Add your Google sign-in logic here
+        ),
       ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80.0),
-        child: FurnitureAppBar(
-          leading: FurnitureIconButton.whiteMode(
-            icon: FurnitureAssets.icons.arrowBack.svg(),
-            onTap: () => context.router.maybePop(),
-          ),
-        ),
+    return BlocProvider(
+      create: (context) => SignUpCubit(
+        RepositoryProvider.of<AuthRepository>(context),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              AuthTitles(
-                title: context.tr(
-                  Localization.createAccount,
-                ),
-                subTitle: context.tr(
-                  Localization.createAccountTogether,
+      child: BlocConsumer<SignUpCubit, SignUpState>(
+        listener: (context, state) {
+          if (state is SignUpSuccess) {
+            context.router.push(const FeedRoute());
+          } else if (state is SignUpFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.error)),
+            );
+          }
+        },
+        builder: (context, state) {
+          final cubit = context.read<SignUpCubit>();
+
+          return Scaffold(
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(80.0),
+              child: FurnitureAppBar(
+                leading: FurnitureIconButton.whiteMode(
+                  icon: FurnitureAssets.icons.arrowBack.svg(),
+                  onTap: () => context.router.maybePop(),
                 ),
               ),
-              _fillingFields(
-                context,
-              ).paddingSymmetric(vertical: 24.h),
-              _buttonsSection(context),
-              AuthRichText(
-                richDesc: context.tr(
-                  Localization.alreadyHaveAccount,
+            ),
+            body: SafeArea(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    AuthTitles(
+                      title: context.tr(Localization.createAccount),
+                      subTitle: context.tr(Localization.createAccountTogether),
+                    ),
+                    _fillingFields(context, state, cubit)
+                        .paddingSymmetric(vertical: 24.h),
+                    _buttonsSection(context, state, cubit),
+                    AuthRichText(
+                      richDesc: context.tr(Localization.alreadyHaveAccount),
+                      richButton: context.tr(Localization.signIn),
+                      onTapNavigate: () =>
+                          context.router.push(const SignInRoute()),
+                    ),
+                  ],
                 ),
-                richButton: context.tr(
-                  Localization.signIn,
-                ),
-                onTapNavigate: () => context.router.push(
-                  const SignInRoute(),
-                ),
-              )
-            ],
-          ),
-        ),
-      ).paddingAll(20.0),
+              ),
+            ).paddingAll(20.0),
+          );
+        },
+      ),
     );
   }
 }
