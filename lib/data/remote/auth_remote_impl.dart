@@ -1,6 +1,8 @@
 import 'package:furniture_shop/config/network/firebase_wrapper.dart';
 import 'package:furniture_shop/data/remote/auth_remote.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable(as: AuthRemote)
 class AuthRemoteImpl implements AuthRemote {
   final baseApiInstance = FireBaseWrapper();
 

@@ -108,8 +108,8 @@ class $AssetsIconsGen {
   /// File path: assets/icons/delivery-air_plane.svg
   SvgGenImage get deliveryAirPlane => const SvgGenImage('assets/icons/delivery-air_plane.svg');
 
-  /// File path: assets/icons/direction_right 3.svg
-  SvgGenImage get directionRight3 => const SvgGenImage('assets/icons/direction_right 3.svg');
+  /// File path: assets/icons/direction_right.svg
+  SvgGenImage get directionRight => const SvgGenImage('assets/icons/direction_right.svg');
 
   /// File path: assets/icons/edit.svg
   SvgGenImage get edit => const SvgGenImage('assets/icons/edit.svg');
@@ -192,7 +192,7 @@ class $AssetsIconsGen {
         chairIcon,
         creditCard,
         deliveryAirPlane,
-        directionRight3,
+        directionRight,
         edit,
         eyeScanner,
         filterIcon,

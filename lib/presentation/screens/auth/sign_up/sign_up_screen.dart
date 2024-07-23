@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
-import 'package:furniture_shop/data/repository/auth_repository.dart';
 import 'package:furniture_shop/presentation/screens/auth/sign_up/sign_up_cubit/sign_up_cubit.dart';
 import 'package:furniture_shop/presentation/screens/auth/widgets/auth_rich_text.dart';
 import 'package:furniture_shop/presentation/screens/auth/widgets/auth_titles.dart';
@@ -79,59 +78,60 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SignUpCubit(
-        RepositoryProvider.of<AuthRepository>(context),
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(80.0),
+        child: FurnitureAppBar(
+          leading: FurnitureIconButton.whiteMode(
+            icon: FurnitureAssets.icons.arrowBack.svg(),
+            onTap: () => context.router.maybePop(),
+          ),
+        ),
       ),
-      child: BlocConsumer<SignUpCubit, SignUpState>(
-        listener: (context, state) {
-          if (state is SignUpSuccess) {
-            context.router.push(const FeedRoute());
-          } else if (state is SignUpFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.error)),
+      body: SafeArea(
+        child: BlocConsumer<SignUpCubit, SignUpState>(
+          listener: (
+            context,
+            state,
+          ) {
+            if (state is SignUpSuccess) {
+              context.router.push(
+                const FeedRoute(),
+              );
+            } else if (state is SignUpFailure) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.error),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            final cubit = context.read<SignUpCubit>();
+            return SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  AuthTitles(
+                    title: context.tr(Localization.createAccount),
+                    subTitle: context.tr(Localization.createAccountTogether),
+                  ),
+                  _fillingFields(context, state, cubit)
+                      .paddingSymmetric(vertical: 24.h),
+                  _buttonsSection(context, state, cubit),
+                  AuthRichText(
+                    richDesc: context.tr(Localization.alreadyHaveAccount),
+                    richButton: context.tr(Localization.signIn),
+                    onTapNavigate: () =>
+                        context.router.push(const SignInRoute()),
+                  ),
+                ],
+              ),
             );
-          }
-        },
-        builder: (context, state) {
-          final cubit = context.read<SignUpCubit>();
-
-          return Scaffold(
-            appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(80.0),
-              child: FurnitureAppBar(
-                leading: FurnitureIconButton.whiteMode(
-                  icon: FurnitureAssets.icons.arrowBack.svg(),
-                  onTap: () => context.router.maybePop(),
-                ),
-              ),
-            ),
-            body: SafeArea(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    AuthTitles(
-                      title: context.tr(Localization.createAccount),
-                      subTitle: context.tr(Localization.createAccountTogether),
-                    ),
-                    _fillingFields(context, state, cubit)
-                        .paddingSymmetric(vertical: 24.h),
-                    _buttonsSection(context, state, cubit),
-                    AuthRichText(
-                      richDesc: context.tr(Localization.alreadyHaveAccount),
-                      richButton: context.tr(Localization.signIn),
-                      onTapNavigate: () =>
-                          context.router.push(const SignInRoute()),
-                    ),
-                  ],
-                ),
-              ),
-            ).paddingAll(20.0),
-          );
-        },
-      ),
+          },
+        ),
+      ).paddingAll(20.0),
     );
   }
 }

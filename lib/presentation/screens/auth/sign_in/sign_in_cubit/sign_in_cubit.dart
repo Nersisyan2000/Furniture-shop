@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:furniture_shop/data/locator/service_locator.dart';
 import 'package:furniture_shop/data/repository/auth_repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -7,12 +8,12 @@ part 'sign_in_state.dart';
 
 @injectable
 class SignInCubit extends Cubit<SignInState> {
-  final AuthRepository authRepository;
+  // final AuthRepository authRepository;
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  SignInCubit(this.authRepository) : super(SignInInitial()) {
+  SignInCubit() : super(SignInInitial()) {
     emailController.addListener(_validateForm);
     passwordController.addListener(_validateForm);
   }
@@ -49,7 +50,7 @@ class SignInCubit extends Cubit<SignInState> {
 
     emit(SignInLoading());
     try {
-      final result = await authRepository.signInWithEmailAndPassword(
+      final result = await getIt<AuthRepository>().signInWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:furniture_shop/data/locator/service_locator.dart';
 import 'package:furniture_shop/data/repository/auth_repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -7,13 +8,11 @@ part 'sign_up_state.dart';
 
 @injectable
 class SignUpCubit extends Cubit<SignUpState> {
-  final AuthRepository authRepository;
-
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  SignUpCubit(this.authRepository) : super(SignUpInitial()) {
+  SignUpCubit() : super(SignUpInitial()) {
     fullNameController.addListener(validateForm);
     emailController.addListener(validateForm);
     passwordController.addListener(validateForm);
@@ -57,7 +56,8 @@ class SignUpCubit extends Cubit<SignUpState> {
 
     emit(SignUpLoading());
     try {
-      final result = await authRepository.createUserWithEmailAndPassword(
+      final result =
+          await getIt<AuthRepository>().createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );

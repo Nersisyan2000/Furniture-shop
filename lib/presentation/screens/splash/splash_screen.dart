@@ -3,6 +3,7 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
+import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 
 @RoutePage()
@@ -26,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen>
           });
     controller.repeat(reverse: true);
     Future.delayed(const Duration(seconds: 2), () {
-      context.router.replaceNamed('/onboardingScreen');
+      context.router.push(const OnboardingRoute());
     });
     super.initState();
   }

@@ -16,7 +16,7 @@ class UikitButtons extends StatelessWidget {
           children: [
             FurnitureIconButton(
               onTap: () {},
-              icon: FurnitureAssets.icons.directionRight3.svg(),
+              icon: FurnitureAssets.icons.directionRight.svg(),
             ),
             FurnitureIconButton.whiteMode(
               onTap: () {},

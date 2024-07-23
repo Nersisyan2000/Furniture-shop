@@ -44,17 +44,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               FurnitureTextButton(
                 title: context.tr(Localization.skip),
-                onTap: () => context.router.replace(const SignInRoute()),
+                onTap: () => context.router.replace(const SignUpRoute()),
                 color: FurnitureColors.subTextColor,
               ),
               FurnitureIconButton(
-                icon: FurnitureAssets.icons.directionRight3.svg(),
+                icon: FurnitureAssets.icons.directionRight.svg(),
                 onTap: () {
                   setState(() {
                     if (index < onBoardingData.length - 1) {
                       index++;
                     } else {
-                      context.router.replace(const SignInRoute());
+                      context.router.replace(const SignUpRoute());
                     }
                   });
                 },

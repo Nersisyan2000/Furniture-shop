@@ -59,7 +59,7 @@ class FurnitureElevatedIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: onTap,
-      icon: svgIcon ?? icon,
+      icon: icon != null ? icon! : svgIcon!,
       label: Text(
         title,
         style: switzer16MediumTextStyle,
