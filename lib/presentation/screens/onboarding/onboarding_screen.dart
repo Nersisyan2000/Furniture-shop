@@ -7,6 +7,7 @@ import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen
 import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 @RoutePage()
 class OnboardingScreen extends StatefulWidget {
@@ -18,6 +19,11 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   int index = 0;
+
+  Future<void> _storeData() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isOnBoard', true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +50,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               FurnitureTextButton(
                 title: context.tr(Localization.skip),
-                onTap: () => context.router.replace(const SignInRoute()),
+                onTap: () => {
+                  _storeData(),
+                  context.router.replaceAll([const SignInRoute()])
+                },
                 color: FurnitureColors.subTextColor,
               ),
               FurnitureIconButton(
@@ -54,7 +63,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     if (index < onBoardingData.length - 1) {
                       index++;
                     } else {
-                      context.router.replace(const SignInRoute());
+                      _storeData();
+                      context.router.replaceAll([const SignInRoute()]);
                     }
                   });
                 },

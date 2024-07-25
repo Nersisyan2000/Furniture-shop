@@ -5,6 +5,7 @@ import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 @RoutePage()
 class SplashScreen extends StatefulWidget {
@@ -18,6 +19,22 @@ class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   late AnimationController controller;
 
+  Future<void> retrieveData(BuildContext context) async {
+    final prefs = await SharedPreferences.getInstance();
+    if (!context.mounted) return;
+    bool? isOnBoard = prefs.getBool('isOnBoard');
+    if (isOnBoard == true) {
+      context.router.replaceAll([const SignInRoute()]);
+    } else {
+      context.router.replaceAll([const OnboardingRoute()]);
+    }
+  }
+
+  // Future<void> removeData() async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   await prefs.remove('isOnBoard');
+  // }
+
   @override
   void initState() {
     controller =
@@ -27,7 +44,8 @@ class _SplashScreenState extends State<SplashScreen>
           });
     controller.repeat(reverse: true);
     Future.delayed(const Duration(seconds: 2), () {
-      context.router.replace(const OnboardingRoute());
+      retrieveData(context);
+      // removeData();
     });
     super.initState();
   }

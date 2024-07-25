@@ -85,9 +85,7 @@ class SignInView extends StatelessWidget {
         child:
             BlocConsumer<SignInCubit, SignInState>(listener: (context, state) {
           if (state is SignInSuccess) {
-            context.router.push(
-              const FeedRoute(),
-            );
+            context.router.replaceAll([const FeedRoute()]);
           } else if (state is SignInFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

@@ -141,8 +141,8 @@ class SignUpView extends StatelessWidget {
                   richButton: context.tr(
                     Localization.signIn,
                   ),
-                  onTapNavigate: () => context.router.push(
-                    const SignInRoute(),
+                  onTapNavigate: () => context.router.replaceAll(
+                    [const SignInRoute()],
                   ),
                 )
               ],
