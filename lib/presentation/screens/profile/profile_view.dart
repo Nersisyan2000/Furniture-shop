@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
+import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_shop/domain/enums/profile_values.dart';
-import 'package:furniture_shop/presentation/screens/auth/sign_up/sign_up_cubit/sign_up_cubit.dart';
+import 'package:furniture_shop/presentation/screens/auth/auth_cubit/auth_cubit.dart';
 import 'package:furniture_shop/presentation/screens/profile/widgets/profile_user_info.dart';
 import 'package:furniture_shop/presentation/widgets/furniture_app_bar.dart';
 import 'package:furniture_shop/utils/extensions/profile_extensions.dart';
@@ -32,10 +33,26 @@ class ProfileView extends StatelessWidget {
               Localization.logOut,
             ),
             color: FurnitureColors.red,
-            onTap: () => context.read<SignUpCubit>().logout(),
+            onTap: () => context.read<AuthCubit>().logout(),
           )
         ],
       ),
+    );
+  }
+
+  Widget _optionsSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: ProfileValues.values.asMap().entries.map(
+        (entry) {
+          ProfileValues method = entry.value;
+          return FurnitureElevatedIconButton.settingMode(
+            svgIcon: method.icon,
+            onTap: () {},
+            title: method.name,
+          ).paddingOnly(bottom: 16.h);
+        },
+      ).toList(),
     );
   }
 
@@ -44,24 +61,12 @@ class ProfileView extends StatelessWidget {
     return Scaffold(
       appBar: _profileAppBar(context),
       body: SafeArea(
-        child: BlocConsumer<SignUpCubit, SignUpState>(
+        child: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {
-            if (state is SignUpLoggedOut) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: const Text(
-                    'Logged out successfully',
-                    textAlign: TextAlign.center,
-                  ),
-                  backgroundColor: Colors.green[400],
-                ),
-              );
-              context.router
-                  .popUntilRoot(); // Or navigate to another page if needed
-            } else if (state is SignUpFailure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(state.error)),
-              );
+            if (state is AuthUnauthenticated) {
+              context.router.replaceAll([
+                const SignInRoute()
+              ]); // Or navigate to another page if needed
             }
           },
           builder: (
@@ -83,22 +88,6 @@ class ProfileView extends StatelessWidget {
           },
         ),
       ).paddingSymmetric(horizontal: 20.w),
-    );
-  }
-
-  Column _optionsSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: ProfileValues.values.asMap().entries.map(
-        (entry) {
-          ProfileValues method = entry.value;
-          return FurnitureElevatedIconButton.settingMode(
-            svgIcon: method.icon,
-            onTap: () {},
-            title: method.name,
-          ).paddingOnly(bottom: 16.h);
-        },
-      ).toList(),
     );
   }
 }

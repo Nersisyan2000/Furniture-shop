@@ -3,11 +3,11 @@ import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
+import 'package:furniture_shop/data/services/shared_preferences_service.dart';
 import 'package:furniture_shop/presentation/screens/onboarding/onboarding_screen_provider.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 @RoutePage()
 class OnboardingScreen extends StatefulWidget {
@@ -21,8 +21,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   int index = 0;
 
   Future<void> _storeData() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('isOnBoard', true);
+    await SharedPreferencesService().setBool(
+      'isOnBoard',
+      true,
+    );
   }
 
   @override

@@ -106,7 +106,7 @@ class SignUpView extends StatelessWidget {
         child:
             BlocConsumer<SignUpCubit, SignUpState>(listener: (context, state) {
           if (state is SignUpSuccess) {
-            context.router.push(const FeedRoute());
+            context.router.push(const SignInRoute());
           } else if (state is SignUpFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.error)),

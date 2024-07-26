@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furniture_localization/furniture_localization.dart';
 import 'package:furniture_localization/localization_keys.dart';
 import 'package:furniture_shop/config/routes/app_router.dart';
+import 'package:furniture_shop/data/services/shared_preferences_service.dart';
+import 'package:furniture_shop/presentation/screens/auth/auth_cubit/auth_cubit.dart';
 import 'package:furniture_uikit/furniture_uikit.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-@RoutePage()
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -20,20 +21,14 @@ class _SplashScreenState extends State<SplashScreen>
   late AnimationController controller;
 
   Future<void> retrieveData(BuildContext context) async {
-    final prefs = await SharedPreferences.getInstance();
     if (!context.mounted) return;
-    bool? isOnBoard = prefs.getBool('isOnBoard');
+    bool? isOnBoard = SharedPreferencesService().getBool('isOnBoard');
     if (isOnBoard == true) {
-      context.router.replaceAll([const SignInRoute()]);
+      context.read<AuthCubit>().checkUserLogged();
     } else {
       context.router.replaceAll([const OnboardingRoute()]);
     }
   }
-
-  // Future<void> removeData() async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   await prefs.remove('isOnBoard');
-  // }
 
   @override
   void initState() {
@@ -45,7 +40,6 @@ class _SplashScreenState extends State<SplashScreen>
     controller.repeat(reverse: true);
     Future.delayed(const Duration(seconds: 2), () {
       retrieveData(context);
-      // removeData();
     });
     super.initState();
   }
@@ -78,7 +72,22 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: FurnitureColors.primaryColor,
-      body: _splashContent(context),
+      body: BlocListener<AuthCubit, AuthState>(
+        listener: (context, state) {
+          if (state is AuthAuthenticated) {
+            context.router.replaceAll([const HomeRoute()]);
+          } else if (state is AuthUnauthenticated) {
+            debugPrint('debugPrint');
+            context.router.replaceAll([const SignInRoute()]);
+          } else if (state is AuthError) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.message)),
+            );
+            context.router.replaceAll([const SignUpRoute()]);
+          }
+        },
+        child: _splashContent(context),
+      ),
     );
   }
 }

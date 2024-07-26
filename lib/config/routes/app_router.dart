@@ -16,7 +16,7 @@ import 'package:furniture_shop/presentation/screens/popular/popular_screen.dart'
 import 'package:furniture_shop/presentation/screens/profile/profile_page.dart';
 import 'package:furniture_shop/presentation/screens/search/search_screen.dart';
 import 'package:furniture_shop/presentation/screens/shopping/shopping_page.dart';
-import 'package:furniture_shop/presentation/screens/splash/splash_screen.dart';
+import 'package:furniture_shop/presentation/screens/splash/splash_page.dart';
 
 part 'app_router.gr.dart';
 
